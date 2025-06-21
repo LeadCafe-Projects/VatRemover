@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
 import { 
   Calculator, 
   Copy, 
@@ -125,10 +126,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       {/* Top AdSense Zone */}
       <div className="w-full bg-gray-100 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="bg-gray-200 rounded-lg h-24 flex items-center justify-center text-gray-600 text-sm font-medium">
-            <span className="mr-2">📺</span>
-            Advertisement Space - Top Banner (728x90)
-          </div>
+          <TopBannerAd />
         </div>
       </div>
 
@@ -138,12 +136,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
             
             {/* Left Sidebar AdSense Zone */}
             <div className="hidden lg:block lg:w-64">
-              <div className="sticky top-8">
-                <div className="bg-gray-200 rounded-lg h-96 flex flex-col items-center justify-center text-gray-600 text-sm font-medium">
-                  <span className="text-2xl mb-2">📺</span>
-                  <span className="text-center">Advertisement<br />Space<br />(160x600)</span>
-                </div>
-              </div>
+              <SidebarAd />
             </div>
 
             {/* Main Content Area */}
@@ -334,21 +327,13 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
 
               {/* Mobile AdSense Zone */}
               <div className="lg:hidden mb-8">
-                <div className="bg-gray-200 rounded-lg h-24 flex items-center justify-center text-gray-600 text-sm font-medium">
-                  <span className="mr-2">📺</span>
-                  Advertisement Space - Mobile Banner
-                </div>
+                <MobileAd />
               </div>
             </div>
 
             {/* Right Sidebar AdSense Zone */}
             <div className="hidden lg:block lg:w-64">
-              <div className="sticky top-8">
-                <div className="bg-gray-200 rounded-lg h-96 flex flex-col items-center justify-center text-gray-600 text-sm font-medium">
-                  <span className="text-2xl mb-2">📺</span>
-                  <span className="text-center">Advertisement<br />Space<br />(160x600)</span>
-                </div>
-              </div>
+              <SidebarAd />
             </div>
           </div>
         </div>
@@ -357,10 +342,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       {/* Bottom AdSense Zone */}
       <div className="w-full bg-gray-100 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="bg-gray-200 rounded-lg h-24 flex items-center justify-center text-gray-600 text-sm font-medium">
-            <span className="mr-2">📺</span>
-            Advertisement Space - Bottom Banner
-          </div>
+          <TopBannerAd />
         </div>
       </div>
 
