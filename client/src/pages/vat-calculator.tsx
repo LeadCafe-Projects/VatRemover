@@ -112,9 +112,9 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
   };
 
   // Handle Enter key
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      e.currentTarget.blur();
+      (e.target as HTMLInputElement).blur();
     }
   };
 
@@ -366,7 +366,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2024 SA VAT Calculator. Simple, accurate VAT calculations for South African businesses.
+            © {new Date().getFullYear()} SA VAT Calculator by LeadCafé (Pty) Ltd - Simple, accurate VAT calculations for South African businesses.
           </p>
         </div>
       </footer>
