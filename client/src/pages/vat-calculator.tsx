@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Calculator, 
@@ -13,7 +14,8 @@ import {
   RefreshCw, 
   InfoIcon,
   Lightbulb,
-  CheckCircle
+  CheckCircle,
+  AlertTriangle
 } from "lucide-react";
 
 interface VATCalculation {
@@ -365,9 +367,58 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © {new Date().getFullYear()} SA VAT Calculator by LeadCafé (Pty) Ltd - Simple, accurate VAT calculations for South African businesses.
+          <p className="text-gray-400 mb-3">
+            © {new Date().getFullYear()} SA VAT Calculator - Simple, accurate VAT calculations for South African businesses.
           </p>
+          <div className="text-sm">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-gray-400 hover:text-white underline transition-colors duration-200">
+                  Disclaimer
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle className="flex items-center text-amber-600">
+                    <AlertTriangle className="w-5 h-5 mr-2" />
+                    Important Disclaimer
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <h3 className="font-semibold text-amber-800 mb-2">Use at Your Own Risk</h3>
+                    <p className="text-amber-700">
+                      The calculations and information provided by this VAT calculator are for guidance purposes only and should not be considered as professional financial, tax, or legal advice.
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <p>
+                      <strong>No Liability:</strong> We expressly disclaim all responsibility and liability for any errors, omissions, or inaccuracies in the calculations provided by this tool. Users assume full responsibility for verifying all calculations and their accuracy.
+                    </p>
+                    
+                    <p>
+                      <strong>Professional Consultation:</strong> Users are strongly advised to consult with qualified tax professionals, chartered accountants, or legal advisors for specific VAT-related matters, complex calculations, or any questions regarding South African tax legislation.
+                    </p>
+                    
+                    <p>
+                      <strong>Regulatory Changes:</strong> VAT rates and regulations may change. This calculator is based on the current standard VAT rate of 15% and may not reflect future legislative changes or special circumstances that may apply to specific transactions or businesses.
+                    </p>
+                    
+                    <p>
+                      <strong>Business Decisions:</strong> Any business or financial decisions made based on calculations from this tool are made entirely at the user's own risk. We accept no responsibility for any consequences arising from the use of this calculator.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+                    <p className="text-blue-800 text-center font-medium">
+                      By using this calculator, you acknowledge and agree to these terms and conditions.
+                    </p>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
       </footer>
     </div>
