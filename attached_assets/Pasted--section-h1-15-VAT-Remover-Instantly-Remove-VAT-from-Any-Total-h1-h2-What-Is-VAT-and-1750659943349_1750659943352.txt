@@ -1,0 +1,103 @@
+<section>
+  <h1>15% VAT Remover – Instantly Remove VAT from Any Total</h1>
+
+  <h2>What Is VAT and Why Use a VAT Remover?</h2>
+  <p>
+    Value-Added Tax (VAT) is a consumption tax applied to the sale of goods and services in South Africa. Introduced in 1991, the current standard VAT rate stands at <strong>15%</strong>, as regulated by the South African Revenue Service (SARS). This tax applies to most everyday purchases and business transactions, though some items are either zero-rated or VAT-exempt.
+  </p>
+  <p>
+    A <strong>VAT remover</strong> helps you work backwards from a total amount that includes VAT to determine the original price before tax. This process, known as <strong>removing VAT</strong>, is essential for individuals and businesses who need clarity on the net price of a product or service.
+  </p>
+  <p>
+    Our <strong>VAT removal tool</strong> is designed to do just that: quickly and accurately calculate the amount before VAT—especially relevant when <strong>removing VAT in South Africa</strong> at the 15% rate.
+  </p>
+
+  <h2>How to Calculate the Amount Before VAT</h2>
+  <p>To remove 15% VAT from any total, use this simple formula:</p>
+  <p><strong>Amount excluding VAT = Total (including VAT) ÷ 1.15</strong></p>
+  <p><strong>Example:</strong></p>
+  <p>
+    If your total is <strong>R1,150</strong> and you want to know the price before tax:<br>
+    R1,150 ÷ 1.15 = <strong>R1,000</strong> (net amount)<br>
+    R1,150 – R1,000 = <strong>R150</strong> (VAT portion)
+  </p>
+  <p>
+    This reverse VAT calculation is what our <strong>VAT remover tool</strong> automates—instantly providing accurate results without the manual maths.
+  </p>
+
+  <h2>Why Use a VAT Removal Tool?</h2>
+  <p>
+    <strong>Removing VAT</strong> is essential in many everyday scenarios, whether for personal clarity or professional use. Here are just a few examples of when a <strong>VAT removal tool</strong> becomes invaluable:
+  </p>
+
+  <h3>Business Invoicing</h3>
+  <p>Companies often need to display VAT-exclusive pricing on quotes or invoices—particularly for VAT-exempt clients or international transactions. A <strong>VAT remover</strong> provides a quick breakdown of the base price.</p>
+
+  <h3>Freelancer Quoting</h3>
+  <p>Service providers may want to quote clients a net price, then show VAT as a separate line item. This <strong>VAT removal tool</strong> ensures that figures stay accurate and professional.</p>
+
+  <h3>Financial Reconciliation</h3>
+  <p>Accountants and bookkeepers use <strong>VAT removers</strong> to separate the tax component from gross figures when preparing financial reports or calculating tax liabilities.</p>
+
+  <h3>Retail and Consumer Checks</h3>
+  <p>Consumers may use the tool to verify VAT charges on receipts or invoices—making sure 15% has been properly applied and not overcharged.</p>
+
+  <h2>Real-Life Examples of Removing VAT in South Africa</h2>
+
+  <h3>Example 1: Small Business Reconciliation</h3>
+  <p>
+    An entrepreneur receives a total supplier invoice of R2,875. To reconcile costs before VAT:
+    <br>
+    <strong>Calculation:</strong> R2,875 ÷ 1.15 = R2,500<br>
+    <strong>VAT removed:</strong> R375
+  </p>
+
+  <h3>Example 2: Freelancer Pricing a Project</h3>
+  <p>
+    A designer wants to quote R1,500 before VAT but needs to check the full price for the client:<br>
+    R1,500 × 1.15 = R1,725 (total inclusive price)
+  </p>
+
+  <h3>Example 3: Shopper Reviewing a Bill</h3>
+  <p>
+    A customer is charged R230 for an item and wants to confirm the VAT portion:<br>
+    R230 ÷ 1.15 = R200 (net price)<br>
+    R30 = VAT
+  </p>
+
+  <h2>FAQs – VAT Remover & Reverse VAT Calculations</h2>
+
+  <h3>1. What is a VAT remover?</h3>
+  <p>
+    A <strong>VAT remover</strong> is a tool that helps you subtract VAT from a total price. It calculates the original net amount before tax was added.
+  </p>
+
+  <h3>2. How does a VAT removal tool work?</h3>
+  <p>
+    It uses a fixed formula: <strong>Net Price = Gross Price ÷ 1.15</strong>. You enter the VAT-inclusive amount, and the tool instantly returns the net amount and VAT portion.
+  </p>
+
+  <h3>3. Why would I need to remove VAT?</h3>
+  <p>
+    <strong>Removing VAT</strong> is important when preparing VAT-exempt quotes, checking receipts, handling bookkeeping, or understanding true costs.
+  </p>
+
+  <h3>4. Is this tool accurate for removing VAT in South Africa?</h3>
+  <p>
+    Yes. It is specifically designed for the South African 15% VAT rate and is accurate for all standard VAT-inclusive calculations.
+  </p>
+
+  <h3>5. Can I use this for personal or business purposes?</h3>
+  <p>
+    Absolutely. This <strong>VAT removal tool</strong> is suitable for anyone needing to reverse-calculate VAT—whether for business operations, accounting, or everyday spending.
+  </p>
+
+  <h2>Final Thoughts</h2>
+  <p>
+    Whether you're an accountant, business owner, freelancer, or consumer, this <strong>VAT remover</strong> provides a fast, reliable way to calculate the amount before VAT.
+  </p>
+  <p>
+    It’s a simple but powerful solution for <strong>removing VAT in South Africa</strong>—no spreadsheets, no guesswork, just instant clarity.
+  </p>
+  <p><strong>Try the tool now, and if you find it useful, bookmark it or share it with someone who needs it.</strong></p>
+</section>
