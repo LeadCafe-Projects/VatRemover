@@ -26,16 +26,62 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    borderRadius: {
+                        lg: 'var(--radius)',
+                        md: 'calc(var(--radius) - 2px)',
+                        sm: 'calc(var(--radius) - 4px)',
+                    },
+                    colors: {
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        card: {
+                            DEFAULT: 'var(--card)',
+                            foreground: 'var(--card-foreground)',
+                        },
+                        popover: {
+                            DEFAULT: 'var(--popover)',
+                            foreground: 'var(--popover-foreground)',
+                        },
+                        primary: {
+                            DEFAULT: 'var(--primary)',
+                            foreground: 'var(--primary-foreground)',
+                        },
+                        secondary: {
+                            DEFAULT: 'var(--secondary)',
+                            foreground: 'var(--secondary-foreground)',
+                        },
+                        muted: {
+                            DEFAULT: 'var(--muted)',
+                            foreground: 'var(--muted-foreground)',
+                        },
+                        accent: {
+                            DEFAULT: 'var(--accent)',
+                            foreground: 'var(--accent-foreground)',
+                        },
+                        destructive: {
+                            DEFAULT: 'var(--destructive)',
+                            foreground: 'var(--destructive-foreground)',
+                        },
+                        border: 'var(--border)',
+                        input: 'var(--input)',
+                        ring: 'var(--ring)',
+                    },
+                }
+            }
+        }
+    </script>
+
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4614672997891312" crossorigin="anonymous"></script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         :root {
             --background: hsl(0, 0%, 100%);
             --foreground: hsl(220, 14.3%, 4.1%);
@@ -57,744 +103,296 @@
             --destructive-foreground: hsl(210, 40%, 98%);
             --ring: hsl(221, 83%, 53%);
             --radius: 0.75rem;
-            
-            /* Custom VAT Calculator Colors */
-            --vat-blue: hsl(217, 91%, 60%);
-            --vat-blue-bg: hsl(214, 100%, 97%);
-            --vat-blue-border: hsl(213, 97%, 87%);
-            --vat-amber: hsl(43, 96%, 56%);
-            --vat-amber-bg: hsl(48, 100%, 96%);
-            --vat-amber-border: hsl(48, 96%, 89%);
-            --vat-green: hsl(142, 71%, 45%);
-            --vat-green-bg: hsl(138, 76%, 97%);
-            --vat-green-border: hsl(145, 92%, 91%);
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--foreground);
-            background-color: hsl(210, 40%, 98%);
-            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
         
-        /* Icon styles using Unicode symbols */
-        .icon {
-            display: inline-block;
-            width: 1rem;
-            height: 1rem;
-            margin-right: 0.5rem;
-            font-size: 1rem;
+        /* Custom VAT Calculator Colors */
+        .vat-blue {
+            background-color: hsl(214, 100%, 97%);
+            border-color: hsl(213, 97%, 87%);
         }
         
-        .icon-calculator::before { content: "🧮"; }
-        .icon-copy::before { content: "📋"; }
-        .icon-receipt::before { content: "🧾"; }
-        .icon-percent::before { content: "💯"; }
-        .icon-minus-circle::before { content: "➖"; }
-        .icon-refresh::before { content: "🔄"; }
-        .icon-info::before { content: "ℹ️"; }
-        .icon-lightbulb::before { content: "💡"; }
-        .icon-check::before { content: "✅"; }
-        
-        /* Layout */
-        .page-container {
-            background-color: hsl(210, 40%, 98%);
-            min-height: 100vh;
+        .vat-amber {
+            background-color: hsl(48, 100%, 96%);
+            border-color: hsl(48, 96%, 89%);
         }
         
-        .top-ad-zone {
-            width: 100%;
-            background-color: hsl(210, 40%, 96%);
-            border-bottom: 1px solid var(--border);
+        .vat-green {
+            background-color: hsl(138, 76%, 97%);
+            border-color: hsl(145, 92%, 91%);
         }
         
-        .ad-container {
-            max-width: 80rem;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-        
-        .main-wrapper {
-            min-height: 100vh;
-            padding: 2rem 0;
-        }
-        
-        .content-container {
-            max-width: 80rem;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .layout-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 1024px) {
-            .layout-grid {
-                flex-direction: row;
-                gap: 2rem;
-            }
-            
-            .sidebar-left {
-                width: 16rem;
-                flex-shrink: 0;
-                display: block !important;
-            }
-            
-            .main-content {
-                flex: 1;
-                max-width: 32rem;
-                margin: 0;
-            }
-            
-            .sidebar-right {
-                width: 16rem;
-                flex-shrink: 0;
-                display: block !important;
-            }
-        }
-        
-        .sidebar-left,
-        .sidebar-right {
-            display: none;
-        }
-        
-        .mobile-ad {
-            display: block;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 1024px) {
-            .mobile-ad {
-                display: none;
-            }
-        }
-        
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .header h1 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: hsl(220, 14.3%, 4.1%);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        @media (min-width: 1024px) {
-            .header h1 {
-                font-size: 2.25rem;
-            }
-        }
-        
-        .header p {
-            font-size: 1.125rem;
-            color: hsl(215, 16%, 47%);
-            margin-bottom: 0.5rem;
-        }
-        
-        .header p.subtitle {
-            font-size: 0.875rem;
-            color: hsl(215, 16%, 47%);
-            margin-bottom: 1rem;
-        }
-        
-        /* Cards */
-        .card {
-            background: var(--card);
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 1024px) {
-            .card {
-                padding: 2rem;
-            }
-        }
-        
-        /* Input Section */
-        .input-section {
-            margin-bottom: 2rem;
-        }
-        
-        .input-label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: hsl(220, 14.3%, 4.1%);
-            margin-bottom: 0.75rem;
-        }
-        
-        .input-wrapper {
-            position: relative;
-        }
-        
-        .currency-symbol {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: hsl(215, 16%, 47%);
-            font-size: 1.125rem;
-            font-weight: 500;
-        }
-        
-        .main-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 2rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            background: var(--background);
-            transition: all 0.2s;
-        }
-        
-        .main-input:focus {
-            outline: none;
+        .input-focus:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 4px hsl(214, 100%, 97%);
         }
         
-        .input-help {
-            font-size: 0.75rem;
-            color: hsl(215, 16%, 47%);
-            margin-top: 0.5rem;
-        }
-        
-        /* Results Section */
-        .results-section {
-            margin-bottom: 2rem;
-        }
-        
-        .result-card {
-            border: 1px solid;
-            border-radius: var(--radius);
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .result-card.vat-blue {
-            background-color: var(--vat-blue-bg);
-            border-color: var(--vat-blue-border);
-        }
-        
-        .result-card.vat-amber {
-            background-color: var(--vat-amber-bg);
-            border-color: var(--vat-amber-border);
-        }
-        
-        .result-card.vat-green {
-            background-color: var(--vat-green-bg);
-            border-color: var(--vat-green-border);
-        }
-        
-        .result-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .result-info {
-            flex: 1;
-        }
-        
-        .result-label {
-            display: flex;
-            align-items: center;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-        
-        .result-label.blue { color: hsl(217, 91%, 35%); }
-        .result-label.amber { color: hsl(43, 96%, 35%); }
-        .result-label.green { color: hsl(142, 71%, 35%); }
-        
-        .result-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .result-value.blue { color: hsl(217, 91%, 25%); }
-        .result-value.amber { color: hsl(43, 96%, 25%); }
-        .result-value.green { color: hsl(142, 71%, 25%); }
-        
-        .copy-button {
-            margin-left: 1rem;
-            padding: 0.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .copy-button.blue {
-            background-color: hsl(217, 91%, 60%);
-        }
-        
-        .copy-button.blue:hover {
-            background-color: hsl(217, 91%, 50%);
-        }
-        
-        .copy-button.amber {
-            background-color: hsl(43, 96%, 56%);
-        }
-        
-        .copy-button.amber:hover {
-            background-color: hsl(43, 96%, 46%);
-        }
-        
-        .copy-button.green {
-            background-color: hsl(142, 71%, 45%);
-        }
-        
-        .copy-button.green:hover {
-            background-color: hsl(142, 71%, 35%);
-        }
-        
-        /* Action Buttons */
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 640px) {
-            .button-group {
-                flex-direction: row;
-            }
-        }
-        
-        .btn {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            border-radius: var(--radius);
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-        }
-        
-        .btn-primary:hover {
-            background-color: hsl(221, 83%, 43%);
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: var(--secondary-foreground);
-        }
-        
-        .btn-secondary:hover {
-            background-color: hsl(210, 40%, 86%);
-        }
-        
-        /* Share buttons */
-        .share-section {
-            margin-bottom: 2rem;
-        }
-        
-        .share-buttons {
-            display: flex;
-            gap: 0.75rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: opacity 0.2s;
-        }
-        
-        .share-btn:hover {
-            opacity: 0.8;
-        }
-        
-        .share-btn.twitter {
-            background-color: #1da1f2;
-        }
-        
-        .share-btn.facebook {
-            background-color: #4267b2;
-        }
-        
-        .share-btn.whatsapp {
-            background-color: #25d366;
-        }
-        
-        /* Info sections */
-        .info-section h2 {
-            display: flex;
-            align-items: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: hsl(220, 14.3%, 4.1%);
-            margin-bottom: 1rem;
-        }
-        
-        .steps-list {
-            color: hsl(215, 16%, 47%);
-        }
-        
-        .step-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-        }
-        
-        .step-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 1.5rem;
-            height: 1.5rem;
-            background-color: var(--primary);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 50%;
-            margin-right: 0.75rem;
-            margin-top: 0.125rem;
-            flex-shrink: 0;
-        }
-        
-        .tip-box {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: hsl(214, 100%, 97%);
-            border: 1px solid hsl(213, 97%, 87%);
-            border-radius: 0.5rem;
-        }
-        
-        .tip-title {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            color: hsl(217, 91%, 25%);
-            margin-bottom: 0.5rem;
-        }
-        
-        .tip-content {
-            color: hsl(217, 91%, 35%);
-            font-size: 0.875rem;
-        }
-        
-        /* Sidebar ads */
-        .sidebar-ad {
-            background-color: var(--secondary);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            min-height: 15.625rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: hsl(215, 16%, 47%);
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Success message */
-        .success-message {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            background-color: hsl(138, 76%, 97%);
-            border: 1px solid hsl(145, 92%, 91%);
-            border-radius: 0.5rem;
-            color: hsl(142, 71%, 35%);
-            font-size: 0.875rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .success-message.hidden {
-            display: none;
-        }
-        
-        /* Toast notification */
         .toast {
-            position: fixed;
-            top: 1.25rem;
-            right: 1.25rem;
-            background-color: hsl(142, 71%, 45%);
-            color: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             transform: translateX(100%);
             transition: transform 0.3s;
-            z-index: 1000;
-            font-weight: 500;
         }
         
         .toast.show {
             transform: translateX(0);
         }
-        
-        /* Footer */
-        .bottom-ad-zone {
-            width: 100%;
-            background-color: hsl(210, 40%, 96%);
-            border-top: 1px solid var(--border);
-        }
     </style>
 </head>
-<body>
-    <div class="page-container">
-        <!-- Top AdSense Zone -->
-        <div class="top-ad-zone">
-            <div class="ad-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4614672997891312"
-                     data-ad-slot="1234567890"
-                     data-ad-format="banner"
-                     data-full-width-responsive="true"></ins>
-            </div>
+<body class="bg-gray-50 min-h-screen font-sans antialiased">
+    <!-- Top AdSense Zone -->
+    <div class="w-full bg-gray-100 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="1234567890"
+                 data-ad-format="banner"
+                 data-full-width-responsive="true"></ins>
         </div>
+    </div>
 
-        <div class="main-wrapper">
-            <div class="content-container">
-                <div class="layout-grid">
-                    
-                    <!-- Left Sidebar AdSense Zone -->
-                    <div class="sidebar-left">
-                        <div class="sidebar-ad">
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-4614672997891312"
-                                 data-ad-slot="2345678901"
-                                 data-ad-format="rectangle"></ins>
+    <div class="min-h-screen py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                
+                <!-- Left Sidebar AdSense Zone -->
+                <div class="hidden lg:block lg:w-64">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4614672997891312"
+                         data-ad-slot="2345678901"
+                         data-ad-format="rectangle"></ins>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="flex-1 max-w-2xl mx-auto lg:mx-0">
+                    <!-- Header Section -->
+                    <header class="text-center mb-8">
+                        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                            South African VAT Calculator - Remove 15% VAT Instantly
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-2">
+                            Free online tool to quickly remove 15% VAT from any amount
+                        </p>
+                        <p class="text-sm text-gray-500 mb-4">
+                            Professional VAT removal calculator for South African businesses, accountants, and consumers
+                        </p>
+                        <div class="flex justify-center gap-3 flex-wrap">
+                            <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 transition-colors">
+                                📱 Twitter
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                                👥 Facebook
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 transition-colors">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </header>
+
+                    <!-- Calculator Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 lg:p-8 mb-8">
+                        <!-- Input Section -->
+                        <div class="mb-8">
+                            <label for="vatInclusiveAmount" class="block text-sm font-semibold text-gray-700 mb-3">
+                                🧮 Amount Including VAT (ZAR)
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-lg font-medium">
+                                    R
+                                </span>
+                                <input
+                                    id="vatInclusiveAmount"
+                                    type="text"
+                                    placeholder="0.00"
+                                    class="w-full pl-8 pr-4 py-4 text-xl font-semibold border-2 border-gray-200 rounded-xl input-focus transition-all duration-200"
+                                    autocomplete="off"
+                                />
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">
+                                ℹ️ Enter the total amount that includes 15% VAT
+                            </p>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div class="space-y-4 mb-8">
+                            <!-- Original Amount -->
+                            <div class="vat-blue border rounded-xl p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center mb-1">
+                                            <span class="text-blue-600 mr-2">🧾</span>
+                                            <span class="text-sm font-medium text-blue-800">Amount Including VAT</span>
+                                        </div>
+                                        <div class="text-2xl font-bold text-blue-900" id="inclusive-amount">
+                                            R 0.00
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="ml-4 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 group"
+                                        onclick="copyAmount('inclusive')"
+                                        title="Copy to clipboard"
+                                    >
+                                        📋
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- VAT Amount -->
+                            <div class="vat-amber border rounded-xl p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center mb-1">
+                                            <span class="text-amber-600 mr-2">💯</span>
+                                            <span class="text-sm font-medium text-amber-800">VAT Amount (15%)</span>
+                                        </div>
+                                        <div class="text-2xl font-bold text-amber-900" id="vat-amount">
+                                            R 0.00
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="ml-4 p-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors duration-200 group"
+                                        onclick="copyAmount('vat')"
+                                        title="Copy to clipboard"
+                                    >
+                                        📋
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Exclusive Amount -->
+                            <div class="vat-green border rounded-xl p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="flex items-center mb-1">
+                                            <span class="text-green-600 mr-2">➖</span>
+                                            <span class="text-sm font-medium text-green-800">Amount Excluding VAT</span>
+                                        </div>
+                                        <div class="text-2xl font-bold text-green-900" id="exclusive-amount">
+                                            R 0.00
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="ml-4 p-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 group"
+                                        onclick="copyAmount('exclusive')"
+                                        title="Copy to clipboard"
+                                    >
+                                        📋
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 mb-4">
+                            <button
+                                class="flex-1 bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2"
+                                onclick="copyAllResults()"
+                            >
+                                📋 Copy All Results
+                            </button>
+                            <button
+                                class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2"
+                                onclick="clearCalculator()"
+                            >
+                                🔄 Clear
+                            </button>
+                        </div>
+
+                        <!-- Copy Success Message -->
+                        <div id="success-message" class="mt-4 p-3 bg-green-100 border border-green-300 rounded-lg text-green-800 text-sm items-center hidden">
+                            ✅ Copied to clipboard successfully!
                         </div>
                     </div>
 
-                    <!-- Main Content Area -->
-                    <div class="main-content">
-                        <!-- Header Section -->
-                        <header class="header">
-                            <h1>South African VAT Calculator - Remove 15% VAT Instantly</h1>
-                            <p>Free online tool to quickly remove 15% VAT from any amount</p>
-                            <p class="subtitle">Professional VAT removal calculator for South African businesses, accountants, and consumers</p>
-                            <div class="share-section">
-                                <div class="share-buttons">
-                                    <a href="#" class="share-btn twitter">📱 Twitter</a>
-                                    <a href="#" class="share-btn facebook">👥 Facebook</a>
-                                    <a href="#" class="share-btn whatsapp">💬 WhatsApp</a>
-                                </div>
+                    <!-- Share Section - Main -->
+                    <div class="flex justify-center gap-3 flex-wrap mb-8">
+                        <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 transition-colors">
+                            🐦 Share on Twitter
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                            📘 Share on Facebook
+                        </a>
+                        <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 transition-colors">
+                            💬 Share on WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- Information Section -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 lg:p-8 mb-8">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            ℹ️ How to Use This VAT Calculator
+                        </h2>
+                        <div class="space-y-3 text-gray-600">
+                            <div class="flex items-start">
+                                <span class="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
+                                    1
+                                </span>
+                                <p>Enter the total amount that includes 15% VAT in the input field above</p>
                             </div>
-                        </header>
-
-                        <!-- Calculator Card -->
-                        <div class="card">
-                            <!-- Input Section -->
-                            <div class="input-section">
-                                <label for="vatInclusiveAmount" class="input-label">
-                                    <span class="icon icon-calculator"></span>
-                                    Amount Including VAT (ZAR)
-                                </label>
-                                <div class="input-wrapper">
-                                    <span class="currency-symbol">R</span>
-                                    <input
-                                        id="vatInclusiveAmount"
-                                        type="text"
-                                        placeholder="0.00"
-                                        class="main-input"
-                                        autocomplete="off"
-                                    />
-                                </div>
-                                <p class="input-help">
-                                    <span class="icon icon-info"></span>
-                                    Enter the total amount that includes 15% VAT
-                                </p>
+                            <div class="flex items-start">
+                                <span class="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
+                                    2
+                                </span>
+                                <p>The calculator will instantly show you three values: the original amount, the VAT portion, and the amount excluding VAT</p>
                             </div>
-
-                            <!-- Results Section -->
-                            <div class="results-section">
-                                <!-- Original Amount -->
-                                <div class="result-card vat-blue">
-                                    <div class="result-content">
-                                        <div class="result-info">
-                                            <div class="result-label blue">
-                                                <span class="icon icon-receipt"></span>
-                                                Amount Including VAT
-                                            </div>
-                                            <div class="result-value blue" id="inclusive-amount">
-                                                R 0.00
-                                            </div>
-                                        </div>
-                                        <button class="copy-button blue" onclick="copyAmount('inclusive')" title="Copy to clipboard">
-                                            <span class="icon icon-copy"></span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- VAT Amount -->
-                                <div class="result-card vat-amber">
-                                    <div class="result-content">
-                                        <div class="result-info">
-                                            <div class="result-label amber">
-                                                <span class="icon icon-percent"></span>
-                                                VAT Amount (15%)
-                                            </div>
-                                            <div class="result-value amber" id="vat-amount">
-                                                R 0.00
-                                            </div>
-                                        </div>
-                                        <button class="copy-button amber" onclick="copyAmount('vat')" title="Copy to clipboard">
-                                            <span class="icon icon-copy"></span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Exclusive Amount -->
-                                <div class="result-card vat-green">
-                                    <div class="result-content">
-                                        <div class="result-info">
-                                            <div class="result-label green">
-                                                <span class="icon icon-minus-circle"></span>
-                                                Amount Excluding VAT
-                                            </div>
-                                            <div class="result-value green" id="exclusive-amount">
-                                                R 0.00
-                                            </div>
-                                        </div>
-                                        <button class="copy-button green" onclick="copyAmount('exclusive')" title="Copy to clipboard">
-                                            <span class="icon icon-copy"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Action Buttons -->
-                            <div class="button-group">
-                                <button class="btn btn-primary" onclick="copyAllResults()">
-                                    <span class="icon icon-copy"></span>
-                                    Copy All Results
-                                </button>
-                                <button class="btn btn-secondary" onclick="clearCalculator()">
-                                    <span class="icon icon-refresh"></span>
-                                    Clear
-                                </button>
-                            </div>
-
-                            <!-- Copy Success Message -->
-                            <div id="success-message" class="success-message hidden">
-                                <span class="icon icon-check"></span>
-                                Copied to clipboard successfully!
+                            <div class="flex items-start">
+                                <span class="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
+                                    3
+                                </span>
+                                <p>Click the copy button next to any result to copy it to your clipboard</p>
                             </div>
                         </div>
 
-                        <!-- Share Section - Main -->
-                        <div class="share-section">
-                            <div class="share-buttons">
-                                <a href="#" class="share-btn twitter">🐦 Share on Twitter</a>
-                                <a href="#" class="share-btn facebook">📘 Share on Facebook</a>
-                                <a href="#" class="share-btn whatsapp">💬 Share on WhatsApp</a>
-                            </div>
-                        </div>
-
-                        <!-- Information Section -->
-                        <div class="card info-section">
-                            <h2>
-                                <span class="icon icon-info"></span>
-                                How to Use This VAT Calculator
-                            </h2>
-                            <div class="steps-list">
-                                <div class="step-item">
-                                    <span class="step-number">1</span>
-                                    <p>Enter the total amount that includes 15% VAT in the input field above</p>
-                                </div>
-                                <div class="step-item">
-                                    <span class="step-number">2</span>
-                                    <p>The calculator will instantly show you three values: the original amount, the VAT portion, and the amount excluding VAT</p>
-                                </div>
-                                <div class="step-item">
-                                    <span class="step-number">3</span>
-                                    <p>Click the copy button next to any result to copy it to your clipboard</p>
-                                </div>
-                            </div>
-
-                            <div class="tip-box">
-                                <h3 class="tip-title">
-                                    <span class="icon icon-lightbulb"></span>
-                                    Quick Tip
-                                </h3>
-                                <p class="tip-content">
-                                    South African VAT is calculated at 15%. To remove VAT from an inclusive amount, divide by 1.15, then subtract from the original to get the VAT portion.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Mobile AdSense Zone -->
-                        <div class="mobile-ad">
-                            <div class="sidebar-ad">
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-4614672997891312"
-                                     data-ad-slot="3456789012"
-                                     data-ad-format="banner"
-                                     data-full-width-responsive="true"></ins>
-                            </div>
+                        <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                            <h3 class="font-semibold text-blue-900 mb-2 flex items-center">
+                                💡 Quick Tip
+                            </h3>
+                            <p class="text-blue-800 text-sm">
+                                South African VAT is calculated at 15%. To remove VAT from an inclusive amount, divide by 1.15, then subtract from the original to get the VAT portion.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Right Sidebar AdSense Zone -->
-                    <div class="sidebar-right">
-                        <div class="sidebar-ad">
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-4614672997891312"
-                                 data-ad-slot="4567890123"
-                                 data-ad-format="rectangle"></ins>
-                        </div>
+                    <!-- Mobile AdSense Zone -->
+                    <div class="lg:hidden mb-8">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-4614672997891312"
+                             data-ad-slot="3456789012"
+                             data-ad-format="banner"
+                             data-full-width-responsive="true"></ins>
                     </div>
+                </div>
+
+                <!-- Right Sidebar AdSense Zone -->
+                <div class="hidden lg:block lg:w-64">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4614672997891312"
+                         data-ad-slot="4567890123"
+                         data-ad-format="rectangle"></ins>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bottom AdSense Zone -->
-        <div class="bottom-ad-zone">
-            <div class="ad-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4614672997891312"
-                     data-ad-slot="5678901234"
-                     data-ad-format="banner"
-                     data-full-width-responsive="true"></ins>
-            </div>
+    <!-- Bottom AdSense Zone -->
+    <div class="w-full bg-gray-100 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="5678901234"
+                 data-ad-format="banner"
+                 data-full-width-responsive="true"></ins>
         </div>
     </div>
     
-    <div id="toast" class="toast"></div>
+    <div id="toast" class="fixed top-5 right-5 bg-green-500 text-white px-5 py-3 rounded-lg shadow-lg font-medium toast z-50"></div>
     
     <script>
         // Initialize AdSense
