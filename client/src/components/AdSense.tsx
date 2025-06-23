@@ -28,8 +28,8 @@ export default function AdSense({
     }
   }, []);
 
-  // Check if AdSense is configured (you'll need to replace this with your publisher ID)
-  const isAdSenseConfigured = false; // Change to true once you add your AdSense code
+  // Check if AdSense is configured
+  const isAdSenseConfigured = true; // AdSense is now configured with your publisher ID
 
   if (!isAdSenseConfigured) {
     // Show placeholder while AdSense is not configured
@@ -47,7 +47,7 @@ export default function AdSense({
       <ins 
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXX" // Replace with your AdSense publisher ID
+        data-ad-client="ca-pub-4614672997891312"
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         {...(width && { 'data-ad-layout-key': width })}
@@ -60,11 +60,11 @@ export default function AdSense({
 export function TopBannerAd() {
   return (
     <AdSense 
-      adSlot="1234567890" // Replace with your ad slot ID
-      adFormat="horizontal"
+      adSlot="auto"
+      adFormat="auto"
       height={90}
       className="w-full"
-      placeholderText="Advertisement Space - Top Banner (728x90)"
+      placeholderText="Advertisement Space - Top Banner"
     />
   );
 }
@@ -72,12 +72,12 @@ export function TopBannerAd() {
 export function SidebarAd() {
   return (
     <AdSense 
-      adSlot="1234567891" // Replace with your ad slot ID
-      adFormat="vertical"
+      adSlot="auto"
+      adFormat="auto"
       width={160}
       height={600}
       className="sticky top-8"
-      placeholderText="Advertisement Space (160x600)"
+      placeholderText="Advertisement Space - Sidebar"
     />
   );
 }
@@ -85,11 +85,11 @@ export function SidebarAd() {
 export function MobileAd() {
   return (
     <AdSense 
-      adSlot="1234567892" // Replace with your ad slot ID
-      adFormat="rectangle"
+      adSlot="auto"
+      adFormat="auto"
       height={250}
       className="w-full"
-      placeholderText="Advertisement Space - Mobile Banner"
+      placeholderText="Advertisement Space - Mobile"
     />
   );
 }
