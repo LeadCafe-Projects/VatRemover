@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VAT Calculator South Africa - Remove 15% VAT Instantly | VAT Remover</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free South African VAT calculator to instantly remove 15% VAT from any amount. Real-time calculations, copy functionality, and professional results for businesses, accountants, and consumers." />
+    <meta name="keywords" content="VAT calculator, South Africa VAT, remove VAT, 15% VAT, VAT remover, South African tax calculator, business calculator, accounting tool, SARS VAT, exclude VAT" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="VAT Remover" />
+    <link rel="canonical" href="https://vatremover.co.za/" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="VAT Calculator South Africa - Remove 15% VAT Instantly" />
+    <meta property="og:description" content="Free online calculator to remove 15% South African VAT from any amount. Perfect for businesses, accountants, and consumers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vatremover.co.za/" />
+    <meta property="og:image" content="https://vatremover.co.za/vat-calculator-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="VAT Remover" />
+    <meta property="og:locale" content="en_ZA" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VAT Calculator South Africa - Remove 15% VAT Instantly" />
+    <meta name="twitter:description" content="Free online calculator to remove 15% South African VAT from any amount. Perfect for businesses and consumers." />
+    <meta name="twitter:image" content="https://vatremover.co.za/vat-calculator-preview.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>" />
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4614672997891312" crossorigin="anonymous"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "VAT Remover",
+      "url": "https://vatremover.co.za",
+      "description": "Free South African VAT calculator to instantly remove 15% VAT from any amount. Professional tool for businesses, accountants, and consumers.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "ZAR"
+      },
+      "featureList": [
+        "Remove 15% South African VAT",
+        "Real-time calculations",
+        "Copy to clipboard functionality",
+        "Mobile responsive design",
+        "Professional results display"
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Value Added Tax",
+        "description": "15% South African VAT calculation and removal"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "VAT Remover",
+        "url": "https://vatremover.co.za"
+      },
+      "applicationSubCategory": "Tax Calculator",
+      "browserRequirements": "Requires JavaScript enabled",
+      "permissions": "clipboard-write for copy functionality"
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 221.2 83.2% 53.3%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96%;
+        --secondary-foreground: 222.2 84% 4.9%;
+        --muted: 210 40% 96%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96%;
+        --accent-foreground: 222.2 84% 4.9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 221.2 83.2% 53.3%;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-foreground min-h-screen">
+    <div id="root">
+      <!-- Main Container -->
+      <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+        <div class="max-w-4xl mx-auto space-y-8">
+          
+          <!-- Header -->
+          <div class="text-center py-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              South African VAT Calculator
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+              Instantly remove 15% VAT from any amount. Perfect for businesses, accountants, and consumers.
+            </p>
+          </div>
+
+          <!-- Top Banner Ad -->
+          <div class="flex justify-center">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+          </div>
+
+          <!-- Calculator Section -->
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+              
+              <!-- Input Section -->
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Amount including VAT (15%)
+                  </label>
+                  <div class="relative">
+                    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">R</span>
+                    <input 
+                      type="number" 
+                      id="vatInput"
+                      class="w-full pl-8 pr-4 py-4 text-2xl border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
+                      placeholder="0.00"
+                      step="0.01"
+                      min="0"
+                    />
+                  </div>
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="flex flex-wrap gap-2">
+                  <button onclick="shareWhatsApp()" class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                    <span>📱</span> WhatsApp
+                  </button>
+                  <button onclick="shareEmail()" class="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                    <span>✉️</span> Email
+                  </button>
+                  <button onclick="shareGeneric()" class="flex items-center gap-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                    <span>🔗</span> Share
+                  </button>
+                </div>
+              </div>
+
+              <!-- Results Section -->
+              <div class="space-y-4">
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Amount excluding VAT:</span>
+                    <button onclick="copyToClipboard('exclusiveAmount')" class="text-blue-500 hover:text-blue-700 text-sm">Copy</button>
+                  </div>
+                  <div id="exclusiveAmount" class="text-2xl font-bold text-green-600">R 0.00</div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">VAT amount (15%):</span>
+                    <button onclick="copyToClipboard('vatAmount')" class="text-blue-500 hover:text-blue-700 text-sm">Copy</button>
+                  </div>
+                  <div id="vatAmount" class="text-2xl font-bold text-red-600">R 0.00</div>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-6">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Original amount:</span>
+                    <button onclick="copyToClipboard('originalAmount')" class="text-blue-500 hover:text-blue-700 text-sm">Copy</button>
+                  </div>
+                  <div id="originalAmount" class="text-2xl font-bold text-blue-600">R 0.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Ad -->
+          <div class="flex justify-center">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="2345678901"
+                 data-ad-format="rectangle"
+                 data-full-width-responsive="true"></ins>
+          </div>
+
+          <!-- SEO Content Section -->
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Understanding South African VAT</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-4">
+                <h3 class="text-xl font-semibold text-gray-900">What is VAT?</h3>
+                <p class="text-gray-600">
+                  Value Added Tax (VAT) is a consumption tax in South Africa set at 15%. 
+                  It's added to most goods and services, and businesses registered for VAT 
+                  must charge this tax on their sales.
+                </p>
+                
+                <h3 class="text-xl font-semibold text-gray-900">Why Remove VAT?</h3>
+                <ul class="text-gray-600 space-y-2">
+                  <li>• Preparing VAT-exempt quotes</li>
+                  <li>• Verifying receipt calculations</li>
+                  <li>• Bookkeeping and accounting</li>
+                  <li>• Understanding true product costs</li>
+                </ul>
+              </div>
+              
+              <div class="space-y-4">
+                <h3 class="text-xl font-semibold text-gray-900">How It Works</h3>
+                <p class="text-gray-600">
+                  Our calculator uses the formula: <strong>Net Price = Gross Price ÷ 1.15</strong>
+                </p>
+                
+                <div class="bg-gray-50 rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-900 mb-2">Example:</h4>
+                  <p class="text-gray-600">
+                    R 115.00 (including VAT) = R 100.00 (excluding VAT) + R 15.00 (VAT)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Ad -->
+          <div class="flex justify-center md:hidden">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="3456789012"
+                 data-ad-format="banner"
+                 data-full-width-responsive="true"></ins>
+          </div>
+
+          <!-- FAQ Section -->
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Is this calculator accurate for South African VAT?</h3>
+                <p class="text-gray-600">Yes, our calculator uses the current 15% VAT rate as mandated by SARS (South African Revenue Service).</p>
+              </div>
+              
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I use this for business purposes?</h3>
+                <p class="text-gray-600">Absolutely! This tool is designed for businesses, accountants, and professionals who need quick VAT calculations.</p>
+              </div>
+              
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Does this work on mobile devices?</h3>
+                <p class="text-gray-600">Yes, our calculator is fully responsive and works perfectly on all devices including smartphones and tablets.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Ad -->
+          <div class="flex justify-center">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="4567890123"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+          </div>
+
+          <!-- Footer -->
+          <footer class="text-center py-8 border-t border-gray-200">
+            <p class="text-gray-600 mb-4">© 2024 VAT Remover - Professional South African VAT Calculator</p>
+            <button onclick="showDisclaimer()" class="text-blue-500 hover:text-blue-700 underline">
+              Legal Disclaimer
+            </button>
+          </footer>
+        </div>
+      </div>
+
+      <!-- Disclaimer Modal -->
+      <div id="disclaimerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold">Legal Disclaimer</h3>
+              <button onclick="hideDisclaimer()" class="text-gray-500 hover:text-gray-700">✕</button>
+            </div>
+            <div class="space-y-4 text-sm text-gray-600">
+              <p><strong>Accuracy:</strong> This calculator provides estimates based on the current 15% South African VAT rate. Results should be verified with official tax authorities.</p>
+              <p><strong>Professional Advice:</strong> This tool is for informational purposes only and does not constitute professional tax advice. Consult a qualified accountant or tax advisor for complex situations.</p>
+              <p><strong>Liability:</strong> We make no warranties about the accuracy or reliability of calculations and accept no liability for any decisions made based on these results.</p>
+              <p><strong>Currency:</strong> All calculations assume South African Rand (ZAR) currency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // VAT Calculation Logic
+      function calculateVAT(inclusiveAmount) {
+        const exclusiveAmount = inclusiveAmount / 1.15;
+        const vatAmount = inclusiveAmount - exclusiveAmount;
+        return {
+          exclusiveAmount: exclusiveAmount,
+          vatAmount: vatAmount,
+          inclusiveAmount: inclusiveAmount
+        };
+      }
+
+      function formatCurrency(amount) {
+        return 'R ' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      }
+
+      function updateCalculations() {
+        const input = document.getElementById('vatInput');
+        const inclusiveAmount = parseFloat(input.value) || 0;
+        
+        const result = calculateVAT(inclusiveAmount);
+        
+        document.getElementById('exclusiveAmount').textContent = formatCurrency(result.exclusiveAmount);
+        document.getElementById('vatAmount').textContent = formatCurrency(result.vatAmount);
+        document.getElementById('originalAmount').textContent = formatCurrency(result.inclusiveAmount);
+      }
+
+      // Copy to clipboard functionality
+      async function copyToClipboard(elementId) {
+        const text = document.getElementById(elementId).textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          // Show feedback
+          const button = event.target;
+          const originalText = button.textContent;
+          button.textContent = 'Copied!';
+          button.className = button.className.replace('text-blue-500', 'text-green-500');
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.className = button.className.replace('text-green-500', 'text-blue-500');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+      }
+
+      // Share functionality
+      function shareWhatsApp() {
+        const input = document.getElementById('vatInput').value;
+        if (!input) return;
+        
+        const result = calculateVAT(parseFloat(input));
+        const message = `VAT Calculator Results:\n\nOriginal: ${formatCurrency(result.inclusiveAmount)}\nExcl. VAT: ${formatCurrency(result.exclusiveAmount)}\nVAT (15%): ${formatCurrency(result.vatAmount)}\n\nCalculated using: https://vatremover.co.za`;
+        
+        window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+      }
+
+      function shareEmail() {
+        const input = document.getElementById('vatInput').value;
+        if (!input) return;
+        
+        const result = calculateVAT(parseFloat(input));
+        const subject = 'VAT Calculator Results';
+        const body = `VAT Calculator Results:\n\nOriginal Amount: ${formatCurrency(result.inclusiveAmount)}\nAmount Excluding VAT: ${formatCurrency(result.exclusiveAmount)}\nVAT Amount (15%): ${formatCurrency(result.vatAmount)}\n\nCalculated using: https://vatremover.co.za`;
+        
+        window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+      }
+
+      function shareGeneric() {
+        if (navigator.share) {
+          navigator.share({
+            title: 'VAT Calculator South Africa',
+            text: 'Check out this free South African VAT calculator',
+            url: 'https://vatremover.co.za'
+          });
+        } else {
+          copyToClipboard('https://vatremover.co.za');
+        }
+      }
+
+      // Modal functionality
+      function showDisclaimer() {
+        document.getElementById('disclaimerModal').classList.remove('hidden');
+        document.getElementById('disclaimerModal').classList.add('flex');
+      }
+
+      function hideDisclaimer() {
+        document.getElementById('disclaimerModal').classList.add('hidden');
+        document.getElementById('disclaimerModal').classList.remove('flex');
+      }
+
+      // Event listeners
+      document.getElementById('vatInput').addEventListener('input', updateCalculations);
+      document.getElementById('vatInput').addEventListener('keyup', updateCalculations);
+
+      // Initialize AdSense
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
+
+      // Initialize with example
+      window.addEventListener('load', function() {
+        document.getElementById('vatInput').value = '115.00';
+        updateCalculations();
+      });
+    </script>
+  </body>
+</html>
