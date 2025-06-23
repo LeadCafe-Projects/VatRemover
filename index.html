@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South African VAT Calculator - Remove VAT Instantly</title>
+    <meta name="description" content="Calculate South African VAT (15%) instantly. Remove VAT from any total amount with our free, easy-to-use VAT calculator. Get VAT-exclusive amounts in seconds.">
+    <meta name="keywords" content="VAT calculator, South Africa, VAT removal, tax calculator, 15% VAT, VAT exclusive, VAT inclusive">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="South African VAT Calculator - Remove VAT Instantly">
+    <meta property="og:description" content="Calculate South African VAT (15%) instantly. Remove VAT from any total amount with our free, easy-to-use VAT calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vat-calculator.com">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="South African VAT Calculator">
+    <meta name="twitter:description" content="Calculate South African VAT (15%) instantly. Remove VAT from any total amount.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='16' height='10' x='2' y='3' rx='2' ry='2'/%3E%3Cpath d='m7 11 2-2-2-2'/%3E%3Cpath d='M11 13h4'/%3E%3C/svg%3E">
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4614672997891312" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #f1f5f9;
+            --accent: #10b981;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --background: #ffffff;
+            --card: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .calculator-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .results {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .result-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        .button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .button-secondary {
+            background: var(--secondary);
+            color: var(--text);
+        }
+        
+        .button-secondary:hover {
+            background: #e2e8f0;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .ad-container {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .share-btn {
+            background: #1da1f2;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+        
+        .share-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .share-btn.facebook {
+            background: #4267b2;
+        }
+        
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+        
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transform: translateX(100%);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Banner Ad -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4614672997891312"
+                 data-ad-slot="1234567890"
+                 data-ad-format="banner"
+                 data-full-width-responsive="true"></ins>
+        </div>
+        
+        <header class="header">
+            <h1>🧮 VAT Calculator</h1>
+            <p>Instantly calculate South African VAT (15%) and remove VAT from any amount. Perfect for businesses, accountants, and individuals.</p>
+        </header>
+        
+        <div class="main-content">
+            <main class="calculator-card">
+                <div class="input-group">
+                    <label for="amount-input" class="label">💰 Enter Amount (VAT Inclusive)</label>
+                    <input 
+                        type="text" 
+                        id="amount-input" 
+                        class="input" 
+                        placeholder="e.g., 1150.00"
+                        autocomplete="off"
+                    >
+                </div>
+                
+                <div class="results">
+                    <div class="result-item">
+                        <span class="result-label">💳 Amount Including VAT</span>
+                        <span class="result-value" id="inclusive-amount">R 0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">📊 VAT Amount (15%)</span>
+                        <span class="result-value" id="vat-amount">R 0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">💼 Amount Excluding VAT</span>
+                        <span class="result-value" id="exclusive-amount">R 0.00</span>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="button" onclick="copyAllResults()">
+                        📋 Copy All Results
+                    </button>
+                    <button class="button button-secondary" onclick="clearCalculator()">
+                        🔄 Clear
+                    </button>
+                </div>
+            </main>
+            
+            <aside class="sidebar">
+                <!-- Sidebar Ad -->
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4614672997891312"
+                         data-ad-slot="2345678901"
+                         data-ad-format="rectangle"></ins>
+                </div>
+                
+                <div class="info-card">
+                    <h3>💡 How VAT Works</h3>
+                    <p>VAT (Value Added Tax) in South Africa is 15%. This calculator helps you determine the VAT portion of any amount and the original price before VAT was added.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🎯 Quick Tips</h3>
+                    <p>• Use this for invoicing and pricing<br>
+                    • Perfect for expense tracking<br>
+                    • Great for tax calculations<br>
+                    • Copy results to spreadsheets</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>✅ Accurate Calculations</h3>
+                    <p>Our calculator uses the official South African VAT rate of 15% and provides precise calculations rounded to 2 decimal places.</p>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- Mobile Ad -->
+        <div style="text-align: center; margin: 30px 0; display: block;">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4614672997891312" data-ad-slot="3456789012" data-ad-format="banner" data-full-width-responsive="true"></ins>
+        </div>
+        
+        <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20useful%20South%20African%20VAT%20Calculator&url=" class="share-btn twitter">Share on Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=" class="share-btn facebook">Share on Facebook</a>
+            <a href="https://wa.me/?text=Check%20out%20this%20useful%20South%20African%20VAT%20Calculator" class="share-btn whatsapp">Share on WhatsApp</a>
+        </div>
+        
+        <footer class="footer">
+            <p>&copy; 2025 VAT Calculator. All rights reserved. | South African VAT Rate: 15%</p>
+        </footer>
+    </div>
+    
+    <div id="toast" class="toast"></div>
+    
+    <script>
+        // Initialize AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        // Calculator functionality
+        const amountInput = document.getElementById('amount-input');
+        const inclusiveAmount = document.getElementById('inclusive-amount');
+        const vatAmount = document.getElementById('vat-amount');
+        const exclusiveAmount = document.getElementById('exclusive-amount');
+        const toast = document.getElementById('toast');
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-ZA', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+        
+        // Calculate VAT
+        function calculateVAT(inclusiveAmountValue) {
+            const amount = inclusiveAmountValue || 0;
+            const exclusiveAmountValue = amount / 1.15;
+            const vatAmountValue = amount - exclusiveAmountValue;
+            
+            return {
+                inclusive: amount,
+                exclusive: exclusiveAmountValue,
+                vat: vatAmountValue
+            };
+        }
+        
+        // Update display
+        function updateDisplay() {
+            const inputValue = amountInput.value.replace(/[^\d.]/g, '');
+            const numericValue = parseFloat(inputValue) || 0;
+            const calculations = calculateVAT(numericValue);
+            
+            inclusiveAmount.textContent = `R ${formatCurrency(calculations.inclusive)}`;
+            vatAmount.textContent = `R ${formatCurrency(calculations.vat)}`;
+            exclusiveAmount.textContent = `R ${formatCurrency(calculations.exclusive)}`;
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Copy to clipboard
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                return true;
+            } catch (err) {
+                return false;
+            }
+        }
+        
+        // Copy all results
+        async function copyAllResults() {
+            const calculations = calculateVAT(parseFloat(amountInput.value.replace(/[^\d.]/g, '')) || 0);
+            const allResults = `Amount Including VAT: R${formatCurrency(calculations.inclusive)}
+VAT Amount (15%): R${formatCurrency(calculations.vat)}
+Amount Excluding VAT: R${formatCurrency(calculations.exclusive)}`;
+            
+            const success = await copyToClipboard(allResults);
+            if (success) {
+                showToast('✅ All results copied to clipboard!');
+            } else {
+                showToast('❌ Failed to copy to clipboard');
+            }
+        }
+        
+        // Clear calculator
+        function clearCalculator() {
+            amountInput.value = '';
+            updateDisplay();
+            showToast('🔄 Calculator cleared');
+        }
+        
+        // Event listeners
+        amountInput.addEventListener('input', updateDisplay);
+        amountInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                copyAllResults();
+            }
+        });
+        
+        // Initialize display
+        updateDisplay();
+        
+        // Update share button URLs with current page URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUrl = window.location.href;
+            const twitterBtn = document.querySelector('.share-btn.twitter');
+            const facebookBtn = document.querySelector('.share-btn.facebook');
+            
+            if (twitterBtn) {
+                twitterBtn.href = `https://twitter.com/intent/tweet?text=Check%20out%20this%20useful%20South%20African%20VAT%20Calculator&url=${encodeURIComponent(currentUrl)}`;
+            }
+            
+            if (facebookBtn) {
+                facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+            }
+        });
+    </script>
+</body>
+</html>
