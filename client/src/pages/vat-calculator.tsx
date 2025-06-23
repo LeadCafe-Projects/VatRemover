@@ -143,18 +143,18 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
             {/* Main Content Area */}
             <div className="flex-1 max-w-2xl mx-auto lg:mx-0">
               {/* Header Section */}
-              <div className="text-center mb-8">
+              <header className="text-center mb-8">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                  South African VAT Calculator
+                  South African VAT Calculator - Remove 15% VAT Instantly
                 </h1>
                 <p className="text-lg text-gray-600 mb-2">
-                  Quickly remove 15% VAT from any amount
+                  Free online tool to quickly remove 15% VAT from any amount
                 </p>
                 <p className="text-sm text-gray-500 mb-4">
-                  Enter the VAT-inclusive amount and get instant calculations
+                  Professional VAT removal calculator for South African businesses, accountants, and consumers
                 </p>
                 <ShareButtons variant="compact" className="justify-center" />
-              </div>
+              </header>
 
               {/* Calculator Card */}
               <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 lg:p-8 mb-8">
@@ -354,12 +354,12 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       {/* SEO Content Section */}
       <section className="bg-white py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
             15% VAT Remover – Instantly Remove VAT from Any Total
-          </h1>
+          </h2>
 
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What Is VAT and Why Use a VAT Remover?</h2>
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What Is VAT and Why Use a VAT Remover?</h3>
             <p className="text-gray-700 mb-4">
               Value-Added Tax (VAT) is a consumption tax applied to the sale of goods and services in South Africa. Introduced in 1991, the current standard VAT rate stands at <strong>15%</strong>, as regulated by the South African Revenue Service (SARS). This tax applies to most everyday purchases and business transactions, though some items are either zero-rated or VAT-exempt.
             </p>
@@ -370,7 +370,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               Our <strong>VAT removal tool</strong> is designed to do just that: quickly and accurately calculate the amount before VAT—especially relevant when <strong>removing VAT in South Africa</strong> at the 15% rate.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">How to Calculate the Amount Before VAT</h2>
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">How to Calculate the Amount Before VAT</h3>
             <p className="text-gray-700 mb-3">To remove 15% VAT from any total, use this simple formula:</p>
             
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
@@ -392,7 +392,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               This reverse VAT calculation is what our <strong>VAT remover tool</strong> automates—instantly providing accurate results without the manual maths.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Why Use a VAT Removal Tool?</h2>
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Why Use a VAT Removal Tool?</h3>
             <p className="text-gray-700 mb-6">
               <strong>Removing VAT</strong> is essential in many everyday scenarios, whether for personal clarity or professional use. Here are just a few examples of when a <strong>VAT removal tool</strong> becomes invaluable:
             </p>
@@ -427,11 +427,11 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Real-Life Examples of Removing VAT in South Africa</h2>
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Real-Life Examples of Removing VAT in South Africa</h3>
 
             <div className="space-y-4 mb-8">
               <div className="border-l-4 border-blue-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Example 1: Small Business Reconciliation</h3>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Example 1: Small Business Reconciliation</h4>
                 <p className="text-gray-700 mb-2">
                   An entrepreneur receives a total supplier invoice of R2,875. To reconcile costs before VAT:
                 </p>
@@ -442,7 +442,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               </div>
 
               <div className="border-l-4 border-green-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Example 2: Freelancer Pricing a Project</h3>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Example 2: Freelancer Pricing a Project</h4>
                 <p className="text-gray-700">
                   A designer wants to quote R1,500 before VAT but needs to check the full price for the client:<br />
                   R1,500 × 1.15 = R1,725 (total inclusive price)
@@ -450,7 +450,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               </div>
 
               <div className="border-l-4 border-purple-500 pl-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Example 3: Shopper Reviewing a Bill</h3>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Example 3: Shopper Reviewing a Bill</h4>
                 <p className="text-gray-700">
                   A customer is charged R230 for an item and wants to confirm the VAT portion:<br />
                   R230 ÷ 1.15 = R200 (net price)<br />
@@ -459,7 +459,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">FAQs – VAT Remover & Reverse VAT Calculations</h2>
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">FAQs – VAT Remover & Reverse VAT Calculations</h3>
 
             <div className="space-y-4 mb-8">
               <details className="bg-gray-50 border border-gray-200 rounded-lg p-4">
