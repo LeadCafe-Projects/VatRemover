@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
+import ShareButtons from "@/components/ShareButtons";
 import { 
   Calculator, 
   Copy, 
@@ -149,9 +150,10 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                 <p className="text-lg text-gray-600 mb-2">
                   Quickly remove 15% VAT from any amount
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 mb-4">
                   Enter the VAT-inclusive amount and get instant calculations
                 </p>
+                <ShareButtons variant="compact" className="justify-center" />
               </div>
 
               {/* Calculator Card */}
@@ -284,6 +286,9 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                   )}
                 </CardContent>
               </Card>
+
+              {/* Share Section - Main */}
+              <ShareButtons className="mb-8" />
 
               {/* Information Section */}
               <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 lg:p-8 mb-8">
@@ -501,9 +506,12 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               <p className="text-gray-700 mb-3">
                 It's a simple but powerful solution for <strong>removing VAT in South Africa</strong>—no spreadsheets, no guesswork, just instant clarity.
               </p>
-              <p className="text-primary font-semibold">
+              <p className="text-primary font-semibold mb-4">
                 Try the tool now, and if you find it useful, bookmark it or share it with someone who needs it.
               </p>
+              
+              {/* Inline Share Buttons */}
+              <ShareButtons variant="compact" className="justify-center" />
             </div>
           </div>
         </div>
@@ -511,58 +519,69 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400 mb-3">
-            © {new Date().getFullYear()} SA VAT Calculator - Simple, accurate VAT calculations for South African businesses.
-          </p>
-          <div className="text-sm">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="text-gray-400 hover:text-white underline transition-colors duration-200">
-                  Disclaimer
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center text-amber-600">
-                    <AlertTriangle className="w-5 h-5 mr-2" />
-                    Important Disclaimer
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                    <h3 className="font-semibold text-amber-800 mb-2">Use at Your Own Risk</h3>
-                    <p className="text-amber-700">
-                      The calculations and information provided by this VAT calculator are for guidance purposes only and should not be considered as professional financial, tax, or legal advice.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <p>
-                      <strong>No Liability:</strong> We expressly disclaim all responsibility and liability for any errors, omissions, or inaccuracies in the calculations provided by this tool. Users assume full responsibility for verifying all calculations and their accuracy.
-                    </p>
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Footer Share Section */}
+          <div className="mb-6">
+            <div className="bg-gray-800 rounded-lg p-4 text-center">
+              <h3 className="text-lg font-semibold text-white mb-2">Found this useful?</h3>
+              <p className="text-gray-300 text-sm mb-3">Share with colleagues and friends who need VAT calculations</p>
+              <ShareButtons variant="compact" className="justify-center text-white" />
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-gray-400 mb-3">
+              © {new Date().getFullYear()} SA VAT Calculator - Simple, accurate VAT calculations for South African businesses.
+            </p>
+            <div className="text-sm">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="text-gray-400 hover:text-white underline transition-colors duration-200">
+                    Disclaimer
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl">
+                  <DialogHeader>
+                    <DialogTitle className="flex items-center text-amber-600">
+                      <AlertTriangle className="w-5 h-5 mr-2" />
+                      Important Disclaimer
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                      <h3 className="font-semibold text-amber-800 mb-2">Use at Your Own Risk</h3>
+                      <p className="text-amber-700">
+                        The calculations and information provided by this VAT calculator are for guidance purposes only and should not be considered as professional financial, tax, or legal advice.
+                      </p>
+                    </div>
                     
-                    <p>
-                      <strong>Professional Consultation:</strong> Users are strongly advised to consult with qualified tax professionals, chartered accountants, or legal advisors for specific VAT-related matters, complex calculations, or any questions regarding South African tax legislation.
-                    </p>
+                    <div className="space-y-3">
+                      <p>
+                        <strong>No Liability:</strong> We expressly disclaim all responsibility and liability for any errors, omissions, or inaccuracies in the calculations provided by this tool. Users assume full responsibility for verifying all calculations and their accuracy.
+                      </p>
+                      
+                      <p>
+                        <strong>Professional Consultation:</strong> Users are strongly advised to consult with qualified tax professionals, chartered accountants, or legal advisors for specific VAT-related matters, complex calculations, or any questions regarding South African tax legislation.
+                      </p>
+                      
+                      <p>
+                        <strong>Regulatory Changes:</strong> VAT rates and regulations may change. This calculator is based on the current standard VAT rate of 15% and may not reflect future legislative changes or special circumstances that may apply to specific transactions or businesses.
+                      </p>
+                      
+                      <p>
+                        <strong>Business Decisions:</strong> Any business or financial decisions made based on calculations from this tool are made entirely at the user's own risk. We accept no responsibility for any consequences arising from the use of this calculator.
+                      </p>
+                    </div>
                     
-                    <p>
-                      <strong>Regulatory Changes:</strong> VAT rates and regulations may change. This calculator is based on the current standard VAT rate of 15% and may not reflect future legislative changes or special circumstances that may apply to specific transactions or businesses.
-                    </p>
-                    
-                    <p>
-                      <strong>Business Decisions:</strong> Any business or financial decisions made based on calculations from this tool are made entirely at the user's own risk. We accept no responsibility for any consequences arising from the use of this calculator.
-                    </p>
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+                      <p className="text-blue-800 text-center font-medium">
+                        By using this calculator, you acknowledge and agree to these terms and conditions.
+                      </p>
+                    </div>
                   </div>
-                  
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-                    <p className="text-blue-800 text-center font-medium">
-                      By using this calculator, you acknowledge and agree to these terms and conditions.
-                    </p>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
         </div>
       </footer>
