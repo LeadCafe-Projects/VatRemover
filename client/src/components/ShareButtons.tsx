@@ -7,7 +7,8 @@ import {
   Facebook, 
   Twitter, 
   Linkedin,
-  Copy
+  Copy,
+  Bookmark
 } from "lucide-react";
 
 interface ShareButtonsProps {
@@ -81,10 +82,31 @@ export default function ShareButtons({ variant = "full", className = "" }: Share
     }
   };
 
+  const handleAddBookmark = () => {
+    const pageTitle = "SA VAT Calculator - Remove 15% VAT Instantly";
+    const pageUrl = shareUrl;
+
+    // Check if the browser supports adding bookmarks
+    if (window.sidebar && window.sidebar.addPanel) {
+      // Firefox
+      window.sidebar.addPanel(pageTitle, pageUrl, '');
+    } else if (window.external && ('AddFavorite' in window.external)) {
+      // Internet Explorer
+      window.external.AddFavorite(pageUrl, pageTitle);
+    } else {
+      // Modern browsers - show instructions
+      toast({
+        title: "Add to Bookmarks",
+        description: `Press Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page`,
+        duration: 5000,
+      });
+    }
+  };
+
   if (variant === "compact") {
     return (
       <div className={`flex items-center gap-2 ${className}`}>
-        <span className="text-sm text-gray-600 mr-2">Share:</span>
+        <span className="text-sm text-gray-600 mr-2">Quick links:</span>
         <Button
           size="sm"
           variant="outline"
@@ -99,8 +121,18 @@ export default function ShareButtons({ variant = "full", className = "" }: Share
           variant="outline"
           onClick={handleWhatsAppShare}
           className="text-green-600 hover:bg-green-600 hover:text-white transition-colors duration-200"
+          title="Share on WhatsApp"
         >
           <MessageCircle className="w-3 h-3" />
+        </Button>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={handleAddBookmark}
+          className="text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200"
+          title="Add to Bookmarks"
+        >
+          <Bookmark className="w-3 h-3" />
         </Button>
       </div>
     );

@@ -17,7 +17,8 @@ import {
   InfoIcon,
   Lightbulb,
   CheckCircle,
-  AlertTriangle
+  AlertTriangle,
+  Bookmark
 } from "lucide-react";
 
 interface VATCalculation {
@@ -99,6 +100,28 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       exclusiveAmount: 0,
       vatAmount: 0
     });
+  };
+
+  // Add to bookmarks functionality
+  const addToBookmarks = () => {
+    const pageTitle = "SA VAT Calculator - Remove 15% VAT Instantly";
+    const pageUrl = window.location.href;
+
+    // Check if the browser supports adding bookmarks
+    if (window.sidebar && window.sidebar.addPanel) {
+      // Firefox
+      window.sidebar.addPanel(pageTitle, pageUrl, '');
+    } else if (window.external && ('AddFavorite' in window.external)) {
+      // Internet Explorer
+      window.external.AddFavorite(pageUrl, pageTitle);
+    } else {
+      // Modern browsers - show instructions
+      toast({
+        title: "Add to Bookmarks",
+        description: `Press Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page`,
+        duration: 5000,
+      });
+    }
   };
 
   // Handle input change with validation
