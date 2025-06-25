@@ -1,8 +1,0 @@
-name = "vatremover-co-za"
-compatibility_date = "2024-01-22"
-
-[env.production]
-routes = [
-  { pattern = "vatremover.co.za/*", zone_name = "vatremover.co.za" },
-  { pattern = "www.vatremover.co.za/*", zone_name = "vatremover.co.za" }
-]

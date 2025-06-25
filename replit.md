@@ -104,6 +104,8 @@ This is a VAT (Value Added Tax) calculator application specifically designed for
 ```
 Changelog:
 - June 25, 2025. Initial setup
+- June 25, 2025. Added bookmark button functionality next to share buttons
+- June 25, 2025. Project audit and cleanup - removed standalone HTML files, repackaged for proper React/Vite deployment
 ```
 
 ## User Preferences
