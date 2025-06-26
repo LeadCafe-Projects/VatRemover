@@ -322,7 +322,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                     </div>
                     <div className="flex items-start">
                       <span className="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
-                        2
+                        &nbsp;2&nbsp;
                       </span>
                       <p>The calculator will instantly show you three values: the original amount, the VAT portion, and the amount excluding VAT</p>
                     </div>
