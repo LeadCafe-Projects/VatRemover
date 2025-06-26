@@ -111,6 +111,7 @@ Changelog:
 - June 26, 2025. Replaced all em dashes (—) with regular dashes ( - ) throughout content sections
 - June 26, 2025. Added consistent 12px mobile margins for all content elements
 - June 26, 2025. Created ads.txt file for Google AdSense verification at root domain
+- June 26, 2025. Fixed mobile layout refresh stability with enhanced CSS specificity and box-sizing inheritance
 ```
 
 ## User Preferences
