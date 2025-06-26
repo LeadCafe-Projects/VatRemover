@@ -315,19 +315,19 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                   </h2>
                   <div className="space-y-3 text-gray-600">
                     <div className="flex items-start">
-                      <span className="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
+                      <span className="inline-flex items-center justify-center w-7 h-7 bg-primary text-white text-sm font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">
                         1
                       </span>
                       <p>Enter the total amount that includes 15% VAT in the input field above</p>
                     </div>
                     <div className="flex items-start">
-                      <span className="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
-                        &nbsp;2&nbsp;
+                      <span className="inline-flex items-center justify-center w-7 h-7 bg-primary text-white text-sm font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">
+                        2
                       </span>
                       <p>The calculator will instantly show you three values: the original amount, the VAT portion, and the amount excluding VAT</p>
                     </div>
                     <div className="flex items-start">
-                      <span className="inline-flex items-center justify-center w-6 h-6 bg-primary text-white text-xs font-bold rounded-full mr-3 mt-0.5">
+                      <span className="inline-flex items-center justify-center w-7 h-7 bg-primary text-white text-sm font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">
                         3
                       </span>
                       <p>Click the copy button next to any result to copy it to your clipboard</p>
