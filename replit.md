@@ -106,6 +106,9 @@ Changelog:
 - June 25, 2025. Initial setup
 - June 25, 2025. Added bookmark button functionality next to share buttons
 - June 25, 2025. Project audit and cleanup - removed standalone HTML files, repackaged for proper React/Vite deployment
+- June 26, 2025. Fixed numbered badge styling inconsistencies in "How to Use" section
+- June 26, 2025. Optimized mobile responsiveness - fixed horizontal overflow issues, improved touch targets and spacing
+- June 26, 2025. Replaced all em dashes (—) with regular dashes ( - ) throughout content sections
 ```
 
 ## User Preferences

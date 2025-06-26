@@ -371,7 +371,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
       <section className="bg-white py-8 sm:py-12">
         <div className="max-w-4xl mx-auto px-2 sm:px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            15% VAT Remover – Instantly Remove VAT from Any Total
+            15% VAT Remover - Instantly Remove VAT from Any Total
           </h2>
 
           <div className="prose prose-lg max-w-none">
@@ -383,7 +383,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               A <strong>VAT remover</strong> helps you work backwards from a total amount that includes VAT to determine the original price before tax. This process, known as <strong>removing VAT</strong>, is essential for individuals and businesses who need clarity on the net price of a product or service.
             </p>
             <p className="text-gray-700 mb-6">
-              Our <strong>VAT removal tool</strong> is designed to do just that: quickly and accurately calculate the amount before VAT—especially relevant when <strong>removing VAT in South Africa</strong> at the 15% rate.
+              Our <strong>VAT removal tool</strong> is designed to do just that: quickly and accurately calculate the amount before VAT - especially relevant when <strong>removing VAT in South Africa</strong> at the 15% rate.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">How to Calculate the Amount Before VAT</h3>
@@ -405,7 +405,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
             </div>
 
             <p className="text-gray-700 mb-6">
-              This reverse VAT calculation is what our <strong>VAT remover tool</strong> automates—instantly providing accurate results without the manual maths.
+              This reverse VAT calculation is what our <strong>VAT remover tool</strong> automates - instantly providing accurate results without the manual maths.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Why Use a VAT Removal Tool?</h3>
@@ -417,7 +417,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <h3 className="text-lg font-semibold text-green-900 mb-2">Business Invoicing</h3>
                 <p className="text-green-800 text-sm">
-                  Companies often need to display VAT-exclusive pricing on quotes or invoices—particularly for VAT-exempt clients or international transactions. A <strong>VAT remover</strong> provides a quick breakdown of the base price.
+                  Companies often need to display VAT-exclusive pricing on quotes or invoices - particularly for VAT-exempt clients or international transactions. A <strong>VAT remover</strong> provides a quick breakdown of the base price.
                 </p>
               </div>
 
@@ -438,7 +438,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
                 <h3 className="text-lg font-semibold text-amber-900 mb-2">Retail and Consumer Checks</h3>
                 <p className="text-amber-800 text-sm">
-                  Consumers may use the tool to verify VAT charges on receipts or invoices—making sure 15% has been properly applied and not overcharged.
+                  Consumers may use the tool to verify VAT charges on receipts or invoices - making sure 15% has been properly applied and not overcharged.
                 </p>
               </div>
             </div>
@@ -514,7 +514,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               <details className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <summary className="font-semibold text-gray-900 cursor-pointer">Can I use this for personal or business purposes?</summary>
                 <p className="text-gray-700 mt-2">
-                  Absolutely. This <strong>VAT removal tool</strong> is suitable for anyone needing to reverse-calculate VAT—whether for business operations, accounting, or everyday spending.
+                  Absolutely. This <strong>VAT removal tool</strong> is suitable for anyone needing to reverse-calculate VAT - whether for business operations, accounting, or everyday spending.
                 </p>
               </details>
             </div>
@@ -530,7 +530,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                 Whether you're an accountant, business owner, freelancer, or consumer, this <strong>VAT remover</strong> provides a fast, reliable way to calculate the amount before VAT.
               </p>
               <p className="text-gray-700 mb-3">
-                It's a simple but powerful solution for <strong>removing VAT in South Africa</strong>—no spreadsheets, no guesswork, just instant clarity.
+                It's a simple but powerful solution for <strong>removing VAT in South Africa</strong> - no spreadsheets, no guesswork, just instant clarity.
               </p>
               <p className="text-primary font-semibold mb-4">
                 Try the tool now, and if you find it useful, bookmark it or share it with someone who needs it.
