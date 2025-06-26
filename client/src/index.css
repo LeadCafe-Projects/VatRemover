@@ -106,4 +106,9 @@
     word-break: break-all;
     overflow-wrap: break-word;
   }
+  
+  .mobile-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

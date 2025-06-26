@@ -148,7 +148,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
   return (
     <div className="bg-gray-50 min-h-screen overflow-x-hidden">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4">
+        <div className="max-w-7xl mx-auto mobile-padding sm:px-4">
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
             
             {/* Left Sidebar AdSense Zone */}
@@ -362,14 +362,14 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
 
       {/* Bottom AdSense Zone */}
       <div className="w-full bg-gray-100 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4">
+        <div className="max-w-7xl mx-auto mobile-padding sm:px-4 py-4">
           <TopBannerAd />
         </div>
       </div>
 
       {/* SEO Content Section */}
       <section className="bg-white py-8 sm:py-12">
-        <div className="max-w-4xl mx-auto px-2 sm:px-4">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
             15% VAT Remover - Instantly Remove VAT from Any Total
           </h2>
