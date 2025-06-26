@@ -109,6 +109,8 @@ Changelog:
 - June 26, 2025. Fixed numbered badge styling inconsistencies in "How to Use" section
 - June 26, 2025. Optimized mobile responsiveness - fixed horizontal overflow issues, improved touch targets and spacing
 - June 26, 2025. Replaced all em dashes (—) with regular dashes ( - ) throughout content sections
+- June 26, 2025. Added consistent 12px mobile margins for all content elements
+- June 26, 2025. Created ads.txt file for Google AdSense verification at root domain
 ```
 
 ## User Preferences
