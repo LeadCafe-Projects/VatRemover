@@ -108,7 +108,12 @@
   }
   
   .mobile-padding {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  .mobile-card-margin {
+    margin-left: 12px;
+    margin-right: 12px;
   }
 }
