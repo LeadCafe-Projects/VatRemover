@@ -148,7 +148,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
   return (
     <div className="bg-gray-50 min-h-screen overflow-x-hidden">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4">
+        <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
             
             {/* Left Sidebar AdSense Zone */}

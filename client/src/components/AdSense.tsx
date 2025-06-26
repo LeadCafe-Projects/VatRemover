@@ -43,10 +43,10 @@ export default function AdSense({
   }
 
   return (
-    <div className={className}>
+    <div className={`${className} max-w-full overflow-hidden`}>
       <ins 
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{ display: 'block', maxWidth: '100%', overflow: 'hidden' }}
         data-ad-client="ca-pub-4614672997891312"
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
