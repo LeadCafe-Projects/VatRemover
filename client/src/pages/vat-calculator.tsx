@@ -173,7 +173,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               </header>
 
               {/* Calculator Card */}
-              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
+              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mx-2 sm:mx-0">
                 <CardContent className="p-0">
                   {/* Input Section */}
                   <div className="mb-6 sm:mb-8">
@@ -307,7 +307,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               <ShareButtons className="mb-8" />
 
               {/* Information Section */}
-              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
+              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mx-2 sm:mx-0">
                 <CardContent className="p-0">
                   <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
                     <InfoIcon className="inline w-5 h-5 text-primary mr-2" />
