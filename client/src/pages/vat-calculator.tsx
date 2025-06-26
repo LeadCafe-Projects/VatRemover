@@ -108,12 +108,12 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
     const pageUrl = window.location.href;
 
     // Check if the browser supports adding bookmarks
-    if (window.sidebar && window.sidebar.addPanel) {
+    if ((window as any).sidebar && (window as any).sidebar.addPanel) {
       // Firefox
-      window.sidebar.addPanel(pageTitle, pageUrl, '');
-    } else if (window.external && ('AddFavorite' in window.external)) {
+      (window as any).sidebar.addPanel(pageTitle, pageUrl, '');
+    } else if ((window as any).external && ('AddFavorite' in (window as any).external)) {
       // Internet Explorer
-      window.external.AddFavorite(pageUrl, pageTitle);
+      (window as any).external.AddFavorite(pageUrl, pageTitle);
     } else {
       // Modern browsers - show instructions
       toast({
@@ -147,13 +147,6 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Top AdSense Zone */}
-      <div className="w-full bg-gray-100 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <TopBannerAd />
-        </div>
-      </div>
-
       <div className="min-h-screen py-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8">
@@ -450,6 +443,11 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
               </div>
             </div>
 
+            {/* AdSense Banner - Above Real-Life Examples */}
+            <div className="w-full bg-gray-100 border border-gray-200 rounded-lg p-4 mb-6">
+              <TopBannerAd />
+            </div>
+
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Real-Life Examples of Removing VAT in South Africa</h3>
 
             <div className="space-y-4 mb-8">
@@ -519,6 +517,11 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                   Absolutely. This <strong>VAT removal tool</strong> is suitable for anyone needing to reverse-calculate VAT—whether for business operations, accounting, or everyday spending.
                 </p>
               </details>
+            </div>
+
+            {/* AdSense Banner - Between FAQ and Final Thoughts */}
+            <div className="w-full bg-gray-100 border border-gray-200 rounded-lg p-4 mb-6">
+              <TopBannerAd />
             </div>
 
             <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 text-center">
