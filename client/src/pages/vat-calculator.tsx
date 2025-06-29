@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
 import ShareButtons from "@/components/ShareButtons";
@@ -568,7 +568,7 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                     Disclaimer
                   </button>
                 </DialogTrigger>
-                <DialogContent className="max-w-2xl">
+                <DialogContent className="max-w-2xl mobile-padding">
                   <DialogHeader>
                     <DialogTitle className="flex items-center text-amber-600">
                       <AlertTriangle className="w-5 h-5 mr-2" />
@@ -607,6 +607,13 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                       </p>
                     </div>
                   </div>
+                  <DialogFooter className="mt-6">
+                    <DialogClose asChild>
+                      <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 min-h-[44px] touch-manipulation">
+                        Close
+                      </button>
+                    </DialogClose>
+                  </DialogFooter>
                 </DialogContent>
               </Dialog>
             </div>

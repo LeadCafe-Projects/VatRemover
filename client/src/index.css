@@ -129,4 +129,16 @@
     max-width: 100% !important;
     overflow: hidden !important;
   }
+  
+  /* Mobile modal optimizations */
+  [data-radix-dialog-content] {
+    margin: 12px !important;
+    max-height: calc(100vh - 24px) !important;
+    width: calc(100vw - 24px) !important;
+  }
+  
+  /* Mobile touch targets */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
 }
