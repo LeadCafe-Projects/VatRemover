@@ -315,26 +315,26 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
                     <InfoIcon className="inline w-5 h-5 text-primary mr-2" />
                     How to Use This VAT Calculator
                   </h2>
-                  <ol className="space-y-3 text-gray-600">
-                    <li className="flex items-start gap-3">
+                  <div className="space-y-3 text-gray-600">
+                    <div className="flex items-start gap-3">
                       <span className="inline-flex items-center justify-center w-7 h-7 bg-primary text-white text-sm font-bold rounded-full mt-0.5 flex-shrink-0">
                         1
                       </span>
-                      <span className="text-sm sm:text-base">Enter the total amount that includes 15% VAT in the input field above</span>
-                    </li>
-                    <li className="flex items-start gap-3">
+                      <p className="text-sm sm:text-base">Enter the total amount that includes 15% VAT in the input field above</p>
+                    </div>
+                    <div className="flex items-start gap-3">
                       <span className="inline-flex items-center justify-center w-7 h-7 bg-primary text-white text-sm font-bold rounded-full mt-0.5 flex-shrink-0">
                         2
                       </span>
-                      <span className="text-sm sm:text-base">The calculator will instantly show you three values: the original amount, the VAT portion, and the amount excluding VAT</span>
-                    </li>
-                    <li className="flex items-start gap-3">
+                      <p className="text-sm sm:text-base">The calculator will instantly show you three values: the original amount, the VAT portion, and the amount excluding VAT</p>
+                    </div>
+                    <div className="flex items-start gap-3">
                       <span className="inline-flex items-center justify-center w-7 h-7 bg-primary text-white text-sm font-bold rounded-full mt-0.5 flex-shrink-0">
                         3
                       </span>
-                      <span className="text-sm sm:text-base">Click the copy button next to any result to copy it to your clipboard</span>
-                    </li>
-                  </ol>
+                      <p className="text-sm sm:text-base">Click the copy button next to any result to copy it to your clipboard</p>
+                    </div>
+                  </div>
 
                   <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-blue-50 border border-blue-200 rounded-lg">
                     <h3 className="font-semibold text-blue-900 mb-2">

@@ -112,6 +112,7 @@ Changelog:
 - June 26, 2025. Added consistent 12px mobile margins for all content elements
 - June 26, 2025. Created ads.txt file for Google AdSense verification at root domain
 - June 26, 2025. Fixed mobile layout refresh stability with enhanced CSS specificity and box-sizing inheritance
+- June 29, 2025. Enhanced SEO structure with semantic HTML elements (main, article, section, ol, details) to address Google's low-value content flags
 ```
 
 ## User Preferences
