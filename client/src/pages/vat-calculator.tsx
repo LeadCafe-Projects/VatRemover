@@ -559,9 +559,9 @@ Amount Excluding VAT: R${formatCurrency(calculations.exclusiveAmount)}`;
           
           <div className="text-center">
             <p className="text-gray-400 mb-3">
-              © {new Date().getFullYear()} SA VAT Calculator - Simple, accurate VAT calculations for South African businesses.
+              © {new Date().getFullYear()} SA VAT Calculator brought to you by LeadCafé - Simple, accurate VAT calculations for South African businesses.
             </p>
-            <div className="text-sm">
+            <div className="text-sm pb-8 sm:pb-4">
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="text-gray-400 hover:text-white underline transition-colors duration-200">
