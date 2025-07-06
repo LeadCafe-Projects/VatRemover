@@ -7,6 +7,10 @@ import { SidebarAd } from "@/components/AdSense";
 import Footer from "@/components/Footer";
 
 export default function BusinessGuide() {
+  const handleBackClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
@@ -23,7 +27,7 @@ export default function BusinessGuide() {
               {/* Header Section - White Background */}
               <div className="bg-white rounded-2xl p-6 mb-8">
                 <header className="text-center">
-                  <Link href="/">
+                  <Link href="/" onClick={handleBackClick}>
                     <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Back to Calculator

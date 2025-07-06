@@ -237,6 +237,11 @@ export default function VATCalculator() {
                 </CardContent>
               </Card>
 
+              {/* Share Module */}
+              <div className="mt-8 mb-8">
+                <ShareButtons />
+              </div>
+
               {/* Content Teasers */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 mobile-card-margin sm:mx-0">
                 {/* How to Use Teaser */}

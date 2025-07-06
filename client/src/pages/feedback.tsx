@@ -15,6 +15,10 @@ export default function Feedback() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
   
+  const handleBackClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -79,7 +83,7 @@ export default function Feedback() {
               {/* Header Section - White Background */}
               <div className="bg-white rounded-2xl p-6 mb-8">
                 <header className="text-center">
-                  <Link href="/">
+                  <Link href="/" onClick={handleBackClick}>
                     <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Back to Calculator
