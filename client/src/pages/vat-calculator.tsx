@@ -22,7 +22,8 @@ import {
   ArrowRight,
   Building,
   HelpCircle,
-  AlertTriangle 
+  AlertTriangle,
+  X
 } from "lucide-react";
 
 interface VATCalculation {
@@ -119,10 +120,10 @@ export default function VATCalculator() {
               </header>
 
               {/* Calculator Card */}
-              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
+              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-5 lg:p-6 mb-4 sm:mb-6 mobile-card-margin sm:mx-0">
                 <CardContent className="p-0">
                   {/* Input Section */}
-                  <div className="mb-6 sm:mb-8">
+                  <div className="mb-4 sm:mb-5">
                     <Label htmlFor="vatInclusiveAmount" className="block text-sm font-semibold text-gray-700 mb-3">
                       <Calculator className="inline w-4 h-4 mr-2 text-primary" />
                       Amount Including VAT (ZAR)
@@ -137,7 +138,7 @@ export default function VATCalculator() {
                         placeholder="0.00"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="w-full pl-7 sm:pl-8 pr-3 sm:pr-4 py-3 sm:py-4 text-lg sm:text-xl font-semibold border-2 border-gray-200 rounded-xl input-focus transition-all duration-200"
+                        className="w-full pl-7 sm:pl-8 pr-3 sm:pr-4 py-2 sm:py-3 text-lg sm:text-xl font-semibold border-2 border-gray-200 rounded-xl input-focus transition-all duration-200"
                         step="0.01"
                         min="0"
                       />
@@ -149,16 +150,16 @@ export default function VATCalculator() {
                   </div>
 
                   {/* Results Section */}
-                  <div className="space-y-3 sm:space-y-4" id="resultsSection">
+                  <div className="space-y-2 sm:space-y-3" id="resultsSection">
                     {/* Original Amount */}
-                    <div className="vat-blue border rounded-xl p-3 sm:p-4">
+                    <div className="vat-blue border rounded-lg p-2 sm:p-3">
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center mb-1">
                             <Receipt className="text-blue-600 w-4 h-4 mr-2 flex-shrink-0" />
                             <span className="text-xs sm:text-sm font-medium text-blue-800">Amount Including VAT</span>
                           </div>
-                          <div className="text-lg sm:text-2xl font-bold text-blue-900 break-all">
+                          <div className="text-base sm:text-xl font-bold text-blue-900 break-all">
                             R {formatCurrency(calculations.inclusiveAmount)}
                           </div>
                         </div>
@@ -174,14 +175,14 @@ export default function VATCalculator() {
                     </div>
 
                     {/* VAT Amount */}
-                    <div className="vat-amber border rounded-xl p-3 sm:p-4">
+                    <div className="vat-amber border rounded-lg p-2 sm:p-3">
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center mb-1">
                             <Percent className="text-amber-600 w-4 h-4 mr-2 flex-shrink-0" />
                             <span className="text-xs sm:text-sm font-medium text-amber-800">VAT Amount (15%)</span>
                           </div>
-                          <div className="text-lg sm:text-2xl font-bold text-amber-900 break-all">
+                          <div className="text-base sm:text-xl font-bold text-amber-900 break-all">
                             R {formatCurrency(calculations.vatAmount)}
                           </div>
                         </div>
@@ -197,14 +198,14 @@ export default function VATCalculator() {
                     </div>
 
                     {/* Exclusive Amount */}
-                    <div className="vat-green border rounded-xl p-3 sm:p-4">
+                    <div className="vat-green border rounded-lg p-2 sm:p-3">
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center mb-1">
                             <MinusCircle className="text-green-600 w-4 h-4 mr-2 flex-shrink-0" />
                             <span className="text-xs sm:text-sm font-medium text-green-800">Amount Excluding VAT</span>
                           </div>
-                          <div className="text-lg sm:text-2xl font-bold text-green-900 break-all">
+                          <div className="text-base sm:text-xl font-bold text-green-900 break-all">
                             R {formatCurrency(calculations.exclusiveAmount)}
                           </div>
                         </div>
@@ -221,13 +222,21 @@ export default function VATCalculator() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <div className="flex flex-col sm:flex-row gap-3 mt-6">
                     <Button
-                      className="flex-1 bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
+                      className="flex-1 bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+                      onClick={() => copyToClipboard(`Including VAT: R ${formatCurrency(calculations.inclusiveAmount)}\nVAT Amount: R ${formatCurrency(calculations.vatAmount)}\nExcluding VAT: R ${formatCurrency(calculations.exclusiveAmount)}`, "All results")}
+                    >
+                      <Copy className="w-4 h-4 mr-2" />
+                      Copy All Results
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex-1 border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
                       onClick={resetCalculator}
                     >
-                      <RefreshCw className="w-4 h-4 mr-2" />
-                      Reset Calculator
+                      <X className="w-4 h-4 mr-2" />
+                      Clear
                     </Button>
                   </div>
 
