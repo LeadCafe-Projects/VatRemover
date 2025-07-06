@@ -24,7 +24,7 @@ export default function Disclaimer() {
             {/* Main Content Area */}
             <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
               {/* Header Section - White Background */}
-              <div className="bg-white rounded-2xl p-6 mb-8">
+              <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
                 <header className="text-center">
                   <Link href="/" onClick={handleBackClick}>
                     <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
