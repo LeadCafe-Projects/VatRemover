@@ -87,56 +87,59 @@ export default function VATCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50">
-      {/* Top AdSense Zone */}
-      <div className="w-full bg-gray-100 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4 py-4">
-          <TopBannerAd />
-        </div>
-      </div>
+    <div className="bg-gray-50 min-h-screen overflow-x-hidden">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+            
+            {/* Left Sidebar AdSense Zone */}
+            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+              <SidebarAd />
+            </aside>
 
-      {/* Main Content */}
-      <div className="flex-1">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-0 lg:gap-8">
-            {/* Main Calculator Section */}
-            <main className="flex-1 p-4 sm:p-6 lg:p-8" role="main" aria-label="VAT Calculator">
-              {/* Hero Section */}
-              <div className="text-center mb-8 sm:mb-12">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                  SA VAT Calculator
+            {/* Main Content Area */}
+            <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
+              {/* Header Section */}
+              <header className="text-center mb-8">
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  South African VAT Calculator - Remove 15% VAT Instantly
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-                  Instantly remove 15% VAT from any amount. Professional VAT calculations for South African businesses and individuals.
+                <p className="text-lg text-gray-600 mb-2">
+                  Free online tool to quickly remove 15% VAT from any amount
                 </p>
-              </div>
+                <p className="text-sm text-gray-500 mb-4">
+                  Professional VAT removal calculator for South African businesses, accountants, and consumers
+                </p>
+                <ShareButtons variant="compact" className="justify-center" />
+              </header>
 
               {/* Calculator Card */}
-              <Card className="bg-white rounded-2xl shadow-xl border-2 border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
+              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
                 <CardContent className="p-0">
                   {/* Input Section */}
                   <div className="mb-6 sm:mb-8">
-                    <Label htmlFor="vat-amount" className="block text-base sm:text-lg font-medium text-gray-700 mb-3">
-                      Enter Amount (Including VAT)
+                    <Label htmlFor="vatInclusiveAmount" className="block text-sm font-semibold text-gray-700 mb-3">
+                      <Calculator className="inline w-4 h-4 mr-2 text-primary" />
+                      Amount Including VAT (ZAR)
                     </Label>
                     <div className="relative">
-                      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl font-medium">
+                      <span className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-lg font-medium">
                         R
                       </span>
                       <Input
-                        id="vat-amount"
-                        type="number"
+                        id="vatInclusiveAmount"
+                        type="text"
                         placeholder="0.00"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="pl-8 pr-4 py-4 text-xl font-medium border-2 border-gray-300 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                        className="w-full pl-7 sm:pl-8 pr-3 sm:pr-4 py-3 sm:py-4 text-lg sm:text-xl font-semibold border-2 border-gray-200 rounded-xl input-focus transition-all duration-200"
                         step="0.01"
                         min="0"
                       />
                     </div>
                     <p className="text-xs sm:text-sm text-gray-500 mt-2">
                       <InfoIcon className="inline w-3 h-3 mr-1" />
-                      Enter the total amount that includes 15% VAT
+                      Enter the amount that includes 15% South African VAT
                     </p>
                   </div>
 
@@ -232,11 +235,6 @@ export default function VATCalculator() {
                   )}
                 </CardContent>
               </Card>
-
-              {/* Share Section - Main */}
-              <div className="mobile-card-margin sm:mx-0 mb-6 sm:mb-8">
-                <ShareButtons />
-              </div>
 
               {/* Content Teasers */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 mobile-card-margin sm:mx-0">
@@ -338,34 +336,6 @@ export default function VATCalculator() {
           </div>
         </div>
       </div>
-
-      {/* Bottom AdSense Zone */}
-      <div className="w-full bg-gray-100 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4 py-4">
-          <TopBannerAd />
-        </div>
-      </div>
-
-      {/* Essential SEO Content Section */}
-      <section className="bg-white py-8 sm:py-12">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            Professional VAT Calculator for South Africa
-          </h2>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 mb-4">
-              <strong>Value-Added Tax (VAT)</strong> in South Africa is 15%. Our VAT remover instantly calculates the amount excluding VAT from any VAT-inclusive total. Essential for businesses, freelancers, and professionals who need accurate VAT calculations for invoicing, financial reconciliation, and compliance with SARS requirements.
-            </p>
-            
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <p className="text-blue-900 font-semibold text-center">
-                Formula: Amount excluding VAT = Total (including VAT) ÷ 1.15
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-8 sm:py-12">
