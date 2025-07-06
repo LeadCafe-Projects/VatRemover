@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import ShareButtons from "./ShareButtons";
 
 export default function Footer() {
   const handleLinkClick = () => {
@@ -10,6 +11,13 @@ export default function Footer() {
     <footer className="bg-gray-50 border-t border-gray-200 py-6 mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+          {/* Sharing Section */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Found this useful?</h3>
+            <p className="text-sm text-gray-600 mb-4">Share with colleagues and friends who need VAT calculations</p>
+            <ShareButtons variant="compact" className="justify-center" />
+          </div>
+          
           <nav className="flex flex-wrap justify-center items-center gap-2 text-sm text-gray-600">
             <Link href="/" className="hover:text-gray-900 transition-colors" onClick={handleLinkClick}>
               VAT Remover
