@@ -8,6 +8,8 @@ import HowToUse from "@/pages/how-to-use";
 import Examples from "@/pages/examples";
 import BusinessGuide from "@/pages/business-guide";
 import FAQ from "@/pages/faq";
+import Feedback from "@/pages/feedback";
+import Disclaimer from "@/pages/disclaimer";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/examples" component={Examples} />
       <Route path="/business-guide" component={BusinessGuide} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/feedback" component={Feedback} />
+      <Route path="/disclaimer" component={Disclaimer} />
       <Route component={NotFound} />
     </Switch>
   );

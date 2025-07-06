@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { useToast } from "@/hooks/use-toast";
 import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
 import ShareButtons from "@/components/ShareButtons";
+import Footer from "@/components/Footer";
 import { 
   Calculator, 
   Copy, 
@@ -338,97 +339,7 @@ export default function VATCalculator() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-8 sm:py-12">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4">
-          <div className="text-center">
-            <p className="text-gray-400 mb-3">
-              © {new Date().getFullYear()} SA VAT Calculator brought to you by LeadCafé - Simple, accurate VAT calculations for South African businesses.
-            </p>
-            <div className="text-sm pb-8 sm:pb-4">
-              <div className="flex flex-wrap items-center justify-center gap-2 text-gray-400">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <button className="hover:text-white underline transition-colors duration-200">
-                      Disclaimer
-                    </button>
-                  </DialogTrigger>
-                <DialogContent className="max-w-2xl mobile-padding">
-                  <DialogHeader>
-                    <DialogTitle className="flex items-center text-amber-600">
-                      <AlertTriangle className="w-5 h-5 mr-2" />
-                      Important Disclaimer
-                    </DialogTitle>
-                  </DialogHeader>
-                  <div className="space-y-4 text-sm text-gray-700 leading-relaxed">
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                      <h3 className="font-semibold text-amber-800 mb-2">Use at Your Own Risk</h3>
-                      <p>
-                        This VAT calculator is provided for informational purposes only. While we strive for accuracy, the results should not be considered professional financial or tax advice.
-                      </p>
-                    </div>
-                    
-                    <div className="space-y-3">
-                      <p>
-                        <strong>Accuracy:</strong> Calculations are based on the current South African VAT rate of 15%. Always verify results with official SARS guidelines or consult a qualified tax professional for critical financial decisions.
-                      </p>
-                      
-                      <p>
-                        <strong>Regulatory Changes:</strong> VAT rates and regulations may change. This calculator is based on the current standard VAT rate of 15% and may not reflect future legislative changes.
-                      </p>
-                      
-                      <p>
-                        <strong>Business Decisions:</strong> Any business or financial decisions made based on calculations from this tool are made entirely at your own risk.
-                      </p>
-                    </div>
-                    
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-                      <p className="text-blue-800 text-center font-medium">
-                        By using this calculator, you acknowledge and agree to these terms.
-                      </p>
-                    </div>
-                  </div>
-                  <DialogFooter className="mt-6">
-                    <DialogClose asChild>
-                      <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 min-h-[44px] touch-manipulation">
-                        Close
-                      </button>
-                    </DialogClose>
-                  </DialogFooter>
-                </DialogContent>
-                </Dialog>
-                
-                <span className="text-gray-600">•</span>
-                <Link href="/how-to-use">
-                  <button className="hover:text-white underline transition-colors duration-200">
-                    How To Use
-                  </button>
-                </Link>
-                
-                <span className="text-gray-600">•</span>
-                <Link href="/examples">
-                  <button className="hover:text-white underline transition-colors duration-200">
-                    Examples
-                  </button>
-                </Link>
-                
-                <span className="text-gray-600">•</span>
-                <Link href="/business-guide">
-                  <button className="hover:text-white underline transition-colors duration-200">
-                    Business Guide
-                  </button>
-                </Link>
-                
-                <span className="text-gray-600">•</span>
-                <Link href="/faq">
-                  <button className="hover:text-white underline transition-colors duration-200">
-                    FAQ
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
