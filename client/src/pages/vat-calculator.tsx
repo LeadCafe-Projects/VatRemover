@@ -119,7 +119,7 @@ export default function VATCalculator() {
               </header>
 
               {/* Calculator Card */}
-              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
+              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0 max-w-lg lg:max-w-xl mx-auto">
                 <CardContent className="p-0">
                   {/* Input Section */}
                   <div className="mb-6 sm:mb-8">
