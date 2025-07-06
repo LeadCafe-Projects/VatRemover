@@ -1,334 +1,276 @@
 import { Link } from "wouter";
-import { ArrowLeft, HelpCircle, Search, Calculator, AlertCircle, CheckCircle } from "lucide-react";
+import { ArrowLeft, HelpCircle, ChevronDown, Calculator, FileText, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import AdSense, { SidebarAd } from "@/components/AdSense";
-import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { SidebarAd } from "@/components/AdSense";
 
 export default function FAQ() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const faqs = [
-    {
-      id: "what-is-vat",
-      question: "What is VAT and why do I need to remove it?",
-      answer: "Value-Added Tax (VAT) is a consumption tax applied to goods and services in South Africa at a rate of 15%. You need to remove VAT to determine the actual cost of goods/services before tax, which is essential for accounting, budgeting, and financial analysis.",
-      category: "basics",
-      keywords: ["vat", "tax", "15%", "south africa"]
-    },
-    {
-      id: "how-calculate-vat",
-      question: "How do I calculate VAT-exclusive amounts?",
-      answer: "To remove VAT from a VAT-inclusive amount, divide by 1.15. For example: R1,150 ÷ 1.15 = R1,000 (VAT-exclusive). The VAT portion is R150 (R1,150 - R1,000).",
-      category: "calculation",
-      keywords: ["calculate", "formula", "divide", "1.15"]
-    },
-    {
-      id: "vat-registration",
-      question: "When must a business register for VAT?",
-      answer: "Businesses must register for VAT when their taxable supplies exceed R1 million in any 12-month period. Registration must be done within 21 days of exceeding this threshold.",
-      category: "compliance",
-      keywords: ["registration", "threshold", "million", "21 days"]
-    },
-    {
-      id: "vat-invoice-requirements",
-      question: "What must be included on a VAT invoice?",
-      answer: "A valid VAT invoice must include: supplier's VAT number, invoice number and date, customer details, description of goods/services, VAT-exclusive amount, VAT amount, and total amount including VAT.",
-      category: "compliance",
-      keywords: ["invoice", "requirements", "vat number", "documentation"]
-    },
-    {
-      id: "input-vs-output-vat",
-      question: "What's the difference between input and output VAT?",
-      answer: "Output VAT is the tax you charge customers on your sales. Input VAT is the tax you pay on business purchases. You pay SARS the difference (output VAT minus input VAT).",
-      category: "basics",
-      keywords: ["input", "output", "difference", "sars"]
-    },
-    {
-      id: "vat-exempt-supplies",
-      question: "Which supplies are exempt from VAT?",
-      answer: "Common VAT-exempt supplies include: basic food items, prescription medicines, educational services, residential rent, and certain financial services. These don't attract VAT.",
-      category: "compliance",
-      keywords: ["exempt", "food", "medicine", "education", "rent"]
-    },
-    {
-      id: "zero-rated-supplies",
-      question: "What are zero-rated supplies?",
-      answer: "Zero-rated supplies are taxable at 0% VAT. These include exports, certain food items, and illuminating paraffin. You can claim input VAT on expenses related to zero-rated supplies.",
-      category: "compliance",
-      keywords: ["zero-rated", "exports", "0%", "paraffin"]
-    },
-    {
-      id: "vat-return-deadline",
-      question: "When are VAT returns due?",
-      answer: "VAT returns must be submitted by the 25th of the month following the end of the VAT period. For example, January's VAT return is due by February 25th.",
-      category: "compliance",
-      keywords: ["return", "deadline", "25th", "month"]
-    },
-    {
-      id: "record-keeping",
-      question: "How long must I keep VAT records?",
-      answer: "VAT records must be kept for 5 years from the date of the last entry. This includes all invoices, receipts, and supporting documentation.",
-      category: "compliance",
-      keywords: ["records", "5 years", "invoices", "documentation"]
-    },
-    {
-      id: "calculator-accuracy",
-      question: "How accurate is this VAT calculator?",
-      answer: "Our calculator uses the standard formula (amount ÷ 1.15) and rounds to 2 decimal places for practical use. Results are accurate for general business purposes but always verify critical calculations.",
-      category: "calculator",
-      keywords: ["accuracy", "formula", "decimal", "rounding"]
-    },
-    {
-      id: "bulk-calculations",
-      question: "Can I perform multiple VAT calculations?",
-      answer: "Yes, you can use the calculator repeatedly for different amounts. Each calculation is independent and results update instantly as you type new values.",
-      category: "calculator",
-      keywords: ["multiple", "bulk", "repeated", "instant"]
-    },
-    {
-      id: "mobile-calculator",
-      question: "Does the calculator work on mobile devices?",
-      answer: "Yes, the calculator is fully responsive and works on smartphones and tablets. All features including copy and share functions are available on mobile.",
-      category: "calculator",
-      keywords: ["mobile", "smartphone", "tablet", "responsive"]
-    }
-  ];
-
-  const filteredFaqs = faqs.filter(faq => 
-    faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    faq.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    faq.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
-  const categories = [
-    { id: "basics", name: "VAT Basics", color: "bg-blue-100 text-blue-800" },
-    { id: "calculation", name: "Calculations", color: "bg-green-100 text-green-800" },
-    { id: "compliance", name: "Compliance", color: "bg-purple-100 text-purple-800" },
-    { id: "calculator", name: "Calculator", color: "bg-orange-100 text-orange-800" }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/">
-              <Button variant="ghost" className="flex items-center gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Back to Calculator
-              </Button>
-            </Link>
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-gray-900">FAQ</h1>
-              <p className="text-gray-600">Frequently Asked Questions</p>
-            </div>
-            <div className="w-32"></div>
-          </div>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2">
-            {/* Hero Section */}
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-8 mb-8">
-              <div className="max-w-2xl">
-                <h2 className="text-3xl font-bold mb-4">Got Questions About VAT?</h2>
-                <p className="text-orange-100 text-lg">
-                  Find answers to common questions about VAT calculations, compliance, and using our calculator.
-                </p>
-              </div>
-            </div>
-
-            {/* Search */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Search className="w-5 h-5" />
-                  Search FAQ
-                </CardTitle>
-                <CardDescription>
-                  Search through our frequently asked questions
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    placeholder="Search for answers..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
-                {searchTerm && (
-                  <p className="mt-2 text-sm text-gray-600">
-                    Found {filteredFaqs.length} result{filteredFaqs.length !== 1 ? 's' : ''}
-                  </p>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* Categories */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Browse by Category</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {categories.map(category => (
-                  <Card key={category.id} className="hover:shadow-md transition-shadow cursor-pointer">
-                    <CardContent className="p-4 text-center">
-                      <Badge className={`${category.color} mb-2`}>
-                        {faqs.filter(faq => faq.category === category.id).length}
-                      </Badge>
-                      <p className="font-medium">{category.name}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {/* FAQ Accordion */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <HelpCircle className="w-5 h-5" />
-                  Frequently Asked Questions
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                  {filteredFaqs.map((faq) => (
-                    <AccordionItem key={faq.id} value={faq.id}>
-                      <AccordionTrigger className="text-left">
-                        <div className="flex items-center gap-2">
-                          <Badge className={categories.find(c => c.id === faq.category)?.color}>
-                            {categories.find(c => c.id === faq.category)?.name}
-                          </Badge>
-                          <span>{faq.question}</span>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="pt-4 border-t">
-                          <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-
-                {filteredFaqs.length === 0 && searchTerm && (
-                  <div className="text-center py-8">
-                    <p className="text-gray-500">No questions found matching "{searchTerm}"</p>
-                    <Button 
-                      variant="outline" 
-                      onClick={() => setSearchTerm("")}
-                      className="mt-4"
-                    >
-                      Clear Search
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* Still Have Questions */}
-            <Card className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-blue-800">
-                  <AlertCircle className="w-5 h-5" />
-                  Still Have Questions?
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 mb-4">
-                  If you can't find the answer you're looking for, here are some additional resources:
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 border">
-                    <h4 className="font-semibold mb-2">SARS Official Resources</h4>
-                    <p className="text-sm text-gray-600">
-                      Visit the South African Revenue Service website for official VAT guidance and regulations.
-                    </p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 border">
-                    <h4 className="font-semibold mb-2">Professional Advice</h4>
-                    <p className="text-sm text-gray-600">
-                      Consult with a qualified tax professional or chartered accountant for specific business situations.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* AdSense */}
-            <div className="my-8">
-              <AdSense adSlot="1234567890" adFormat="auto" />
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-pink-600 via-purple-600 to-purple-800">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+            
+            {/* Left Sidebar AdSense Zone */}
+            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Quick Access</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <Link href="/how-to-use">
-                    <Button variant="outline" className="w-full justify-start">
-                      How to Use Guide
-                    </Button>
-                  </Link>
-                  <Link href="/examples">
-                    <Button variant="outline" className="w-full justify-start">
-                      Real Examples
-                    </Button>
-                  </Link>
-                  <Link href="/business-guide">
-                    <Button variant="outline" className="w-full justify-start">
-                      Business Guide
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+            </aside>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Popular Questions</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">VAT calculation formula</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Registration requirements</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Invoice requirements</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Return deadlines</span>
-                    </div>
+            {/* Main Content Area */}
+            <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
+              {/* Header Section */}
+              <header className="text-center mb-8">
+                <Link href="/">
+                  <Button variant="ghost" className="mb-4 text-white hover:bg-white/20 border border-white/30">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Back to Calculator
+                  </Button>
+                </Link>
+                <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                  Frequently Asked Questions
+                </h1>
+                <p className="text-lg text-pink-100 mb-2">
+                  Find answers to common VAT questions
+                </p>
+                <p className="text-sm text-pink-200 mb-4">
+                  12+ frequently asked questions about calculations and compliance
+                </p>
+              </header>
+
+              {/* Hero Summary Card */}
+              <Card className="bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
+                <CardContent className="p-0">
+                  <div className="max-w-2xl">
+                    <h2 className="text-2xl font-bold mb-4">Quick Answers</h2>
+                    <p className="text-pink-100 text-lg">
+                      Everything you need to know about VAT calculations, South African tax requirements, and using our calculator effectively.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
-            </div>
+
+              {/* FAQ Categories */}
+              <div className="space-y-6">
+                {/* Basic Calculator Questions */}
+                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 mobile-card-margin sm:mx-0">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                        <Calculator className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <CardTitle className="text-xl text-gray-900">Calculator Usage</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <div className="space-y-4">
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">How accurate is the VAT calculator?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            Our calculator is 100% accurate for standard 15% VAT calculations in South Africa. It uses the precise formula: Amount ÷ 1.15 to extract VAT-exclusive amounts. Results are calculated to 2 decimal places for financial precision.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">Can I use this for business purposes?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            Absolutely! Our calculator is designed for professional use including invoice preparation, expense reconciliation, financial reporting, and SARS compliance. Many businesses rely on it for daily VAT calculations.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">Does the calculator work on mobile devices?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            Yes! The calculator is fully responsive and optimized for mobile devices, tablets, and desktops. You can access it anywhere with an internet connection for on-the-go VAT calculations.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* VAT Knowledge Questions */}
+                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 mobile-card-margin sm:mx-0">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                        <FileText className="w-5 h-5 text-green-600" />
+                      </div>
+                      <CardTitle className="text-xl text-gray-900">VAT Knowledge</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <div className="space-y-4">
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">What is the current VAT rate in South Africa?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            The current standard VAT rate in South Africa is 15%. This rate has been in effect since April 1, 2018, when it was increased from the previous rate of 14%.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">When do I need to register for VAT?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            You must register for VAT if your annual taxable supplies exceed R1 million over any 12-month period. You can also voluntarily register if your annual taxable supplies exceed R50,000. Registration must be done within 21 business days of becoming liable.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">What items are VAT exempt in South Africa?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            Key VAT-exempt items include basic foodstuffs (brown bread, mealie meal, etc.), medical services, educational services, municipal services, and certain financial services. A comprehensive list is available from SARS.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">How often must I submit VAT returns?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            VAT returns are typically submitted monthly, with payment due by the 25th of the following month. Some smaller businesses may qualify for bi-monthly submissions. Returns must be submitted even if no VAT is payable.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Technical & Support Questions */}
+                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 mobile-card-margin sm:mx-0">
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                        <HelpCircle className="w-5 h-5 text-purple-600" />
+                      </div>
+                      <CardTitle className="text-xl text-gray-900">Technical Support</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <div className="space-y-4">
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">Is my data safe when using the calculator?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            Yes, your privacy is protected. All calculations are performed locally in your browser - no financial data is transmitted or stored on our servers. Your calculations remain completely private.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">Why doesn't the copy function work on my device?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            The copy function requires a modern browser and HTTPS connection. If it's not working, try updating your browser or manually selecting and copying the values. Some older browsers may not support automatic clipboard access.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">Can I bookmark or save the calculator?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            Absolutely! You can bookmark this page for quick access. The calculator works offline once loaded, so you can use it even without an internet connection. Consider adding it to your home screen on mobile devices.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      <Collapsible>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="font-semibold text-gray-900 text-left">What happens if VAT rates change in the future?</span>
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="p-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                          <p className="text-gray-700">
+                            We monitor VAT rate changes closely and update the calculator immediately when official rate changes are announced by SARS. Users will see a notification if any updates affect their calculations.
+                          </p>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Need More Help */}
+              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 mt-8 mobile-card-margin sm:mx-0">
+                <CardHeader className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                      <AlertCircle className="w-5 h-5 text-orange-600" />
+                    </div>
+                    <CardTitle className="text-xl text-gray-900">Still Need Help?</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-4 sm:p-6 pt-0">
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <p className="text-gray-700 mb-4">
+                      For specific VAT compliance questions or complex business scenarios, we recommend consulting with:
+                    </p>
+                    <ul className="space-y-2 text-gray-600">
+                      <li className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                        Qualified tax professionals or chartered accountants
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                        SARS directly through their helpline: 0800 00 7277
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
+                        Official SARS website: www.sars.gov.za
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </main>
+
+            {/* Right Sidebar AdSense Zone */}
+            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+              <SidebarAd />
+            </aside>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
