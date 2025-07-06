@@ -113,6 +113,11 @@ Changelog:
 - June 26, 2025. Created ads.txt file for Google AdSense verification at root domain
 - June 26, 2025. Fixed mobile layout refresh stability with enhanced CSS specificity and box-sizing inheritance
 - June 29, 2025. Enhanced SEO structure with semantic HTML elements (main, article, section, ol, details) to address Google's low-value content flags
+- January 6, 2025. Major architectural transformation: Converted from single-page to multi-page website for Google AdSense compliance
+- January 6, 2025. Created 4 dedicated pages: How to Use Guide, Real-Life Examples, Business Guide, and FAQ
+- January 6, 2025. Main calculator page now features modern teasers with call-to-actions linking to detailed content pages
+- January 6, 2025. Enhanced routing with wouter to support /how-to-use, /examples, /business-guide, and /faq URLs
+- January 6, 2025. Maintained core calculator functionality while expanding content architecture for better SEO and AdSense approval
 ```
 
 ## User Preferences
