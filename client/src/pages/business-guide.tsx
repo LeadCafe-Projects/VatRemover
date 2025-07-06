@@ -7,7 +7,7 @@ import { SidebarAd } from "@/components/AdSense";
 
 export default function BusinessGuide() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-600 via-purple-600 to-purple-800">
+    <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
         <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
@@ -19,36 +19,38 @@ export default function BusinessGuide() {
 
             {/* Main Content Area */}
             <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
-              {/* Header Section */}
-              <header className="text-center mb-8">
-                <Link href="/">
-                  <Button variant="ghost" className="mb-4 text-white hover:bg-white/20 border border-white/30">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
-                  </Button>
-                </Link>
-                <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                  Business VAT Guide
-                </h1>
-                <p className="text-lg text-pink-100 mb-2">
-                  Professional VAT management for businesses
-                </p>
-                <p className="text-sm text-pink-200 mb-4">
-                  Invoicing, compliance, reconciliation, and strategic planning
-                </p>
-              </header>
+              {/* Header Section - Pink/Purple Gradient */}
+              <div className="bg-gradient-to-br from-pink-600 via-purple-600 to-purple-800 rounded-2xl p-6 mb-8">
+                <header className="text-center">
+                  <Link href="/">
+                    <Button variant="ghost" className="mb-4 text-white hover:bg-white/20 border border-white/30">
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Back to Calculator
+                    </Button>
+                  </Link>
+                  <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                    Business VAT Guide
+                  </h1>
+                  <p className="text-lg text-pink-100 mb-2">
+                    Professional VAT management for businesses
+                  </p>
+                  <p className="text-sm text-pink-200 mb-4">
+                    Invoicing, compliance, reconciliation, and strategic planning
+                  </p>
+                </header>
 
-              {/* Hero Summary Card */}
-              <Card className="bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
-                <CardContent className="p-0">
-                  <div className="max-w-2xl">
-                    <h2 className="text-2xl font-bold mb-4">Complete Business Solution</h2>
-                    <p className="text-pink-100 text-lg">
-                      Streamline your VAT processes with professional tools and strategies for South African businesses of all sizes.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                {/* Hero Summary Card */}
+                <Card className="bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
+                  <CardContent className="p-0">
+                    <div className="max-w-2xl">
+                      <h2 className="text-2xl font-bold mb-4">Complete Business Solution</h2>
+                      <p className="text-pink-100 text-lg">
+                        Streamline your VAT processes with professional tools and strategies for South African businesses of all sizes.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
 
               {/* Business Applications */}
               <div className="space-y-6">
