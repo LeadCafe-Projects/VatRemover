@@ -235,7 +235,7 @@ export default function VATCalculator() {
                       className="flex-1 border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
                       onClick={resetCalculator}
                     >
-                      <X className="w-4 h-4 mr-2" />
+                      <RefreshCw className="w-4 h-4 mr-2" />
                       Clear
                     </Button>
                   </div>
