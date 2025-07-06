@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { SidebarAd } from "@/components/AdSense";
+// import { SidebarAd } from "@/components/AdSense";
 import { useToast } from "@/hooks/use-toast";
 import Footer from "@/components/Footer";
 
@@ -74,9 +74,9 @@ export default function Feedback() {
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
             
             {/* Left Sidebar AdSense Zone */}
-            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-            </aside>
+            </aside> */}
 
             {/* Main Content Area */}
             <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
@@ -278,9 +278,9 @@ export default function Feedback() {
             </main>
 
             {/* Right Sidebar AdSense Zone */}
-            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-            </aside>
+            </aside> */}
           </div>
         </div>
       </div>

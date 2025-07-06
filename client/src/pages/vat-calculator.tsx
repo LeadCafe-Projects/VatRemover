@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
+// import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 import { 
@@ -99,9 +99,9 @@ export default function VATCalculator() {
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
             
             {/* Left Sidebar AdSense Zone */}
-            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-            </aside>
+            </aside> */}
 
             {/* Main Content Area */}
             <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
@@ -343,15 +343,15 @@ export default function VATCalculator() {
               </div>
 
               {/* Mobile AdSense Zone */}
-              <div className="lg:hidden mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
+              {/* <div className="lg:hidden mb-6 sm:mb-8 mobile-card-margin sm:mx-0">
                 <MobileAd />
-              </div>
+              </div> */}
             </main>
 
             {/* Right Sidebar AdSense Zone */}
-            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-            </aside>
+            </aside> */}
           </div>
         </div>
       </div>

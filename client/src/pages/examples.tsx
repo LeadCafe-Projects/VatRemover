@@ -3,7 +3,7 @@ import { ArrowLeft, Calculator, ShoppingCart, Building, Car, Home, TrendingUp, P
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { SidebarAd } from "@/components/AdSense";
+// import { SidebarAd } from "@/components/AdSense";
 import Footer from "@/components/Footer";
 
 export default function Examples() {
@@ -18,9 +18,9 @@ export default function Examples() {
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
             
             {/* Left Sidebar AdSense Zone */}
-            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-            </aside>
+            </aside> */}
 
             {/* Main Content Area */}
             <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
@@ -334,9 +334,9 @@ export default function Examples() {
             </main>
 
             {/* Right Sidebar AdSense Zone */}
-            <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
+            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
               <SidebarAd />
-            </aside>
+            </aside> */}
           </div>
         </div>
       </div>
