@@ -3,7 +3,6 @@ import { ArrowLeft, Building, FileText, Calculator, TrendingUp, Shield, CheckCir
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-// import { SidebarAd } from "@/components/AdSense";
 import Footer from "@/components/Footer";
 
 export default function BusinessGuide() {
@@ -14,286 +13,423 @@ export default function BusinessGuide() {
   return (
     <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/Guide">
             
-            {/* Left Sidebar AdSense Zone */}
-            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
-              <SidebarAd />
-            </aside> */}
+            {/* Header Section - White Background */}
+            <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
+              <header className="text-center">
+                <Link href="/" onClick={handleBackClick}>
+                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Back to Calculator
+                  </Button>
+                </Link>
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Building className="w-6 h-6 text-white" />
+                </div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4" itemProp="name">
+                  Business VAT Management Guide
+                </h1>
+                <p className="text-lg text-gray-600 mb-2" itemProp="description">
+                  Professional strategies for VAT compliance, invoicing, and financial management
+                </p>
+                <p className="text-sm text-gray-500">
+                  Comprehensive guide for South African businesses managing 15% VAT requirements
+                </p>
+              </header>
+            </div>
 
-            {/* Main Content Area */}
-            <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
-              {/* Header Section - White Background */}
-              <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
-                <header className="text-center">
-                  <Link href="/" onClick={handleBackClick}>
-                    <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                      <ArrowLeft className="w-4 h-4 mr-2" />
-                      Back to Calculator
-                    </Button>
-                  </Link>
-                  <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                    Business VAT Guide
-                  </h1>
-                  <p className="text-lg text-gray-600 mb-2">
-                    Professional VAT management for businesses
+            {/* Main Content */}
+            <article className="space-y-8" itemProp="text">
+              
+              {/* Executive Summary */}
+              <section>
+                <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+                  <h2 className="text-xl font-bold text-purple-900 mb-3 flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5" />
+                    Executive Summary
+                  </h2>
+                  <p className="text-purple-800 leading-relaxed">
+                    Effective VAT management is crucial for South African businesses to maintain compliance, optimize cash flow, and ensure accurate financial reporting. This guide provides practical strategies for implementing professional VAT processes across invoicing, accounting, and business operations.
                   </p>
-                  <p className="text-sm text-gray-500 mb-4">
-                    Invoicing, compliance, reconciliation, and strategic planning
-                  </p>
-                </header>
+                </div>
+              </section>
 
-                {/* Hero Summary Card - Purple Background */}
-                <Card className="bg-gradient-to-br from-purple-50 to-pink-100 border-purple-200 rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
-                  <CardContent className="p-0">
-                    <div className="max-w-2xl">
-                      <h2 className="text-2xl font-bold mb-4 text-purple-900">Complete Business Solution</h2>
-                      <p className="text-purple-700 text-lg">
-                        Streamline your VAT processes with professional tools and strategies for South African businesses of all sizes.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Business Applications */}
-              <div className="space-y-6">
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <FileText className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Invoice Management</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <p className="text-gray-700 mb-4">
-                        Ensure accurate VAT calculations on all business invoices and maintain compliance with SARS requirements.
-                      </p>
+              {/* VAT Registration & Compliance */}
+              <section itemScope itemType="https://schema.org/HowTo">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <Shield className="w-6 h-6 text-purple-600" />
+                  VAT Registration & Compliance Framework
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* Registration Requirements */}
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-purple-100 text-purple-800 font-bold">1</Badge>
+                        Registration Requirements & Thresholds
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
                       <div className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-gray-900">Outgoing Invoices</p>
-                            <p className="text-gray-600 text-sm">Calculate correct VAT amounts when billing clients</p>
-                          </div>
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-3">Mandatory Registration Criteria:</h4>
+                          <ul className="space-y-2 text-gray-700">
+                            <li className="flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                              <span><strong>Annual turnover exceeds R1 million</strong> - Mandatory registration within 21 days</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                              <span><strong>Imports goods for business</strong> - Registration required regardless of turnover</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                              <span><strong>Voluntary registration</strong> - Available for businesses with turnover below R1 million</span>
+                            </li>
+                          </ul>
                         </div>
-                        <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-gray-900">Incoming Invoices</p>
-                            <p className="text-gray-600 text-sm">Verify supplier VAT calculations and extract net amounts</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-gray-900">Quote Preparation</p>
-                            <p className="text-gray-600 text-sm">Present clear pricing with VAT-inclusive and exclusive amounts</p>
-                          </div>
+                        
+                        <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                          <h4 className="font-semibold text-yellow-900 mb-2">Strategic Considerations:</h4>
+                          <p className="text-yellow-800 text-sm">
+                            Voluntary VAT registration can benefit cash flow through input VAT claims, but increases administrative burden. 
+                            Evaluate based on your supplier structure and client base.
+                          </p>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <Shield className="w-5 h-5 text-green-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">SARS Compliance</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <p className="text-gray-700 mb-4">
-                        Stay compliant with South African Revenue Service requirements and maintain accurate VAT records.
-                      </p>
+                  {/* Return Filing */}
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-purple-100 text-purple-800 font-bold">2</Badge>
+                        Return Filing & Payment Obligations
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
                       <div className="space-y-4">
-                        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                          <p className="text-yellow-800 font-semibold mb-2">VAT Registration Threshold</p>
-                          <p className="text-yellow-700 text-sm">Businesses with annual taxable supplies exceeding R1 million must register for VAT</p>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                            <h4 className="font-semibold text-blue-900 mb-2">Filing Frequency</h4>
+                            <ul className="space-y-1 text-sm text-blue-800">
+                              <li>• <strong>Monthly:</strong> Turnover &gt; R30 million</li>
+                              <li>• <strong>Bi-monthly:</strong> Turnover R1-30 million</li>
+                              <li>• <strong>Category C:</strong> Special arrangements</li>
+                            </ul>
+                          </div>
+                          
+                          <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                            <h4 className="font-semibold text-green-900 mb-2">Payment Terms</h4>
+                            <ul className="space-y-1 text-sm text-green-800">
+                              <li>• <strong>Due:</strong> 25th of following month/period</li>
+                              <li>• <strong>Electronic filing:</strong> Mandatory</li>
+                              <li>• <strong>Late penalties:</strong> 10% per month</li>
+                            </ul>
+                          </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                            <p className="text-blue-800 font-semibold">VAT Returns</p>
-                            <p className="text-blue-700 text-sm">Submit monthly or bi-monthly returns to SARS</p>
-                          </div>
-                          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                            <p className="text-green-800 font-semibold">Record Keeping</p>
-                            <p className="text-green-700 text-sm">Maintain detailed VAT transaction records</p>
-                          </div>
+                        
+                        <div className="bg-red-50 rounded-lg p-4 border border-red-200">
+                          <h4 className="font-semibold text-red-900 mb-2">⚠️ Compliance Alert:</h4>
+                          <p className="text-red-800 text-sm">
+                            Non-compliance penalties can reach 200% of the VAT due. Maintain accurate records and ensure timely submissions to avoid costly penalties.
+                          </p>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
 
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                        <Calculator className="w-5 h-5 text-purple-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Financial Reconciliation</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <p className="text-gray-700 mb-4">
-                        Streamline month-end processes with accurate VAT separation and financial reporting.
-                      </p>
+              {/* Professional Invoicing */}
+              <section>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <FileText className="w-6 h-6 text-purple-600" />
+                  Professional Invoicing & Documentation
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* Invoice Requirements */}
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">VAT Invoice Requirements</CardTitle>
+                    </CardHeader>
+                    <CardContent>
                       <div className="space-y-4">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          <div className="text-center">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                              <span className="text-blue-600 font-bold">1</span>
-                            </div>
-                            <p className="font-semibold text-gray-900">Extract VAT</p>
-                            <p className="text-gray-600 text-sm">From all transactions</p>
+                        <p className="text-gray-700">
+                          Professional VAT invoices must contain specific information to be SARS-compliant and enable VAT claims.
+                        </p>
+                        
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            <h4 className="font-semibold text-gray-900 mb-3">Mandatory Elements:</h4>
+                            <ul className="space-y-1 text-sm text-gray-700">
+                              <li>✓ Supplier VAT number</li>
+                              <li>✓ Invoice number and date</li>
+                              <li>✓ Customer details</li>
+                              <li>✓ Description of goods/services</li>
+                              <li>✓ VAT-exclusive amounts</li>
+                              <li>✓ VAT rate and amount</li>
+                              <li>✓ Total VAT-inclusive amount</li>
+                            </ul>
                           </div>
-                          <div className="text-center">
-                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                              <span className="text-green-600 font-bold">2</span>
-                            </div>
-                            <p className="font-semibold text-gray-900">Reconcile Books</p>
-                            <p className="text-gray-600 text-sm">Match net amounts</p>
-                          </div>
-                          <div className="text-center">
-                            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                              <span className="text-purple-600 font-bold">3</span>
-                            </div>
-                            <p className="font-semibold text-gray-900">Generate Reports</p>
-                            <p className="text-gray-600 text-sm">For management</p>
+                          
+                          <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                            <h4 className="font-semibold text-purple-900 mb-3">Best Practices:</h4>
+                            <ul className="space-y-1 text-sm text-purple-800">
+                              <li>• Use sequential numbering system</li>
+                              <li>• Include payment terms clearly</li>
+                              <li>• Show VAT breakdown prominently</li>
+                              <li>• Maintain electronic backups</li>
+                              <li>• Issue within 21 days of supply</li>
+                            </ul>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                        <TrendingUp className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Strategic Planning</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <p className="text-gray-700 mb-4">
-                        Make informed business decisions by understanding the true cost impact of VAT on your operations.
-                      </p>
+                  {/* Pricing Strategies */}
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">Strategic Pricing & Quotations</CardTitle>
+                    </CardHeader>
+                    <CardContent>
                       <div className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-gray-900">Pricing Strategy</p>
-                            <p className="text-gray-600 text-sm">Set competitive prices while maintaining margins</p>
-                          </div>
+                        <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                          <h4 className="font-semibold text-yellow-900 mb-2">💡 Professional Tip:</h4>
+                          <p className="text-yellow-800 text-sm">
+                            Always clarify whether quotes are VAT-inclusive or exclusive. This transparency prevents disputes and builds client trust.
+                          </p>
                         </div>
-                        <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-gray-900">Cash Flow Management</p>
-                            <p className="text-gray-600 text-sm">Plan for VAT payments and refunds</p>
+                        
+                        <div className="grid md:grid-cols-3 gap-4 text-center">
+                          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                            <h5 className="font-semibold text-blue-900 mb-2">B2B Quotes</h5>
+                            <p className="text-sm text-blue-800">Usually VAT-exclusive for business clients who can claim VAT back</p>
                           </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-gray-900">Budget Planning</p>
-                            <p className="text-gray-600 text-sm">Account for VAT in expense forecasting</p>
+                          
+                          <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                            <h5 className="font-semibold text-green-900 mb-2">B2C Quotes</h5>
+                            <p className="text-sm text-green-800">Typically VAT-inclusive for consumers who cannot reclaim VAT</p>
+                          </div>
+                          
+                          <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                            <h5 className="font-semibold text-purple-900 mb-2">Mixed Clients</h5>
+                            <p className="text-sm text-purple-800">Show both amounts clearly to accommodate different client types</p>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
 
-              {/* Business Benefits */}
-              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 mt-8 mobile-card-margin sm:mx-0">
-                <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-xl text-gray-900">Key Business Benefits</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6 pt-0">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4 text-green-600" />
+              {/* Financial Management */}
+              <section>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <Calculator className="w-6 h-6 text-purple-600" />
+                  Financial Management & Cash Flow
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* VAT Cash Flow */}
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">VAT Cash Flow Management</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <p className="text-gray-700">
+                          Effective VAT management significantly impacts business cash flow. Understanding timing and mechanisms is crucial for financial planning.
+                        </p>
+                        
+                        <div className="space-y-4">
+                          <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                            <h4 className="font-semibold text-green-900 mb-2">Input VAT Benefits:</h4>
+                            <ul className="space-y-1 text-sm text-green-800">
+                              <li>• Claim VAT on business purchases immediately</li>
+                              <li>• Improve cash flow through VAT refunds</li>
+                              <li>• Reduce effective cost of capital expenditure</li>
+                              <li>• Strategic timing of major purchases</li>
+                            </ul>
+                          </div>
+                          
+                          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                            <h4 className="font-semibold text-blue-900 mb-2">Output VAT Considerations:</h4>
+                            <ul className="space-y-1 text-sm text-blue-800">
+                              <li>• Set aside VAT collected for SARS payments</li>
+                              <li>• Consider VAT implications in pricing strategies</li>
+                              <li>• Plan for bi-monthly or monthly payment cycles</li>
+                              <li>• Maintain separate VAT liability accounts</li>
+                            </ul>
+                          </div>
                         </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">Time Savings</p>
-                          <p className="text-gray-600 text-sm">Instant calculations reduce manual work</p>
+                        
+                        <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                          <h4 className="font-semibold text-yellow-900 mb-2">Cash Flow Strategy:</h4>
+                          <p className="text-yellow-800 text-sm">
+                            Synchronize supplier payments with VAT return periods to maximize input VAT claims and optimize working capital.
+                          </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                    </CardContent>
+                  </Card>
+
+                  {/* Record Keeping */}
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">Professional Record Keeping</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Essential Records:</h4>
+                            <ul className="space-y-1 text-sm text-gray-700">
+                              <li>• All VAT invoices (issued and received)</li>
+                              <li>• Credit and debit notes</li>
+                              <li>• Import/export documentation</li>
+                              <li>• Bank statements and payment records</li>
+                              <li>• Asset registers with VAT details</li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Retention Requirements:</h4>
+                            <ul className="space-y-1 text-sm text-gray-700">
+                              <li>• <strong>Minimum:</strong> 5 years from tax year end</li>
+                              <li>• <strong>Format:</strong> Original or certified copies</li>
+                              <li>• <strong>Access:</strong> Available for SARS inspection</li>
+                              <li>• <strong>Digital:</strong> Acceptable if authenticated</li>
+                            </ul>
+                          </div>
                         </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">Accuracy</p>
-                          <p className="text-gray-600 text-sm">Eliminate calculation errors</p>
+                        
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Technology Integration:</h4>
+                          <p className="text-gray-700 text-sm">
+                            Implement accounting software with VAT features for automated calculations, return preparation, and audit trails. 
+                            This reduces errors and simplifies compliance management.
+                          </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4 text-purple-600" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">Compliance</p>
-                          <p className="text-gray-600 text-sm">Meet SARS requirements consistently</p>
-                        </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              {/* Industry-Specific Guidance */}
+              <section>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Industry-Specific VAT Considerations</h2>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">Professional Services</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• Time-based billing with VAT clarity</li>
+                        <li>• Disbursement handling procedures</li>
+                        <li>• Cross-border service implications</li>
+                        <li>• Retainer and advance payment treatment</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">Retail & E-commerce</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• Point-of-sale VAT calculations</li>
+                        <li>• Returns and refund procedures</li>
+                        <li>• Online platform VAT compliance</li>
+                        <li>• Mixed VAT rate product handling</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">Manufacturing</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• Raw material VAT optimization</li>
+                        <li>• Work-in-progress valuations</li>
+                        <li>• Export zero-rating procedures</li>
+                        <li>• Capital equipment planning</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-gray-200">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900">Construction</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• Progress billing VAT treatment</li>
+                        <li>• Material vs labor VAT handling</li>
+                        <li>• Subcontractor VAT compliance</li>
+                        <li>• Residential vs commercial rates</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              {/* Implementation Checklist */}
+              <section>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Implementation Checklist</h2>
+                
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl p-6 border border-purple-200">
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="font-bold text-purple-900 mb-3">✅ Immediate Actions (Week 1)</h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <ul className="space-y-1 text-sm text-purple-800">
+                          <li>□ Verify current VAT registration status</li>
+                          <li>□ Review invoice templates for compliance</li>
+                          <li>□ Audit current record keeping systems</li>
+                        </ul>
+                        <ul className="space-y-1 text-sm text-purple-800">
+                          <li>□ Assess accounting software VAT features</li>
+                          <li>□ Train staff on VAT requirements</li>
+                          <li>□ Establish VAT return calendar</li>
+                        </ul>
                       </div>
                     </div>
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4 text-yellow-600" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">Transparency</p>
-                          <p className="text-gray-600 text-sm">Clear VAT breakdown for clients</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4 text-red-600" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">Professionalism</p>
-                          <p className="text-gray-600 text-sm">Accurate quotes and invoices</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4 text-indigo-600" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">Scalability</p>
-                          <p className="text-gray-600 text-sm">Grows with your business needs</p>
-                        </div>
+                    
+                    <div>
+                      <h3 className="font-bold text-purple-900 mb-3">🔄 Ongoing Processes (Monthly)</h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <ul className="space-y-1 text-sm text-purple-800">
+                          <li>□ Reconcile VAT accounts</li>
+                          <li>□ Review supplier VAT numbers</li>
+                          <li>□ Prepare VAT returns timeously</li>
+                        </ul>
+                        <ul className="space-y-1 text-sm text-purple-800">
+                          <li>□ Monitor cash flow implications</li>
+                          <li>□ Update price lists for VAT changes</li>
+                          <li>□ Archive VAT documentation properly</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </main>
-
-            {/* Right Sidebar AdSense Zone */}
-            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
-              <SidebarAd />
-            </aside> */}
-          </div>
+                </div>
+              </section>
+            </article>
+          </main>
         </div>
       </div>
       

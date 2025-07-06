@@ -70,16 +70,10 @@ export default function Feedback() {
   return (
     <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-            
-            {/* Left Sidebar AdSense Zone */}
-            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
-              <SidebarAd />
-            </aside> */}
-
-            {/* Main Content Area */}
-            <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
               {/* Header Section - White Background */}
               <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
                 <header className="text-center">
@@ -275,13 +269,7 @@ export default function Feedback() {
                   </div>
                 </CardContent>
               </Card>
-            </main>
-
-            {/* Right Sidebar AdSense Zone */}
-            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
-              <SidebarAd />
-            </aside> */}
-          </div>
+          </main>
         </div>
       </div>
       

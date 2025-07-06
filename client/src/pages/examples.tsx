@@ -3,7 +3,6 @@ import { ArrowLeft, Calculator, ShoppingCart, Building, Car, Home, TrendingUp, P
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-// import { SidebarAd } from "@/components/AdSense";
 import Footer from "@/components/Footer";
 
 export default function Examples() {
@@ -14,330 +13,421 @@ export default function Examples() {
   return (
     <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-7xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/Article">
             
-            {/* Left Sidebar AdSense Zone */}
-            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
-              <SidebarAd />
-            </aside> */}
+            {/* Header Section - White Background */}
+            <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
+              <header className="text-center">
+                <Link href="/" onClick={handleBackClick}>
+                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Back to Calculator
+                  </Button>
+                </Link>
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Calculator className="w-6 h-6 text-white" />
+                </div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4" itemProp="headline">
+                  Real-Life VAT Calculation Examples
+                </h1>
+                <p className="text-lg text-gray-600 mb-2" itemProp="description">
+                  Practical scenarios showing VAT removal in action across different industries
+                </p>
+                <p className="text-sm text-gray-500">
+                  Learn from real-world examples of 15% South African VAT calculations
+                </p>
+              </header>
+            </div>
 
-            {/* Main Content Area */}
-            <main className="flex-1 max-w-2xl mx-auto lg:mx-0 min-w-0" role="main">
-              {/* Header Section - White Background */}
-              <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
-                <header className="text-center">
-                  <Link href="/" onClick={handleBackClick}>
-                    <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                      <ArrowLeft className="w-4 h-4 mr-2" />
-                      Back to Calculator
-                    </Button>
-                  </Link>
-                  <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                    Real-Life Examples
-                  </h1>
-                  <p className="text-lg text-gray-600 mb-2">
-                    Practical VAT calculations you'll use daily
+            {/* Main Content */}
+            <article className="space-y-8" itemProp="articleBody">
+              
+              {/* Introduction */}
+              <section>
+                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                  <h2 className="text-xl font-bold text-green-900 mb-3">Understanding VAT Through Real Examples</h2>
+                  <p className="text-green-800 leading-relaxed">
+                    Value-Added Tax (VAT) removal is essential in many business and personal scenarios. These practical examples demonstrate how our calculator helps solve real-world problems across different sectors, from small business operations to large retail transactions.
                   </p>
-                  <p className="text-sm text-gray-500 mb-4">
-                    See how VAT removal works in common scenarios
-                  </p>
-                </header>
+                </div>
+              </section>
 
-                {/* Hero Summary Card - Green Background */}
-                <Card className="bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
-                  <CardContent className="p-0">
-                    <div className="max-w-2xl">
-                      <h2 className="text-2xl font-bold mb-4 text-green-900">Practical Applications</h2>
-                      <p className="text-green-700 text-lg">
-                        Real-world examples showing how to remove 15% VAT from everyday purchases and business transactions.
-                      </p>
+              {/* Business Examples */}
+              <section itemScope itemType="https://schema.org/ExampleOfWork">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <Building className="w-6 h-6 text-green-600" />
+                  Business & Professional Examples
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* Example 1: Small Business */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">1</Badge>
+                        Small Business Supplier Invoice
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A small café receives a monthly coffee supplier invoice totaling <strong>R2,875</strong>. 
+                            The owner needs to separate the VAT for bookkeeping and understand the net cost.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Total Invoice</div>
+                            <div className="text-lg font-bold text-blue-900">R2,875.00</div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Net Amount</div>
+                            <div className="text-lg font-bold text-green-900">R2,500.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT Amount</div>
+                            <div className="text-lg font-bold text-purple-900">R375.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                          <h4 className="font-semibold text-yellow-900 mb-1">Business Impact:</h4>
+                          <p className="text-yellow-800 text-sm">
+                            The café can claim back the R375 VAT from SARS, effectively reducing their coffee cost to R2,500. 
+                            This VAT refund helps improve cash flow and reduces operating expenses.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Example 2: Freelancer */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">2</Badge>
+                        Freelancer Project Pricing
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A graphic designer wants to quote <strong>R1,500 excluding VAT</strong> for a logo design project. 
+                            The client asks for the total price including VAT to budget properly.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Net Quote</div>
+                            <div className="text-lg font-bold text-green-900">R1,500.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT (15%)</div>
+                            <div className="text-lg font-bold text-purple-900">R225.00</div>
+                          </div>
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Total Price</div>
+                            <div className="text-lg font-bold text-blue-900">R1,725.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                          <h4 className="font-semibold text-blue-900 mb-1">Professional Tip:</h4>
+                          <p className="text-blue-800 text-sm">
+                            Always clarify whether quotes are inclusive or exclusive of VAT. This transparency builds trust and prevents billing disputes later.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Example 3: Corporate Purchase */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">3</Badge>
+                        Corporate Equipment Purchase
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A company purchases office equipment for <strong>R23,000 including VAT</strong>. 
+                            The finance team needs to separate the asset value from VAT for depreciation calculations.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Purchase Price</div>
+                            <div className="text-lg font-bold text-blue-900">R23,000.00</div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Asset Value</div>
+                            <div className="text-lg font-bold text-green-900">R20,000.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT Claimable</div>
+                            <div className="text-lg font-bold text-purple-900">R3,000.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                          <h4 className="font-semibold text-green-900 mb-1">Accounting Benefit:</h4>
+                          <p className="text-green-800 text-sm">
+                            The R20,000 asset value is used for depreciation, while the R3,000 VAT is claimed back, 
+                            effectively reducing the net cost to the company.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              {/* Consumer Examples */}
+              <section itemScope itemType="https://schema.org/ExampleOfWork">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <ShoppingCart className="w-6 h-6 text-green-600" />
+                  Consumer & Retail Examples
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* Example 4: Grocery Shopping */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">4</Badge>
+                        Grocery Receipt Verification
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A consumer receives a grocery receipt totaling <strong>R345</strong> and wants to understand 
+                            how much VAT they paid and what the items cost before tax.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Receipt Total</div>
+                            <div className="text-lg font-bold text-blue-900">R345.00</div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Pre-VAT Cost</div>
+                            <div className="text-lg font-bold text-green-900">R300.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT Paid</div>
+                            <div className="text-lg font-bold text-purple-900">R45.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                          <h4 className="font-semibold text-purple-900 mb-1">Consumer Insight:</h4>
+                          <p className="text-purple-800 text-sm">
+                            Understanding VAT helps consumers compare true product costs and make informed purchasing decisions, 
+                            especially when comparing prices between VAT-registered and non-registered suppliers.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Example 5: Electronics Purchase */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">5</Badge>
+                        Electronics Store Purchase
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A customer buys a laptop advertised at <strong>R11,500</strong>. They want to know if this price 
+                            includes VAT and what the base price would be without tax.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Advertised Price</div>
+                            <div className="text-lg font-bold text-blue-900">R11,500.00</div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Base Price</div>
+                            <div className="text-lg font-bold text-green-900">R10,000.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT Component</div>
+                            <div className="text-lg font-bold text-purple-900">R1,500.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                          <h4 className="font-semibold text-yellow-900 mb-1">Price Comparison Tip:</h4>
+                          <p className="text-yellow-800 text-sm">
+                            When comparing prices from different retailers, ensure you're comparing either all VAT-inclusive 
+                            or all VAT-exclusive prices for accurate comparisons.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              {/* Property & Automotive Examples */}
+              <section itemScope itemType="https://schema.org/ExampleOfWork">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                  <Car className="w-6 h-6 text-green-600" />
+                  Property & Automotive Examples
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* Example 6: Car Purchase */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">6</Badge>
+                        Vehicle Purchase Analysis
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A business purchases a delivery vehicle for <strong>R345,000 including VAT</strong>. 
+                            They need to understand the asset value for insurance and depreciation purposes.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Purchase Price</div>
+                            <div className="text-lg font-bold text-blue-900">R345,000.00</div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Asset Value</div>
+                            <div className="text-lg font-bold text-green-900">R300,000.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT Claimable</div>
+                            <div className="text-lg font-bold text-purple-900">R45,000.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                          <h4 className="font-semibold text-blue-900 mb-1">Financial Advantage:</h4>
+                          <p className="text-blue-800 text-sm">
+                            The business can claim back R45,000 in VAT, reducing the effective vehicle cost to R300,000. 
+                            This amount is used for asset registers and depreciation calculations.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Example 7: Home Renovation */}
+                  <Card className="border-gray-200 hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 font-bold">7</Badge>
+                        Home Renovation Project
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 rounded-lg p-4">
+                          <h4 className="font-semibold text-gray-900 mb-2">Scenario:</h4>
+                          <p className="text-gray-700 text-sm">
+                            A homeowner receives a renovation quote for <strong>R57,500</strong>. They want to understand 
+                            the contractor's base rate and the VAT component for budgeting.
+                          </p>
+                        </div>
+                        
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-200">
+                            <div className="text-xs font-medium text-blue-800 mb-1">Quote Total</div>
+                            <div className="text-lg font-bold text-blue-900">R57,500.00</div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3 text-center border border-green-200">
+                            <div className="text-xs font-medium text-green-800 mb-1">Labour & Materials</div>
+                            <div className="text-lg font-bold text-green-900">R50,000.00</div>
+                          </div>
+                          <div className="bg-purple-50 rounded-lg p-3 text-center border border-purple-200">
+                            <div className="text-xs font-medium text-purple-800 mb-1">VAT Amount</div>
+                            <div className="text-lg font-bold text-purple-900">R7,500.00</div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                          <h4 className="font-semibold text-green-900 mb-1">Budgeting Insight:</h4>
+                          <p className="text-green-800 text-sm">
+                            Understanding the VAT breakdown helps homeowners budget more accurately and compare quotes 
+                            from different contractors on a like-for-like basis.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              {/* Key Takeaways */}
+              <section>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Takeaways</h2>
+                
+                <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6 border border-green-200">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-bold text-green-900 mb-3 flex items-center gap-2">
+                        <TrendingUp className="w-5 h-5" />
+                        Business Benefits
+                      </h3>
+                      <ul className="space-y-2 text-sm text-green-800">
+                        <li>• Accurate pricing and quoting</li>
+                        <li>• Proper VAT compliance and claims</li>
+                        <li>• Clear financial reporting</li>
+                        <li>• Better cash flow management</li>
+                      </ul>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Example Categories */}
-              <div className="space-y-6">
-                {/* Retail & Shopping */}
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                        <ShoppingCart className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Retail & Shopping</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="space-y-4">
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Electronics Purchase</p>
-                          <Badge variant="secondary" className="bg-blue-100 text-blue-800">R11,500</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">New laptop with VAT included</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R10,000</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R1,500</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Groceries</p>
-                          <Badge variant="secondary" className="bg-blue-100 text-blue-800">R575</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Weekly shopping with VAT</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R500</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R75</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Clothing & Accessories</p>
-                          <Badge variant="secondary" className="bg-blue-100 text-blue-800">R2,300</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Designer outfit with VAT</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R2,000</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R300</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Business Expenses */}
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <Building className="w-5 h-5 text-green-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Business Expenses</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="space-y-4">
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Office Supplies</p>
-                          <Badge variant="secondary" className="bg-green-100 text-green-800">R1,725</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Monthly stationery and equipment</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R1,500</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R225</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Professional Services</p>
-                          <Badge variant="secondary" className="bg-green-100 text-green-800">R5,750</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Legal consultation fees</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R5,000</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R750</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Equipment Rental</p>
-                          <Badge variant="secondary" className="bg-green-100 text-green-800">R2,875</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Monthly IT equipment lease</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R2,500</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R375</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Automotive */}
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                        <Car className="w-5 h-5 text-purple-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Automotive</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="space-y-4">
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Vehicle Service</p>
-                          <Badge variant="secondary" className="bg-purple-100 text-purple-800">R1,150</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Full car service with VAT</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R1,000</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R150</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Fuel Purchase</p>
-                          <Badge variant="secondary" className="bg-purple-100 text-purple-800">R920</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Tank full of petrol</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R800</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R120</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Home & Property */}
-                <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300 mobile-card-margin sm:mx-0">
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                        <Home className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <CardTitle className="text-xl text-gray-900">Home & Property</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <div className="space-y-4">
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Home Renovations</p>
-                          <Badge variant="secondary" className="bg-orange-100 text-orange-800">R34,500</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">Bathroom upgrade with VAT</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R30,000</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R4,500</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <p className="font-semibold text-gray-900">Appliances</p>
-                          <Badge variant="secondary" className="bg-orange-100 text-orange-800">R8,625</Badge>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-3">New washing machine</p>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
-                          <div className="bg-green-50 p-3 rounded">
-                            <p className="text-green-700 font-medium">VAT-Exclusive</p>
-                            <p className="text-green-900 text-lg font-bold">R7,500</p>
-                          </div>
-                          <div className="bg-yellow-50 p-3 rounded">
-                            <p className="text-yellow-700 font-medium">VAT Amount</p>
-                            <p className="text-yellow-900 text-lg font-bold">R1,125</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Quick Reference */}
-              <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 mt-8 mobile-card-margin sm:mx-0">
-                <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-xl text-gray-900">Quick Reference Formula</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6 pt-0">
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <div className="text-center mb-4">
-                      <p className="text-2xl font-bold text-gray-900 mb-2">VAT-Exclusive Amount = Total ÷ 1.15</p>
-                      <p className="text-gray-600">VAT Amount = VAT-Exclusive Amount × 0.15</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <p className="text-blue-800 font-semibold">R1,150</p>
-                        <p className="text-blue-600 text-sm">becomes</p>
-                        <p className="text-blue-900 font-bold">R1,000 + R150</p>
-                      </div>
-                      <div className="bg-green-50 p-4 rounded-lg">
-                        <p className="text-green-800 font-semibold">R5,750</p>
-                        <p className="text-green-600 text-sm">becomes</p>
-                        <p className="text-green-900 font-bold">R5,000 + R750</p>
-                      </div>
-                      <div className="bg-purple-50 p-4 rounded-lg">
-                        <p className="text-purple-800 font-semibold">R11,500</p>
-                        <p className="text-purple-600 text-sm">becomes</p>
-                        <p className="text-purple-900 font-bold">R10,000 + R1,500</p>
-                      </div>
+                    
+                    <div>
+                      <h3 className="font-bold text-green-900 mb-3 flex items-center gap-2">
+                        <PieChart className="w-5 h-5" />
+                        Consumer Advantages
+                      </h3>
+                      <ul className="space-y-2 text-sm text-green-800">
+                        <li>• Transparent price understanding</li>
+                        <li>• Accurate budget planning</li>
+                        <li>• Informed purchasing decisions</li>
+                        <li>• Receipt verification ability</li>
+                      </ul>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </main>
-
-            {/* Right Sidebar AdSense Zone */}
-            {/* <aside className="hidden lg:block lg:w-64 flex-shrink-0" aria-label="Advertisement">
-              <SidebarAd />
-            </aside> */}
-          </div>
+                </div>
+              </section>
+            </article>
+          </main>
         </div>
       </div>
       
