@@ -345,12 +345,13 @@ export default function VATCalculator() {
               © {new Date().getFullYear()} SA VAT Calculator brought to you by LeadCafé - Simple, accurate VAT calculations for South African businesses.
             </p>
             <div className="text-sm pb-8 sm:pb-4">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button className="text-gray-400 hover:text-white underline transition-colors duration-200">
-                    Disclaimer
-                  </button>
-                </DialogTrigger>
+              <div className="flex flex-wrap items-center justify-center gap-2 text-gray-400">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="hover:text-white underline transition-colors duration-200">
+                      Disclaimer
+                    </button>
+                  </DialogTrigger>
                 <DialogContent className="max-w-2xl mobile-padding">
                   <DialogHeader>
                     <DialogTitle className="flex items-center text-amber-600">
@@ -394,7 +395,36 @@ export default function VATCalculator() {
                     </DialogClose>
                   </DialogFooter>
                 </DialogContent>
-              </Dialog>
+                </Dialog>
+                
+                <span className="text-gray-600">•</span>
+                <Link href="/how-to-use">
+                  <button className="hover:text-white underline transition-colors duration-200">
+                    How To Use
+                  </button>
+                </Link>
+                
+                <span className="text-gray-600">•</span>
+                <Link href="/examples">
+                  <button className="hover:text-white underline transition-colors duration-200">
+                    Examples
+                  </button>
+                </Link>
+                
+                <span className="text-gray-600">•</span>
+                <Link href="/business-guide">
+                  <button className="hover:text-white underline transition-colors duration-200">
+                    Business Guide
+                  </button>
+                </Link>
+                
+                <span className="text-gray-600">•</span>
+                <Link href="/faq">
+                  <button className="hover:text-white underline transition-colors duration-200">
+                    FAQ
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
