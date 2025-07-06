@@ -41,6 +41,10 @@ export default function VATCalculator() {
   const [copySuccess, setCopySuccess] = useState<boolean>(false);
   const { toast } = useToast();
 
+  const handleTeaserClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const calculateVAT = (inclusiveAmount: number): VATCalculation => {
     const exclusiveAmount = inclusiveAmount / 1.15;
     const vatAmount = inclusiveAmount - exclusiveAmount;
@@ -256,7 +260,7 @@ export default function VATCalculator() {
                     <p className="text-gray-700 mb-4 text-sm">
                       Master VAT calculations in 3 simple steps. Learn the formula, understand the results, and use advanced features.
                     </p>
-                    <Link href="/how-to-use">
+                    <Link href="/how-to-use" onClick={handleTeaserClick}>
                       <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                         Learn How to Use
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -277,7 +281,7 @@ export default function VATCalculator() {
                     <p className="text-gray-700 mb-4 text-sm">
                       See how businesses use VAT calculations daily. From small business reconciliation to freelancer quotes.
                     </p>
-                    <Link href="/examples">
+                    <Link href="/examples" onClick={handleTeaserClick}>
                       <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
                         View Examples
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -298,7 +302,7 @@ export default function VATCalculator() {
                     <p className="text-gray-700 mb-4 text-sm">
                       Professional VAT management for businesses. Invoicing, compliance, reconciliation, and strategic planning.
                     </p>
-                    <Link href="/business-guide">
+                    <Link href="/business-guide" onClick={handleTeaserClick}>
                       <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
                         Business Guide
                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -319,7 +323,7 @@ export default function VATCalculator() {
                     <p className="text-gray-700 mb-4 text-sm">
                       Find answers to common VAT questions. Search through 12+ frequently asked questions about calculations and compliance.
                     </p>
-                    <Link href="/faq">
+                    <Link href="/faq" onClick={handleTeaserClick}>
                       <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
                         Browse FAQ
                         <ArrowRight className="w-4 h-4 ml-2" />
