@@ -44,12 +44,12 @@ export default function HowToUse() {
                   </p>
                 </header>
 
-                {/* Hero Summary Card - Purple Background */}
-                <Card className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
+                {/* Hero Summary Card - Blue Background */}
+                <Card className="bg-gradient-to-br from-blue-50 to-indigo-100 border-blue-200 rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
                   <CardContent className="p-0">
                     <div className="max-w-2xl">
-                      <h2 className="text-2xl font-bold mb-4">Quick Start Guide</h2>
-                      <p className="text-purple-100 text-lg">
+                      <h2 className="text-2xl font-bold mb-4 text-blue-900">Quick Start Guide</h2>
+                      <p className="text-blue-700 text-lg">
                         Learn how to efficiently remove 15% South African VAT from any amount using our professional calculator.
                       </p>
                     </div>

@@ -44,12 +44,12 @@ export default function Examples() {
                   </p>
                 </header>
 
-                {/* Hero Summary Card - Purple Background */}
-                <Card className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
+                {/* Hero Summary Card - Green Background */}
+                <Card className="bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
                   <CardContent className="p-0">
                     <div className="max-w-2xl">
-                      <h2 className="text-2xl font-bold mb-4">Practical Applications</h2>
-                      <p className="text-purple-100 text-lg">
+                      <h2 className="text-2xl font-bold mb-4 text-green-900">Practical Applications</h2>
+                      <p className="text-green-700 text-lg">
                         Real-world examples showing how to remove 15% VAT from everyday purchases and business transactions.
                       </p>
                     </div>

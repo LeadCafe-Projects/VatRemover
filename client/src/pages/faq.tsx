@@ -44,12 +44,12 @@ export default function FAQ() {
                   </p>
                 </header>
 
-                {/* Hero Summary Card - Purple Background */}
-                <Card className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
+                {/* Hero Summary Card - Orange Background */}
+                <Card className="bg-gradient-to-br from-orange-50 to-red-100 border-orange-200 rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
                   <CardContent className="p-0">
                     <div className="max-w-2xl">
-                      <h2 className="text-2xl font-bold mb-4">Quick Answers</h2>
-                      <p className="text-purple-100 text-lg">
+                      <h2 className="text-2xl font-bold mb-4 text-orange-900">Quick Answers</h2>
+                      <p className="text-orange-700 text-lg">
                         Everything you need to know about VAT calculations, South African tax requirements, and using our calculator effectively.
                       </p>
                     </div>

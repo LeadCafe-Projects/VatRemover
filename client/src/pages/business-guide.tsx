@@ -45,11 +45,11 @@ export default function BusinessGuide() {
                 </header>
 
                 {/* Hero Summary Card - Purple Background */}
-                <Card className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
+                <Card className="bg-gradient-to-br from-purple-50 to-pink-100 border-purple-200 rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mobile-card-margin sm:mx-0">
                   <CardContent className="p-0">
                     <div className="max-w-2xl">
-                      <h2 className="text-2xl font-bold mb-4">Complete Business Solution</h2>
-                      <p className="text-purple-100 text-lg">
+                      <h2 className="text-2xl font-bold mb-4 text-purple-900">Complete Business Solution</h2>
+                      <p className="text-purple-700 text-lg">
                         Streamline your VAT processes with professional tools and strategies for South African businesses of all sizes.
                       </p>
                     </div>
