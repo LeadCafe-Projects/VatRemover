@@ -330,7 +330,7 @@ export default function VATCalculator() {
                       <h3 className="text-lg font-bold text-gray-900">FAQ</h3>
                     </div>
                     <p className="text-gray-700 mb-4 text-sm">
-                      Find answers to common VAT questions. Search through 12+ frequently asked questions about calculations and compliance.
+                      Find answers to common VAT questions. Search through 12+ FAQ's about calculations and compliance.
                     </p>
                     <Link href="/faq" onClick={handleTeaserClick}>
                       <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
