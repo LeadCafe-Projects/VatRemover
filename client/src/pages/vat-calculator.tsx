@@ -339,7 +339,10 @@ export default function VATCalculator() {
               </Card>
             </section>
 
-
+            {/* Sharing module without redundant heading */}
+            <section className="mb-8">
+              <ShareButtons className="justify-center" />
+            </section>
           </main>
         </div>
       </div>
