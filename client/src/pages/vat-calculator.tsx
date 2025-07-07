@@ -64,7 +64,19 @@ export default function VATCalculator() {
   useEffect(() => {
     // Remove commas and parse the number to handle formats like "1,000.00", "1,000", "1000"
     const cleanedAmount = amount.replace(/,/g, '');
-    const numericAmount = parseFloat(cleanedAmount) || 0;
+    
+    // If amount is empty, reset to zero immediately
+    if (cleanedAmount === '' || cleanedAmount === null || cleanedAmount === undefined) {
+      setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
+      return;
+    }
+    
+    const numericAmount = parseFloat(cleanedAmount);
+    if (isNaN(numericAmount)) {
+      setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
+      return;
+    }
+    
     setCalculations(calculateVAT(numericAmount));
   }, [amount, calculateVAT]);
 
@@ -94,6 +106,7 @@ export default function VATCalculator() {
   };
 
   const resetCalculator = useCallback(() => {
+    console.log("Reset button clicked - clearing all values");
     setAmount("");
     setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
     setCopySuccess(false);
