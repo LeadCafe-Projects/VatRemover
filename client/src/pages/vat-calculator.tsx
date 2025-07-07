@@ -62,9 +62,11 @@ export default function VATCalculator() {
   };
 
   useEffect(() => {
-    const numericAmount = parseFloat(amount) || 0;
+    // Remove commas and parse the number to handle formats like "1,000.00", "1,000", "1000"
+    const cleanedAmount = amount.replace(/,/g, '');
+    const numericAmount = parseFloat(cleanedAmount) || 0;
     setCalculations(calculateVAT(numericAmount));
-  }, [amount]);
+  }, [amount, calculateVAT]);
 
   const formatCurrency = (value: number): string => {
     return value.toLocaleString('en-ZA', {
@@ -133,9 +135,13 @@ export default function VATCalculator() {
                     <Input
                       id="vatInclusiveAmount"
                       type="text"
-                      placeholder="0.00"
+                      placeholder="14,192.39"
                       value={amount}
-                      onChange={(e) => setAmount(e.target.value)}
+                      onChange={(e) => {
+                        // Allow digits, commas, and decimal points only
+                        const value = e.target.value.replace(/[^0-9,\.]/g, '');
+                        setAmount(value);
+                      }}
                       className="w-full pl-7 sm:pl-8 pr-3 sm:pr-4 py-2 sm:py-3 text-lg sm:text-xl font-semibold border-2 border-gray-200 rounded-xl input-focus transition-all duration-200"
                       step="0.01"
                       min="0"
@@ -144,7 +150,7 @@ export default function VATCalculator() {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 mt-2">
                     <InfoIcon className="inline w-3 h-3 mr-1" />
-                    Enter the amount that includes 15% South African VAT
+                    Enter the amount that includes 15% South African VAT (supports formats: 1,000.00, 1,000, 1000)
                   </p>
                 </div>
 
