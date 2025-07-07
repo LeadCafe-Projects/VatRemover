@@ -339,16 +339,7 @@ export default function VATCalculator() {
               </Card>
             </section>
 
-            {/* Found this useful section */}
-            <section className="mb-8">
-              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <div className="text-center">
-                  <h2 className="text-xl font-bold text-gray-900 mb-2">Found this useful?</h2>
-                  <p className="text-gray-600 mb-4">Share our free VAT calculator with others</p>
-                  <ShareButtons className="justify-center" />
-                </div>
-              </div>
-            </section>
+
           </main>
         </div>
       </div>
