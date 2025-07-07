@@ -4,6 +4,11 @@ import { storage } from "./storage";
 import { sendFeedbackEmail } from "./sendgrid";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Simple test endpoint to verify API routing
+  app.get('/api/test', (req, res) => {
+    res.json({ message: 'API routes are working', timestamp: new Date().toISOString() });
+  });
+
   // Rate limiting for feedback endpoint
   const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
   const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
@@ -38,14 +43,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Feedback form submission endpoint
   app.post('/api/feedback', async (req, res) => {
-    console.log('=== FEEDBACK API CALLED ===');
-    console.log('Headers:', JSON.stringify(req.headers, null, 2));
-    console.log('Body:', JSON.stringify(req.body, null, 2));
-    
     // Rate limiting check
     const clientIP = req.ip || req.connection.remoteAddress || 'unknown';
     if (!checkRateLimit(clientIP)) {
-      console.log('Rate limit exceeded for IP:', clientIP);
       return res.status(429).json({ 
         success: false,
         error: 'Too many requests. Please try again in 15 minutes.' 
@@ -94,19 +94,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       if (emailSent) {
-        const successResponse = { 
+        res.json({ 
           success: true, 
           message: 'Feedback submitted successfully! We will get back to you soon.' 
-        };
-        console.log('Sending success response:', JSON.stringify(successResponse));
-        res.json(successResponse);
+        });
       } else {
-        const errorResponse = { 
+        res.status(500).json({ 
           success: false,
           error: 'Failed to send email. Please try again later.' 
-        };
-        console.log('Sending error response:', JSON.stringify(errorResponse));
-        res.status(500).json(errorResponse);
+        });
       }
     } catch (error) {
       console.error('Feedback submission error:', error);
