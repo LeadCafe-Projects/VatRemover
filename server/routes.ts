@@ -94,12 +94,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } else {
         res.status(500).json({ 
+          success: false,
           error: 'Failed to send email. Please try again later.' 
         });
       }
     } catch (error) {
       console.error('Feedback submission error:', error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ 
+        success: false,
+        error: 'An unexpected error occurred. Please try again later.' 
+      });
     }
   });
 
