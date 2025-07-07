@@ -93,10 +93,11 @@ export default function VATCalculator() {
     }
   };
 
-  const resetCalculator = () => {
+  const resetCalculator = useCallback(() => {
     setAmount("");
     setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
-  };
+    setCopySuccess(false);
+  }, []);
 
   return (
     <div className="bg-gray-50 min-h-screen overflow-x-hidden">
