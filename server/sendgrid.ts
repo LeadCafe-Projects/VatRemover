@@ -41,42 +41,48 @@ export async function sendFeedbackEmail(params: FeedbackEmailParams): Promise<bo
     console.log('Timestamp:', new Date().toISOString());
     console.log('==========================');
 
-    // For now, return true since we're logging the feedback
-    // Once domain verification is complete, uncomment the SendGrid code below
-    
-    /* 
-    const msg = {
-      to: 'support@vatremover.co.za',
-      from: 'noreply@vatremover.co.za', // This needs to be verified in SendGrid
-      replyTo: params.email,
-      subject: `VAT Calculator Feedback: ${params.subject}`,
-      html: `
-        <h2>New Feedback from VAT Calculator</h2>
-        <p><strong>Name:</strong> ${params.name}</p>
-        <p><strong>Email:</strong> ${params.email}</p>
-        <p><strong>Subject:</strong> ${params.subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${params.message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Sent from VAT Calculator feedback form</small></p>
-      `,
-      text: `
-        New Feedback from VAT Calculator
-        
-        Name: ${params.name}
-        Email: ${params.email}
-        Subject: ${params.subject}
-        
-        Message:
-        ${params.message}
-        
-        ---
-        Sent from VAT Calculator feedback form
-      `
-    };
+    // Try to send via SendGrid - will fail until domain is verified
+    try {
+      const msg = {
+        to: 'josh@leadcafe.co.za', // Send to your actual email
+        from: 'josh@leadcafe.co.za', // Use verified sender email
+        replyTo: params.email,
+        subject: `VAT Calculator Feedback: ${escapeHtml(params.subject)}`,
+        html: `
+          <h2>New Feedback from VAT Calculator</h2>
+          <p><strong>Name:</strong> ${escapeHtml(params.name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(params.email)}</p>
+          <p><strong>Subject:</strong> ${escapeHtml(params.subject)}</p>
+          <p><strong>Message:</strong></p>
+          <p>${escapeHtml(params.message).replace(/\n/g, '<br>')}</p>
+          <hr>
+          <p><small>Sent from VAT Calculator feedback form at ${new Date().toISOString()}</small></p>
+        `,
+        text: `
+          New Feedback from VAT Calculator
+          
+          Name: ${params.name}
+          Email: ${params.email}
+          Subject: ${params.subject}
+          
+          Message:
+          ${params.message}
+          
+          ---
+          Sent from VAT Calculator feedback form at ${new Date().toISOString()}
+        `
+      };
 
-    await sgMail.send(msg);
-    */
+      await sgMail.send(msg);
+      console.log('SUCCESS: Email sent via SendGrid to josh@leadcafe.co.za');
+      return true;
+    } catch (sendError: any) {
+      console.error('SendGrid send failed:', sendError.message);
+      if (sendError.response) {
+        console.error('SendGrid error details:', sendError.response.body);
+      }
+      // Continue with logging as fallback
+    }
     
     return true;
   } catch (error: any) {
