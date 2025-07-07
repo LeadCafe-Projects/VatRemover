@@ -19,7 +19,7 @@ interface ShareButtonsProps {
 export default function ShareButtons({ variant = "full", className = "" }: ShareButtonsProps) {
   const { toast } = useToast();
 
-  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://vatremover.co.za';
   const shareTitle = "SA VAT Calculator - Remove 15% VAT Instantly";
   const shareText = "Check out this free South African VAT calculator! Instantly remove 15% VAT from any amount with real-time calculations and copy functionality.";
 
@@ -29,8 +29,14 @@ export default function ShareButtons({ variant = "full", className = "" }: Share
   };
 
   const handleEmailShare = () => {
-    const emailUrl = `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`;
-    window.open(emailUrl, '_self');
+    try {
+      const emailUrl = `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(`${shareText}\n\nVisit: ${shareUrl}`)}`;
+      window.location.href = emailUrl;
+    } catch (error) {
+      // Fallback for browsers that don't support mailto
+      const fallbackUrl = `mailto:?subject=${shareTitle}&body=${shareText} - ${shareUrl}`;
+      window.location.href = fallbackUrl;
+    }
   };
 
   const handleFacebookShare = () => {
