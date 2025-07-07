@@ -214,7 +214,7 @@ export default function Feedback() {
                             For detailed technical issues or business inquiries
                           </p>
                           <p className="text-sm text-blue-600 font-medium">
-                            support@vatremover.co.za
+                            Use the contact form above for fastest response
                           </p>
                         </div>
                       </div>
