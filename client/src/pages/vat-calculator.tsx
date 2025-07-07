@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -37,16 +37,25 @@ export default function VATCalculator() {
   const [copySuccess, setCopySuccess] = useState(false);
   const { toast } = useToast();
 
-  const calculateVAT = (inclusiveAmount: number): VATCalculation => {
+  const calculateVAT = useCallback((inclusiveAmount: number): VATCalculation => {
+    // Input validation and sanitization
+    if (!inclusiveAmount || inclusiveAmount < 0 || inclusiveAmount > 999999999) {
+      return {
+        inclusiveAmount: 0,
+        exclusiveAmount: 0,
+        vatAmount: 0,
+      };
+    }
+
     const exclusiveAmount = inclusiveAmount / 1.15;
     const vatAmount = inclusiveAmount - exclusiveAmount;
     
     return {
       inclusiveAmount,
-      exclusiveAmount,
-      vatAmount,
+      exclusiveAmount: Math.round(exclusiveAmount * 100) / 100,
+      vatAmount: Math.round(vatAmount * 100) / 100,
     };
-  };
+  }, []);
 
   const handleTeaserClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

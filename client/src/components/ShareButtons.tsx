@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { 
@@ -23,21 +24,37 @@ export default function ShareButtons({ variant = "full", className = "" }: Share
   const shareTitle = "SA VAT Calculator - Remove 15% VAT Instantly";
   const shareText = "Check out this free South African VAT calculator! Instantly remove 15% VAT from any amount with real-time calculations and copy functionality.";
 
-  const handleWhatsAppShare = () => {
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${shareUrl}`)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+  const handleWhatsAppShare = useCallback(() => {
+    try {
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${shareText} ${shareUrl}`)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Unable to open WhatsApp. Please try again.",
+        variant: "destructive",
+      });
+    }
+  }, [shareText, shareUrl, toast]);
 
-  const handleEmailShare = () => {
+  const handleEmailShare = useCallback(() => {
     try {
       const emailUrl = `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(`${shareText}\n\nVisit: ${shareUrl}`)}`;
       window.location.href = emailUrl;
     } catch (error) {
       // Fallback for browsers that don't support mailto
-      const fallbackUrl = `mailto:?subject=${shareTitle}&body=${shareText} - ${shareUrl}`;
-      window.location.href = fallbackUrl;
+      try {
+        const fallbackUrl = `mailto:?subject=${shareTitle}&body=${shareText} - ${shareUrl}`;
+        window.location.href = fallbackUrl;
+      } catch (fallbackError) {
+        toast({
+          title: "Error",
+          description: "Unable to open email client. Please try again.",
+          variant: "destructive",
+        });
+      }
     }
-  };
+  }, [shareTitle, shareText, shareUrl, toast]);
 
   const handleFacebookShare = () => {
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
