@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Feedback() {
   const [formData, setFormData] = useState({
@@ -17,25 +19,69 @@ export default function Feedback() {
     category: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleBackClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // In a real app, you would send this data to your backend
-    alert('Thank you for your feedback! We will review your message and respond if necessary.');
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      category: '',
-      message: ''
-    });
+    // Validate form
+    if (!formData.name || !formData.email || !formData.category || !formData.message) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.category,
+          message: formData.message
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: data.message || "Thank you for your feedback! We will get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          category: '',
+          message: ''
+        });
+      } else {
+        throw new Error(data.error || 'Failed to submit feedback');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to submit feedback. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -186,10 +232,11 @@ export default function Feedback() {
                       
                       <Button
                         type="submit"
-                        className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                        disabled={isSubmitting}
+                        className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200 flex items-center justify-center gap-2"
                       >
                         <Send className="w-4 h-4" />
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </Button>
                     </form>
                   </CardContent>
@@ -269,6 +316,7 @@ export default function Feedback() {
       
       {/* Footer */}
       <Footer />
+      <Toaster />
     </div>
   );
 }
