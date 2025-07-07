@@ -41,22 +41,21 @@ export async function sendFeedbackEmail(params: FeedbackEmailParams): Promise<bo
     console.log('Timestamp:', new Date().toISOString());
     console.log('==========================');
 
-    // Try to send via SendGrid with multiple verified sender attempts
-    const possibleSenders = [
-      'josh@leadcafe.co.za',
-      'noreply@vatremover.co.za', 
-      'support@vatremover.co.za',
-      'hello@vatremover.co.za'
-    ];
-    
-    for (const sender of possibleSenders) {
-      try {
-        console.log(`Attempting to send with sender: ${sender}`);
-        const msg = {
-          to: 'josh@leadcafe.co.za', // Send to your actual email
-          from: sender, // Try different verified senders
-          replyTo: params.email,
-          subject: `VAT Calculator Feedback: ${escapeHtml(params.subject)}`,
+    // Use the verified sender email address
+    try {
+      const sender = 'josh@leadcafe.co.za';
+      console.log(`Sending email from verified sender: ${sender}`);
+      console.log('SendGrid API Key present:', !!process.env.SENDGRID_API_KEY);
+      console.log('SendGrid API Key length:', process.env.SENDGRID_API_KEY?.length || 0);
+      
+      const msg = {
+        to: 'josh@leadcafe.co.za',
+        from: {
+          email: sender,
+          name: 'Josh'
+        },
+        replyTo: params.email,
+        subject: `VAT Calculator Feedback: ${escapeHtml(params.subject)}`,
         html: `
           <h2>New Feedback from VAT Calculator</h2>
           <p><strong>Name:</strong> ${escapeHtml(params.name)}</p>
@@ -82,19 +81,19 @@ export async function sendFeedbackEmail(params: FeedbackEmailParams): Promise<bo
         `
       };
 
-        await sgMail.send(msg);
-        console.log(`SUCCESS: Email sent via SendGrid from ${sender} to josh@leadcafe.co.za`);
-        return true;
-      } catch (sendError: any) {
-        console.error(`SendGrid send failed with sender ${sender}:`, sendError.message);
-        if (sendError.response) {
-          console.error('SendGrid error details:', sendError.response.body);
-        }
-        // Continue to next sender
+      await sgMail.send(msg);
+      console.log(`SUCCESS: Email sent via SendGrid from ${sender} to josh@leadcafe.co.za`);
+      return true;
+    } catch (sendError: any) {
+      console.error(`SendGrid send failed:`, sendError.message);
+      if (sendError.response) {
+        console.error('SendGrid error details:', JSON.stringify(sendError.response.body, null, 2));
       }
+      if (sendError.code) {
+        console.error('SendGrid error code:', sendError.code);
+      }
+      console.log('Falling back to logging only');
     }
-    
-    console.log('All SendGrid sender attempts failed, falling back to logging only');
     
     return true;
   } catch (error: any) {
