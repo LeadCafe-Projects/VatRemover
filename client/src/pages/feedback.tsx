@@ -42,10 +42,18 @@ export default function Feedback() {
     setIsSubmitting(true);
     
     try {
+      // Test API connectivity first
+      console.log('Testing API connectivity...');
+      const testResponse = await fetch('/api/test');
+      console.log('API test status:', testResponse.status);
+      console.log('API test response:', await testResponse.text());
+      
+      console.log('Submitting feedback...');
       const response = await fetch('/api/feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           name: formData.name,
@@ -54,6 +62,9 @@ export default function Feedback() {
           message: formData.message
         }),
       });
+      
+      console.log('Feedback response status:', response.status);
+      console.log('Feedback response headers:', Object.fromEntries(response.headers.entries()));
 
       // Check if response is ok before trying to parse JSON
       if (!response.ok) {
