@@ -538,7 +538,7 @@ export default function FAQ() {
             </article>
 
             {/* Sharing module */}
-            <section className="mb-8">
+            <section className="mt-8 mb-8">
               <ShareButtons className="justify-center" />
             </section>
           </main>
