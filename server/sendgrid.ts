@@ -41,13 +41,22 @@ export async function sendFeedbackEmail(params: FeedbackEmailParams): Promise<bo
     console.log('Timestamp:', new Date().toISOString());
     console.log('==========================');
 
-    // Try to send via SendGrid - will fail until domain is verified
-    try {
-      const msg = {
-        to: 'josh@leadcafe.co.za', // Send to your actual email
-        from: 'noreply@vatremover.co.za', // Use your verified domain
-        replyTo: params.email,
-        subject: `VAT Calculator Feedback: ${escapeHtml(params.subject)}`,
+    // Try to send via SendGrid with multiple verified sender attempts
+    const possibleSenders = [
+      'josh@leadcafe.co.za',
+      'noreply@vatremover.co.za', 
+      'support@vatremover.co.za',
+      'hello@vatremover.co.za'
+    ];
+    
+    for (const sender of possibleSenders) {
+      try {
+        console.log(`Attempting to send with sender: ${sender}`);
+        const msg = {
+          to: 'josh@leadcafe.co.za', // Send to your actual email
+          from: sender, // Try different verified senders
+          replyTo: params.email,
+          subject: `VAT Calculator Feedback: ${escapeHtml(params.subject)}`,
         html: `
           <h2>New Feedback from VAT Calculator</h2>
           <p><strong>Name:</strong> ${escapeHtml(params.name)}</p>
@@ -73,16 +82,19 @@ export async function sendFeedbackEmail(params: FeedbackEmailParams): Promise<bo
         `
       };
 
-      await sgMail.send(msg);
-      console.log('SUCCESS: Email sent via SendGrid to josh@leadcafe.co.za');
-      return true;
-    } catch (sendError: any) {
-      console.error('SendGrid send failed:', sendError.message);
-      if (sendError.response) {
-        console.error('SendGrid error details:', sendError.response.body);
+        await sgMail.send(msg);
+        console.log(`SUCCESS: Email sent via SendGrid from ${sender} to josh@leadcafe.co.za`);
+        return true;
+      } catch (sendError: any) {
+        console.error(`SendGrid send failed with sender ${sender}:`, sendError.message);
+        if (sendError.response) {
+          console.error('SendGrid error details:', sendError.response.body);
+        }
+        // Continue to next sender
       }
-      // Continue with logging as fallback
     }
+    
+    console.log('All SendGrid sender attempts failed, falling back to logging only');
     
     return true;
   } catch (error: any) {
