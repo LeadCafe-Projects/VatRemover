@@ -510,22 +510,22 @@ export default function FAQ() {
                       Can't find the answer you're looking for? Explore our comprehensive guides or get in touch.
                     </p>
                     <div className="flex flex-wrap justify-center gap-3">
-                      <Link href="/how-to-use">
+                      <Link href="/how-to-use" onClick={handleBackClick}>
                         <Button variant="outline" className="border-orange-300 text-orange-700 hover:bg-orange-100">
                           How to Use Guide
                         </Button>
                       </Link>
-                      <Link href="/examples">
+                      <Link href="/examples" onClick={handleBackClick}>
                         <Button variant="outline" className="border-orange-300 text-orange-700 hover:bg-orange-100">
                           Real Examples
                         </Button>
                       </Link>
-                      <Link href="/business-guide">
+                      <Link href="/business-guide" onClick={handleBackClick}>
                         <Button variant="outline" className="border-orange-300 text-orange-700 hover:bg-orange-100">
                           Business Guide
                         </Button>
                       </Link>
-                      <Link href="/feedback">
+                      <Link href="/feedback" onClick={handleBackClick}>
                         <Button variant="outline" className="border-orange-300 text-orange-700 hover:bg-orange-100">
                           Contact Us
                         </Button>
