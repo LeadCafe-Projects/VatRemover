@@ -22,18 +22,20 @@ export default function Feedback() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleBackClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate form
     if (!formData.name || !formData.email || !formData.category || !formData.message) {
       toast({
-        title: "Validation Error",
-        description: "Please fill in all required fields.",
+        title: "Error",
+        description: "Please fill in all fields before submitting.",
         variant: "destructive",
       });
       return;
@@ -42,7 +44,7 @@ export default function Feedback() {
     setIsSubmitting(true);
     
     try {
-      console.log('Submitting feedback...');
+      // Try server-side API first (for Replit deployment)
       const response = await fetch('/api/feedback', {
         method: 'POST',
         headers: {
@@ -57,260 +59,217 @@ export default function Feedback() {
         }),
       });
       
-      console.log('Feedback response status:', response.status);
-      console.log('Feedback response headers:', Object.fromEntries(response.headers.entries()));
-
-      // Check if response is ok before trying to parse JSON
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Server error response:', errorText);
-        console.error('Response Status:', response.status);
-        console.error('Response StatusText:', response.statusText);
-        
-        // Show specific error message based on status code
-        if (response.status === 405) {
-          throw new Error('This feature is not available on the current deployment. Please use the Replit version of the site.');
-        } else if (response.status === 404) {
-          throw new Error('Feedback service not found. Please try again or contact support.');
-        } else {
-          throw new Error(`Server error: ${response.status} - ${response.statusText}`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          toast({
+            title: "Feedback Submitted",
+            description: "Thank you for your feedback! We'll get back to you soon.",
+          });
+          
+          // Reset form
+          setFormData({
+            name: '',
+            email: '',
+            category: '',
+            message: ''
+          });
+          return;
         }
       }
-
-      // Get response text first to debug JSON parsing
-      const responseText = await response.text();
-      console.log('Raw server response:', responseText);
-      
-      let data;
-      try {
-        data = JSON.parse(responseText);
-      } catch (jsonError) {
-        console.error('JSON parsing error:', jsonError);
-        console.error('Response text that failed to parse:', responseText);
-        throw new Error('Invalid response format from server');
-      }
-
-      if (data.success) {
-        toast({
-          title: "Success!",
-          description: data.message || "Thank you for your feedback! We will get back to you soon.",
-        });
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          category: '',
-          message: ''
-        });
-      } else {
-        throw new Error(data.error || 'Failed to submit feedback');
-      }
-    } catch (error) {
-      console.error('Feedback submission error:', error);
-      toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to submit feedback. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+    } catch (serverError) {
+      console.log('Server API not available, using email fallback...');
     }
-  };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
+    // Fallback to email client (for static deployments)
+    const emailSubject = `VAT Calculator Feedback: ${formData.category}`;
+    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.category}\n\nMessage:\n${formData.message}\n\n---\nSent from VAT Calculator feedback form`;
+    
+    const mailtoLink = `mailto:josh@leadcafe.co.za?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "Opening Email Client",
+      description: "Your default email client will open with the feedback pre-filled.",
     });
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      category: '',
+      message: ''
+    });
+    
+    setIsSubmitting(false);
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          
-          {/* Main Content Area - Centered */}
-          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
-            
-            {/* Header Section - White Background */}
-            <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
-              <header className="text-center">
-                <Link href="/" onClick={handleBackClick}>
-                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 flex flex-col">
+      <div className="container mx-auto px-4 py-8 flex-grow">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="mb-6">
+            <Link href="/" className="inline-flex items-center text-orange-600 hover:text-orange-700 mb-4">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Calculator
+            </Link>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact & Feedback</h1>
+            <p className="text-gray-600">
+              Have a question, suggestion, or need help? We'd love to hear from you!
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Contact Form */}
+            <Card className="shadow-lg">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <MessageSquare className="mr-2 h-5 w-5 text-orange-600" />
+                  Send Us a Message
+                </CardTitle>
+                <CardDescription>
+                  Fill out the form below and we'll get back to you as soon as possible.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <Label htmlFor="name">Your Name</Label>
+                    <Input
+                      id="name"
+                      placeholder="Enter your full name"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="category">Category</Label>
+                    <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="bug">Bug Report</SelectItem>
+                        <SelectItem value="feature">Feature Request</SelectItem>
+                        <SelectItem value="question">General Question</SelectItem>
+                        <SelectItem value="business">Business Inquiry</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      placeholder="Tell us more about your question or feedback..."
+                      className="min-h-[120px]"
+                      value={formData.message}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-orange-600 hover:bg-orange-700"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
-                </Link>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4" itemProp="name">
-                  Feedback & Contact
-                </h1>
-                <p className="text-lg text-gray-600 mb-2" itemProp="description">
-                  Share your thoughts and suggestions
-                </p>
-                <p className="text-sm text-gray-500">
-                  Help us improve the VAT calculator experience
-                </p>
-              </header>
+                </form>
+              </CardContent>
+            </Card>
+
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Phone className="mr-2 h-5 w-5 text-orange-600" />
+                    Other Ways to Reach Us
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <Mail className="h-5 w-5 text-orange-600 mt-1" />
+                    <div>
+                      <p className="font-semibold">Email</p>
+                      <p className="text-gray-600">josh@leadcafe.co.za</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <MessageSquare className="h-5 w-5 text-orange-600 mt-1" />
+                    <div>
+                      <p className="font-semibold">Response Time</p>
+                      <p className="text-gray-600">We typically respond within 24-48 hours</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-lg">
+                <CardHeader>
+                  <CardTitle>Frequently Asked Questions</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div>
+                      <Link href="/faq" className="text-orange-600 hover:text-orange-700 font-medium">
+                        Visit our FAQ page →
+                      </Link>
+                      <p className="text-sm text-gray-600">Find answers to common questions about VAT calculations and our tool.</p>
+                    </div>
+                    <div>
+                      <Link href="/how-to-use" className="text-orange-600 hover:text-orange-700 font-medium">
+                        How to Use Guide →
+                      </Link>
+                      <p className="text-sm text-gray-600">Step-by-step instructions for getting the most out of our calculator.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
+          </div>
 
-            {/* Main Content */}
-            <article className="space-y-8">
-              
-              {/* Get in Touch Section */}
-              <section>
-                <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-bold text-green-900 flex items-center gap-2">
-                      <span className="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                      Get in Touch
-                    </CardTitle>
-                    <CardDescription className="text-green-800">
-                      Your feedback helps us make the VAT calculator better for everyone
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <p className="text-green-800">
-                        Share bugs, suggestions, or success stories. We read every message and use your feedback to improve our service.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Contact Form */}
-              <section>
-                <Card className="bg-white border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-3">
-                      <MessageSquare className="w-6 h-6 text-green-500" />
-                      Send us a Message
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="name" className="text-sm font-medium text-gray-700">
-                            Name *
-                          </Label>
-                          <Input
-                            id="name"
-                            name="name"
-                            type="text"
-                            required
-                            placeholder="Your full name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-                            Email *
-                          </Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            required
-                            placeholder="your@email.com"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="category" className="text-sm font-medium text-gray-700">
-                          Category *
-                        </Label>
-                        <Select value={formData.category} onValueChange={(value) => setFormData({...formData, category: value})}>
-                          <SelectTrigger className="w-full">
-                            <SelectValue placeholder="Select feedback category" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="bug">Bug Report</SelectItem>
-                            <SelectItem value="feature">Feature Request</SelectItem>
-                            <SelectItem value="improvement">Improvement Suggestion</SelectItem>
-                            <SelectItem value="question">Question</SelectItem>
-                            <SelectItem value="compliment">Compliment</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="message" className="text-sm font-medium text-gray-700">
-                          Message *
-                        </Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          required
-                          placeholder="Tell us about your experience, suggestions, or any issues you've encountered..."
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          rows={6}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 resize-vertical"
-                        />
-                        <p className="text-xs text-gray-500">
-                          Please provide as much detail as possible to help us understand your feedback.
-                        </p>
-                      </div>
-                      
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200 flex items-center justify-center gap-2"
-                      >
-                        <Send className="w-4 h-4" />
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
-              </section>
-
-
-
-              {/* Response Time */}
-              <section>
-                <Card className="bg-blue-50 border-blue-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-blue-900">
-                      Response Time
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      <p className="text-blue-800">
-                        We typically respond to feedback within 24-48 hours during business days.
-                      </p>
-                      <p className="text-sm text-blue-700">
-                        For urgent technical issues, please use our direct email contact for faster assistance.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-            </article>
-
-            {/* Sharing module */}
-            <section className="mt-8 mb-8">
-              <ShareButtons className="justify-center" />
-            </section>
-          </main>
+          {/* Share Section */}
+          <div className="mt-12 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Share VAT Calculator</h2>
+            <p className="text-gray-600 mb-6">
+              Help other South African businesses discover our free VAT calculator
+            </p>
+            <ShareButtons variant="full" />
+          </div>
         </div>
       </div>
-      
-      {/* Footer */}
+
       <Footer />
       <Toaster />
     </div>
