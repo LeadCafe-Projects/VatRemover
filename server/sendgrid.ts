@@ -45,7 +45,7 @@ export async function sendFeedbackEmail(params: FeedbackEmailParams): Promise<bo
     try {
       const msg = {
         to: 'josh@leadcafe.co.za', // Send to your actual email
-        from: 'josh@leadcafe.co.za', // Use verified sender email
+        from: 'noreply@vatremover.co.za', // Use your verified domain
         replyTo: params.email,
         subject: `VAT Calculator Feedback: ${escapeHtml(params.subject)}`,
         html: `

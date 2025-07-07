@@ -42,12 +42,6 @@ export default function Feedback() {
     setIsSubmitting(true);
     
     try {
-      // Test API connectivity first
-      console.log('Testing API connectivity...');
-      const testResponse = await fetch('/api/test');
-      console.log('API test status:', testResponse.status);
-      console.log('API test response:', await testResponse.text());
-      
       console.log('Submitting feedback...');
       const response = await fetch('/api/feedback', {
         method: 'POST',
@@ -70,7 +64,17 @@ export default function Feedback() {
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Server error response:', errorText);
-        throw new Error(`Server error: ${response.status} - ${errorText}`);
+        console.error('Response Status:', response.status);
+        console.error('Response StatusText:', response.statusText);
+        
+        // Show specific error message based on status code
+        if (response.status === 405) {
+          throw new Error('This feature is not available on the current deployment. Please use the Replit version of the site.');
+        } else if (response.status === 404) {
+          throw new Error('Feedback service not found. Please try again or contact support.');
+        } else {
+          throw new Error(`Server error: ${response.status} - ${response.statusText}`);
+        }
       }
 
       // Get response text first to debug JSON parsing
