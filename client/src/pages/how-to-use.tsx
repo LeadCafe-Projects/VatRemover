@@ -3,6 +3,7 @@ import { ArrowLeft, Calculator, Copy, Share2, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 
 export default function HowToUse() {
@@ -317,6 +318,11 @@ export default function HowToUse() {
                 </div>
               </section>
             </article>
+
+            {/* Sharing module */}
+            <section className="mb-8">
+              <ShareButtons className="justify-center" />
+            </section>
           </main>
         </div>
       </div>

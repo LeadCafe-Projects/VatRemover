@@ -3,6 +3,7 @@ import { ArrowLeft, Building, FileText, Calculator, TrendingUp, Shield, CheckCir
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 
 export default function BusinessGuide() {
@@ -429,6 +430,11 @@ export default function BusinessGuide() {
                 </div>
               </section>
             </article>
+
+            {/* Sharing module */}
+            <section className="mb-8">
+              <ShareButtons className="justify-center" />
+            </section>
           </main>
         </div>
       </div>

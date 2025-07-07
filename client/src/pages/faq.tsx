@@ -3,6 +3,7 @@ import { ArrowLeft, HelpCircle, ChevronDown, Calculator, FileText, AlertCircle }
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 
 export default function FAQ() {
@@ -535,6 +536,11 @@ export default function FAQ() {
                 </div>
               </section>
             </article>
+
+            {/* Sharing module */}
+            <section className="mb-8">
+              <ShareButtons className="justify-center" />
+            </section>
           </main>
         </div>
       </div>
