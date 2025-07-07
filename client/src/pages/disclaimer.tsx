@@ -60,8 +60,16 @@ export default function Disclaimer() {
                   <CardContent>
                     <div className="space-y-4">
                       <p className="text-purple-800">
-                        By using this VAT calculator, you acknowledge and agree to the following terms and conditions.
+                        This calculator is provided as-is for informational purposes. Your use indicates acceptance of these terms.
                       </p>
+                      <div className="bg-purple-50 rounded-lg p-4">
+                        <ul className="list-disc list-inside space-y-2 text-sm text-purple-700">
+                          <li>Use the calculator at your own discretion and risk</li>
+                          <li>Results are estimates based on current 15% South African VAT rate</li>
+                          <li>We recommend verifying calculations independently for important transactions</li>
+                          <li>Always consult tax professionals for complex scenarios</li>
+                        </ul>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
