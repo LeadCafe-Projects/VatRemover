@@ -38,10 +38,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Feedback form submission endpoint
   app.post('/api/feedback', async (req, res) => {
+    console.log('=== FEEDBACK API CALLED ===');
+    console.log('Headers:', JSON.stringify(req.headers, null, 2));
+    console.log('Body:', JSON.stringify(req.body, null, 2));
+    
     // Rate limiting check
     const clientIP = req.ip || req.connection.remoteAddress || 'unknown';
     if (!checkRateLimit(clientIP)) {
+      console.log('Rate limit exceeded for IP:', clientIP);
       return res.status(429).json({ 
+        success: false,
         error: 'Too many requests. Please try again in 15 minutes.' 
       });
     }
@@ -88,15 +94,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       if (emailSent) {
-        res.json({ 
+        const successResponse = { 
           success: true, 
           message: 'Feedback submitted successfully! We will get back to you soon.' 
-        });
+        };
+        console.log('Sending success response:', JSON.stringify(successResponse));
+        res.json(successResponse);
       } else {
-        res.status(500).json({ 
+        const errorResponse = { 
           success: false,
           error: 'Failed to send email. Please try again later.' 
-        });
+        };
+        console.log('Sending error response:', JSON.stringify(errorResponse));
+        res.status(500).json(errorResponse);
       }
     } catch (error) {
       console.error('Feedback submission error:', error);

@@ -55,9 +55,27 @@ export default function Feedback() {
         }),
       });
 
-      const data = await response.json();
+      // Check if response is ok before trying to parse JSON
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Server error response:', errorText);
+        throw new Error(`Server error: ${response.status} - ${errorText}`);
+      }
 
-      if (response.ok) {
+      // Get response text first to debug JSON parsing
+      const responseText = await response.text();
+      console.log('Raw server response:', responseText);
+      
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (jsonError) {
+        console.error('JSON parsing error:', jsonError);
+        console.error('Response text that failed to parse:', responseText);
+        throw new Error('Invalid response format from server');
+      }
+
+      if (data.success) {
         toast({
           title: "Success!",
           description: data.message || "Thank you for your feedback! We will get back to you soon.",
@@ -74,6 +92,7 @@ export default function Feedback() {
         throw new Error(data.error || 'Failed to submit feedback');
       }
     } catch (error) {
+      console.error('Feedback submission error:', error);
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to submit feedback. Please try again.",
