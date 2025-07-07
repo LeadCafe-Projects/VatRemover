@@ -243,45 +243,7 @@ export default function Feedback() {
                 </Card>
               </section>
 
-              {/* Alternative Contact Methods */}
-              <section>
-                <Card className="bg-white border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900">
-                      Alternative Contact Methods
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <Mail className="w-5 h-5 text-blue-600 mt-0.5" />
-                        <div>
-                          <h4 className="font-medium text-gray-900">Email</h4>
-                          <p className="text-sm text-gray-600">
-                            For detailed technical issues or business inquiries
-                          </p>
-                          <p className="text-sm text-blue-600 font-medium">
-                            Use the contact form above for fastest response
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-3">
-                        <Phone className="w-5 h-5 text-green-600 mt-0.5" />
-                        <div>
-                          <h4 className="font-medium text-gray-900">WhatsApp</h4>
-                          <p className="text-sm text-gray-600">
-                            Quick questions and support
-                          </p>
-                          <p className="text-sm text-green-600 font-medium">
-                            Available during business hours
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
+
 
               {/* Response Time */}
               <section>
