@@ -106,7 +106,6 @@ export default function VATCalculator() {
   };
 
   const resetCalculator = useCallback(() => {
-    console.log("Reset button clicked - clearing all values");
     setAmount("");
     setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
     setCopySuccess(false);
@@ -149,7 +148,7 @@ export default function VATCalculator() {
                     <Input
                       id="vatInclusiveAmount"
                       type="text"
-                      placeholder="14,192.39"
+                      placeholder="0.00"
                       value={amount}
                       onChange={(e) => {
                         // Allow digits, commas, and decimal points only
@@ -164,7 +163,7 @@ export default function VATCalculator() {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 mt-2">
                     <InfoIcon className="inline w-3 h-3 mr-1" />
-                    Enter the amount that includes 15% South African VAT (supports formats: 1,000.00, 1,000, 1000)
+                    Enter the amount that includes 15% South African VAT (e.g., 14,192.39 or 1000)
                   </p>
                 </div>
 
