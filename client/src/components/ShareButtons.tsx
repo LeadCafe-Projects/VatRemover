@@ -105,8 +105,7 @@ export default function ShareButtons({ variant = "full", className = "" }: Share
 
   if (variant === "compact") {
     return (
-      <div className={`flex items-center gap-2 ${className}`}>
-        <span className="text-sm text-gray-600 mr-2">Quick links:</span>
+      <div className={`flex items-center justify-center gap-2 ${className}`}>
         <Button
           size="sm"
           variant="outline"
