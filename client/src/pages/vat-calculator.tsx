@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-// import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
+import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 import { 
@@ -114,10 +114,16 @@ export default function VATCalculator() {
   return (
     <div className="bg-gray-50 min-h-screen overflow-x-hidden">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+        <div className="max-w-6xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           
-          {/* Main Content Area - Centered */}
-          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
+          {/* Top Banner Ad */}
+          <div className="mb-6">
+            <TopBannerAd />
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {/* Main Content Area */}
+            <main className="lg:col-span-3" role="main" itemScope itemType="https://schema.org/WebApplication">
             {/* Header Section */}
             <header className="text-center mb-8">
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4" itemProp="name">
@@ -371,7 +377,29 @@ export default function VATCalculator() {
             <section className="mb-8">
               <ShareButtons className="justify-center" />
             </section>
+            
+            {/* Mobile Ad - Shows only on mobile */}
+            <div className="lg:hidden mb-6">
+              <MobileAd />
+            </div>
           </main>
+          
+          {/* Sidebar with Ads - Desktop only */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-8 space-y-6">
+              <SidebarAd />
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Quick Links</h3>
+                <div className="space-y-2 text-sm">
+                  <Link href="/how-to-use" className="block text-blue-600 hover:text-blue-700">How to Use Guide</Link>
+                  <Link href="/examples" className="block text-green-600 hover:text-green-700">Real Examples</Link>
+                  <Link href="/business-guide" className="block text-purple-600 hover:text-purple-700">Business Guide</Link>
+                  <Link href="/faq" className="block text-orange-600 hover:text-orange-700">FAQ</Link>
+                </div>
+              </div>
+            </div>
+          </aside>
+          </div>
         </div>
       </div>
 
