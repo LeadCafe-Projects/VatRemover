@@ -104,20 +104,17 @@ export default function VATCalculator() {
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen overflow-x-hidden">
+    <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
-        {/* New Layout with Sidebar Ads */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-8">
-            
-            {/* Left Sidebar Ad - Hidden on mobile/tablet */}
-            <div className="w-80 flex-shrink-0 hidden lg:block">
-              <LeftSidebarAd />
-            </div>
-            
-            {/* Main Content Area - Standardized Width */}
-            <div className="flex-1">
-              <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
+            <LeftSidebarAd />
+          </div>
+          
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
             {/* Optimized Header Section */}
             <header className="text-center mb-8">
               <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 
@@ -389,14 +386,6 @@ export default function VATCalculator() {
             </div>
             
           </main>
-          </div>
-          
-          {/* Right Sidebar Ad - Hidden on mobile/tablet */}
-          <div className="w-80 flex-shrink-0 hidden lg:block">
-            <RightSidebarAd />
-          </div>
-          
-        </div>
         </div>
       </div>
 
