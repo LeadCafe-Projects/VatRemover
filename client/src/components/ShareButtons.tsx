@@ -105,26 +105,23 @@ export default function ShareButtons({ variant = "full", className = "" }: Share
     }
   };
 
-  const handleAddBookmark = () => {
-    const pageTitle = "SA VAT Calculator - Remove 15% VAT Instantly";
-    const pageUrl = shareUrl;
-
-    // Check if the browser supports adding bookmarks
-    if (window.sidebar && window.sidebar.addPanel) {
-      // Firefox
-      window.sidebar.addPanel(pageTitle, pageUrl, '');
-    } else if (window.external && ('AddFavorite' in window.external)) {
-      // Internet Explorer
-      window.external.AddFavorite(pageUrl, pageTitle);
-    } else {
-      // Modern browsers - show instructions
+  const handleAddBookmark = useCallback(async () => {
+    try {
+      // Modern browsers - copy URL and show bookmark instructions
+      await navigator.clipboard.writeText(shareUrl);
+      toast({
+        title: "URL Copied!",
+        description: "URL copied to clipboard. Use Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page.",
+        duration: 5000,
+      });
+    } catch (error) {
       toast({
         title: "Add to Bookmarks",
-        description: `Press Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page`,
+        description: "Use Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page.",
         duration: 5000,
       });
     }
-  };
+  }, [shareUrl, toast]);
 
   if (variant === "compact") {
     return (

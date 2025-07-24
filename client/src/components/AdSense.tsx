@@ -23,7 +23,7 @@ export default function AdSense({
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
       }
     } catch (err) {
-      console.log('AdSense loading...');
+      // AdSense loading silently
     }
   }, []);
 
