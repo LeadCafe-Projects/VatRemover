@@ -116,8 +116,8 @@ export default function VATCalculator() {
             </div>
             
             {/* Main Content Area - Standardized Width */}
-            <div className="flex-1 max-w-4xl mx-auto">
-              <main className="max-w-4xl mx-auto mobile-padding sm:px-4" role="main" itemScope itemType="https://schema.org/WebApplication" style={{ boxSizing: 'border-box' }}>
+            <div className="flex-1">
+              <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
             {/* Optimized Header Section */}
             <header className="text-center mb-8">
               <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 

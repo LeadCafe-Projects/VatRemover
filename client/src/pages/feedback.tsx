@@ -109,34 +109,39 @@ export default function Feedback() {
   return (
     <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4 flex gap-8" style={{ boxSizing: 'border-box' }}>
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           
           {/* Left Sidebar Ad */}
-          <div className="w-80 flex-shrink-0 hidden lg:block">
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
           {/* Main Content Area - Centered */}
-          <main className="flex-1 max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
             
-            {/* Header Section - Consistent Styling */}
-            <header className="text-center mb-8">
-              <Link 
-                href="/" 
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium mb-6 transition-colors duration-200"
-                onClick={handleBackClick}
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Calculator
-              </Link>
-              
-              <h1 className="text-3xl font-bold text-gray-900 mb-4" itemProp="headline">
-                Contact & Feedback
-              </h1>
-              <p className="text-lg text-gray-600 mb-6" itemProp="description">
-                Have a question, suggestion, or need help? We'd love to hear from you!
-              </p>
-            </header>
+            {/* Header Section - White Background like other pages */}
+            <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
+              <header className="text-center">
+                <Link href="/" onClick={handleBackClick}>
+                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Back to Calculator
+                  </Button>
+                </Link>
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <MessageSquare className="w-6 h-6 text-white" />
+                </div>
+                <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4" itemProp="headline">
+                  Contact & Feedback
+                </h1>
+                <p className="text-lg text-gray-600 mb-2" itemProp="description">
+                  Have a question, suggestion, or need help? We'd love to hear from you!
+                </p>
+                <p className="text-sm text-gray-500">
+                  Quick response times and professional support for all VAT calculator inquiries
+                </p>
+              </header>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Form */}
