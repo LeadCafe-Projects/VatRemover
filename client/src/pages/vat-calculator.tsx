@@ -119,7 +119,7 @@ export default function VATCalculator() {
             <header className="text-center mb-8">
               <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 
                   itemProp="name" 
-                  style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Cabin, sans-serif' }}>
+                  style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, sans-serif' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
               <p className="text-lg text-gray-600 mb-2" 

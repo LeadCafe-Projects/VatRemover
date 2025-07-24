@@ -149,7 +149,7 @@ Changelog:
 - January 23, 2025. PRODUCTION READY: Clean codebase with minimal comments, optimized AdSense integration, and semantic HTML5 structure
 - January 23, 2025. CONTENT WIDTH STANDARDIZATION: Main calculator now uses same content width (max-w-4xl) as all other pages for consistent look
 - January 23, 2025. FEEDBACK PAGE HEADER STYLING: Applied consistent header styling with proper "Back to Calculator" CTA matching other content pages
-- January 23, 2025. GOOGLE FONTS CABIN: Implemented Cabin font family across ALL pages - headings, copy, buttons, links, and form elements for unified typography
+- January 23, 2025. GOOGLE FONTS INTER: Implemented Inter font family across ALL pages - headings, copy, buttons, links, and form elements for unified typography
 ```
 
 ## User Preferences
