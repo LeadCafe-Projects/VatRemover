@@ -126,7 +126,7 @@ export default function VATCalculator() {
           <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
             {/* Header Section */}
             <header className="text-center mb-8">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4" itemProp="name" style={{ fontWeight: '700', fontSize: '36px', lineHeight: '1.1' }}>
+              <h1 className="text-3xl font-bold text-gray-900 mb-4 max-w-2xl mx-auto" itemProp="name" style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
               <p className="text-lg text-gray-600 mb-2" itemProp="description" style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.4' }}>
