@@ -19,28 +19,15 @@ export default function AdSense({
 }: AdSenseProps) {
   useEffect(() => {
     try {
-      // Only load ads if AdSense is properly configured
       if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
       }
     } catch (err) {
-      console.log('AdSense not loaded yet');
+      console.log('AdSense loading...');
     }
   }, []);
 
-  // Check if AdSense is configured
-  const isAdSenseConfigured = true; // AdSense is now configured with your publisher ID
-
-  if (!isAdSenseConfigured) {
-    // Show placeholder while AdSense is not configured
-    return (
-      <div className={`bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 text-sm font-medium ${className}`} 
-           style={{ width: width ? `${width}px` : '100%', height: height ? `${height}px` : 'auto' }}>
-        <span className="mr-2">📺</span>
-        {placeholderText}
-      </div>
-    );
-  }
+  // Production AdSense - remove placeholder logic for clean deployment
 
   return (
     <div className={`${className} max-w-full overflow-hidden`}>

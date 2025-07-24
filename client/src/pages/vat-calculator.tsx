@@ -37,17 +37,13 @@ export default function VATCalculator() {
   const [copySuccess, setCopySuccess] = useState(false);
   const { toast } = useToast();
 
+  // Optimized SA VAT calculation (15% rate)
   const calculateVAT = useCallback((inclusiveAmount: number): VATCalculation => {
-    // Input validation and sanitization
     if (!inclusiveAmount || inclusiveAmount < 0 || inclusiveAmount > 999999999) {
-      return {
-        inclusiveAmount: 0,
-        exclusiveAmount: 0,
-        vatAmount: 0,
-      };
+      return { inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 };
     }
 
-    const exclusiveAmount = inclusiveAmount / 1.15;
+    const exclusiveAmount = inclusiveAmount / 1.15; // SA VAT formula
     const vatAmount = inclusiveAmount - exclusiveAmount;
     
     return {
@@ -61,23 +57,19 @@ export default function VATCalculator() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Real-time calculation effect
   useEffect(() => {
-    // Remove commas and parse the number to handle formats like "1,000.00", "1,000", "1000"
     const cleanedAmount = amount.replace(/,/g, '');
     
-    // If amount is empty, reset to zero immediately
-    if (cleanedAmount === '' || cleanedAmount === null || cleanedAmount === undefined) {
+    if (!cleanedAmount) {
       setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
       return;
     }
     
     const numericAmount = parseFloat(cleanedAmount);
-    if (isNaN(numericAmount)) {
-      setCalculations({ inclusiveAmount: 0, exclusiveAmount: 0, vatAmount: 0 });
-      return;
+    if (!isNaN(numericAmount)) {
+      setCalculations(calculateVAT(numericAmount));
     }
-    
-    setCalculations(calculateVAT(numericAmount));
   }, [amount, calculateVAT]);
 
   const formatCurrency = (value: number): string => {
@@ -126,15 +118,20 @@ export default function VATCalculator() {
             {/* Main Content Area - Centered */}
             <div className="flex-1 max-w-4xl mx-auto">
               <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
-            {/* Header Section */}
+            {/* Optimized Header Section */}
             <header className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-4 max-w-2xl mx-auto" itemProp="name" style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+              <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 
+                  itemProp="name" 
+                  style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
-              <p className="text-lg text-gray-600 mb-2" itemProp="description" style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.4' }}>
+              <p className="text-lg text-gray-600 mb-2" 
+                 itemProp="description" 
+                 style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.4' }}>
                 Free online tool to quickly remove 15% VAT from any amount
               </p>
-              <p className="text-base text-gray-500 mb-6" style={{ fontSize: '16px', fontWeight: '400' }}>
+              <p className="text-base text-gray-500 mb-6" 
+                 style={{ fontSize: '16px', fontWeight: '400' }}>
                 Professional VAT removal calculator for South African businesses, accountants, and consumers
               </p>
               <ShareButtons variant="compact" className="justify-center" />
