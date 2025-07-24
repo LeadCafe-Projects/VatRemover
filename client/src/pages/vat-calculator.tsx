@@ -115,14 +115,14 @@ export default function VATCalculator() {
               <LeftSidebarAd />
             </div>
             
-            {/* Main Content Area - Centered */}
+            {/* Main Content Area - Standardized Width */}
             <div className="flex-1 max-w-4xl mx-auto">
-              <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
+              <main className="max-w-4xl mx-auto mobile-padding sm:px-4" role="main" itemScope itemType="https://schema.org/WebApplication" style={{ boxSizing: 'border-box' }}>
             {/* Optimized Header Section */}
             <header className="text-center mb-8">
               <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 
                   itemProp="name" 
-                  style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+                  style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Cabin, sans-serif' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
               <p className="text-lg text-gray-600 mb-2" 

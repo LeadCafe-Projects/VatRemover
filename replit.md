@@ -147,6 +147,9 @@ Changelog:
 - January 23, 2025. FINAL CODE CLEANUP: Optimized HTML structure, removed redundant SEO content, enhanced semantic markup for LLM comprehension
 - January 23, 2025. LLM OPTIMIZATION: Streamlined content structure with Schema.org microdata for better AI understanding (ChatGPT, Claude, Perplexity, Grok)
 - January 23, 2025. PRODUCTION READY: Clean codebase with minimal comments, optimized AdSense integration, and semantic HTML5 structure
+- January 23, 2025. CONTENT WIDTH STANDARDIZATION: Main calculator now uses same content width (max-w-4xl) as all other pages for consistent look
+- January 23, 2025. FEEDBACK PAGE HEADER STYLING: Applied consistent header styling with proper "Back to Calculator" CTA matching other content pages
+- January 23, 2025. GOOGLE FONTS CABIN: Implemented Cabin font family across ALL pages - headings, copy, buttons, links, and form elements for unified typography
 ```
 
 ## User Preferences

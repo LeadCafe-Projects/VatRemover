@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global Font Family - Cabin */
+* {
+  font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Specific font optimization for buttons and form elements */
+button, input, select, textarea, .btn {
+  font-family: 'Cabin', sans-serif !important;
+}
+
+/* Headers and content optimization */
+h1, h2, h3, h4, h5, h6, p, span, div, a {
+  font-family: 'Cabin', sans-serif;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(220, 14.3%, 4.1%);
