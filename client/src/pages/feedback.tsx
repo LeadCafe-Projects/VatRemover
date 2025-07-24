@@ -281,7 +281,10 @@ export default function Feedback() {
               </div>
             </div>
 
-
+            {/* Share Module Only */}
+            <section className="mt-12">
+              <ShareButtons variant="full" className="justify-center" />
+            </section>
             
           </main>
         </div>
