@@ -138,7 +138,9 @@ Changelog:
 - January 7, 2025. UNIVERSAL FEEDBACK SYSTEM: Implemented hybrid feedback that works on both server and static deployments with email fallback
 - January 7, 2025. GOOGLE ADSENSE CODE AVAILABLE: AdSense integration with publisher ID ca-pub-4614672997891312 ready but commented out for development
 - January 7, 2025. CLEAN CALCULATOR RESTORED: Reverted to original clean layout without ads, matching vatremover.co.za design exactly
-- January 7, 2025. DEVELOPMENT STATE: AdSense components available but commented out for clean development environment
+- January 23, 2025. GOOGLE ADSENSE ACTIVATED: AdSense now live across all pages (calculator, how-to-use, examples, business-guide, faq, feedback) with publisher ID ca-pub-4614672997891312
+- January 23, 2025. AUTO-ADS ENABLED: Google Auto-Ads script loaded in HTML head for automatic ad placement across entire website
+- January 23, 2025. H1 TITLE OPTIMIZED: Refined main title to 30px font-size with 600 weight and natural line break at "15% VAT Instantly"
 ```
 
 ## User Preferences

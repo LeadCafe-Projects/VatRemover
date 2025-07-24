@@ -116,11 +116,10 @@ export default function VATCalculator() {
       <div className="min-h-screen py-4 sm:py-8">
         <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           
-          {/* Top Banner Ad - Commented out for clean development
+          {/* Top Banner Ad */}
           <div className="mb-6">
             <TopBannerAd />
           </div>
-          */}
           
           {/* Main Content Area - Centered */}
           <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">

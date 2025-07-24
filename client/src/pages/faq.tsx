@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
+import { TopBannerAd } from "@/components/AdSense";
 
 export default function FAQ() {
   const handleBackClick = () => {
@@ -15,6 +16,11 @@ export default function FAQ() {
     <div className="min-h-screen bg-white">
       <div className="min-h-screen py-4 sm:py-8">
         <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Top Banner Ad */}
+          <div className="mb-6">
+            <TopBannerAd />
+          </div>
           
           {/* Main Content Area - Centered */}
           <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/FAQPage">
