@@ -281,14 +281,7 @@ export default function Feedback() {
               </div>
             </div>
 
-            {/* Share Section */}
-            <section className="mt-12 text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Share VAT Calculator</h2>
-              <p className="text-gray-600 mb-6">
-                Help other South African businesses discover our free VAT calculator
-              </p>
-              <ShareButtons variant="full" />
-            </section>
+
             
           </main>
         </div>
