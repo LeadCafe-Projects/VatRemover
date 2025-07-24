@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
-import { TopBannerAd } from "@/components/AdSense";
+import { LeftSidebarAd, RightSidebarAd, BelowContentAd } from "@/components/AdSense";
 
 export default function Examples() {
   const handleBackClick = () => {
@@ -17,9 +17,9 @@ export default function Examples() {
       <div className="min-h-screen py-4 sm:py-8">
         <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           
-          {/* Top Banner Ad */}
-          <div className="mb-6">
-            <TopBannerAd />
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
+            <LeftSidebarAd />
           </div>
           
           {/* Main Content Area - Centered */}

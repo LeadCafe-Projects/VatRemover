@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { TopBannerAd, SidebarAd, MobileAd } from "@/components/AdSense";
+import { LeftSidebarAd, RightSidebarAd, BelowContentAd, MobileAd } from "@/components/AdSense";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 import { 
@@ -114,15 +114,18 @@ export default function VATCalculator() {
   return (
     <div className="bg-gray-50 min-h-screen overflow-x-hidden">
       <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          
-          {/* Top Banner Ad */}
-          <div className="mb-6">
-            <TopBannerAd />
-          </div>
-          
-          {/* Main Content Area - Centered */}
-          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
+        {/* New Layout with Sidebar Ads */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-8">
+            
+            {/* Left Sidebar Ad - Hidden on mobile/tablet */}
+            <div className="w-80 flex-shrink-0 hidden lg:block">
+              <LeftSidebarAd />
+            </div>
+            
+            {/* Main Content Area - Centered */}
+            <div className="flex-1 max-w-4xl mx-auto">
+              <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
             {/* Header Section */}
             <header className="text-center mb-8">
               <h1 className="text-3xl font-bold text-gray-900 mb-4 max-w-2xl mx-auto" itemProp="name" style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
@@ -377,7 +380,26 @@ export default function VATCalculator() {
             <section className="mb-8">
               <ShareButtons className="justify-center" />
             </section>
+            
+            {/* Below Content Ad - Mobile */}
+            <div className="lg:hidden mb-6">
+              <MobileAd />
+            </div>
+            
+            {/* Below Content Ad - Desktop */}
+            <div className="hidden lg:block mb-8">
+              <BelowContentAd />
+            </div>
+            
           </main>
+          </div>
+          
+          {/* Right Sidebar Ad - Hidden on mobile/tablet */}
+          <div className="w-80 flex-shrink-0 hidden lg:block">
+            <RightSidebarAd />
+          </div>
+          
+        </div>
         </div>
       </div>
 

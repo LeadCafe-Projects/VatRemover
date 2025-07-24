@@ -56,28 +56,41 @@ export default function AdSense({
   );
 }
 
-// Pre-configured ad components for common sizes
-export function TopBannerAd() {
+// Pre-configured ad components for strategic placement
+export function LeftSidebarAd() {
   return (
     <AdSense 
       adSlot="auto"
       adFormat="auto"
-      height={90}
-      className="w-full"
-      placeholderText="Advertisement Space - Top Banner"
+      width={300}
+      height={600}
+      className="sticky top-8 hidden lg:block"
+      placeholderText="Left Sidebar Ad"
     />
   );
 }
 
-export function SidebarAd() {
+export function RightSidebarAd() {
   return (
     <AdSense 
       adSlot="auto"
       adFormat="auto"
-      width={160}
+      width={300}
       height={600}
-      className="sticky top-8"
-      placeholderText="Advertisement Space - Sidebar"
+      className="sticky top-8 hidden lg:block"
+      placeholderText="Right Sidebar Ad"
+    />
+  );
+}
+
+export function BelowContentAd() {
+  return (
+    <AdSense 
+      adSlot="auto"
+      adFormat="auto"
+      height={250}
+      className="w-full max-w-2xl mx-auto"
+      placeholderText="Below Content Ad"
     />
   );
 }
@@ -88,8 +101,8 @@ export function MobileAd() {
       adSlot="auto"
       adFormat="auto"
       height={250}
-      className="w-full"
-      placeholderText="Advertisement Space - Mobile"
+      className="w-full lg:hidden"
+      placeholderText="Mobile Ad"
     />
   );
 }

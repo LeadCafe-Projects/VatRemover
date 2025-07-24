@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
-import { TopBannerAd } from "@/components/AdSense";
+import { LeftSidebarAd, RightSidebarAd, BelowContentAd } from "@/components/AdSense";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
@@ -111,9 +111,9 @@ export default function Feedback() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 flex flex-col">
       <div className="container mx-auto px-4 py-8 flex-grow">
         <div className="max-w-4xl mx-auto">
-          {/* Top Banner Ad */}
-          <div className="mb-6">
-            <TopBannerAd />
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
+            <LeftSidebarAd />
           </div>
           
           {/* Header */}
