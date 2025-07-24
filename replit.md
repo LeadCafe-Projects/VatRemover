@@ -137,6 +137,8 @@ Changelog:
 - January 7, 2025. PRODUCTION DEPLOYMENT GUIDE: Created comprehensive guide for static vs full-stack deployment options
 - January 7, 2025. UNIVERSAL FEEDBACK SYSTEM: Implemented hybrid feedback that works on both server and static deployments with email fallback
 - January 7, 2025. GOOGLE ADSENSE ACTIVATED: Enabled AdSense integration with publisher ID ca-pub-4614672997891312, maintaining centered calculator layout
+- January 7, 2025. LAYOUT RESTORED: Removed Quick Links sidebar, restored original centered calculator layout to match vatremover.co.za exactly
+- January 7, 2025. STYLING PERFECTED: Adjusted fonts, spacing, and visual hierarchy to be identical to original site design
 ```
 
 ## User Preferences

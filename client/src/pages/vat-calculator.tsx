@@ -128,14 +128,17 @@ export default function VATCalculator() {
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4" itemProp="name" style={{ fontWeight: '700', lineHeight: '1.2' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
-              <p className="text-lg text-gray-600 mb-6" itemProp="description" style={{ fontWeight: '400', lineHeight: '1.5' }}>
+              <p className="text-lg text-gray-600 mb-4" itemProp="description" style={{ fontWeight: '400', lineHeight: '1.5' }}>
                 Free online tool to quickly remove 15% VAT from any amount
+              </p>
+              <p className="text-sm text-gray-500 mb-6">
+                Professional VAT removal calculator for South African businesses, accountants, and consumers
               </p>
               <ShareButtons variant="compact" className="justify-center" />
             </header>
 
             {/* Calculator Card */}
-            <Card className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-8 mobile-card-margin sm:mx-0" itemScope itemType="https://schema.org/Calculator">
+            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-6 mb-8 mobile-card-margin sm:mx-0" itemScope itemType="https://schema.org/Calculator">
               <CardContent className="p-0">
                 {/* Input Section */}
                 <div className="mb-6">
@@ -173,7 +176,7 @@ export default function VATCalculator() {
                 {/* Results Section */}
                 <div className="space-y-4 mb-6">
                   {/* Amount Including VAT */}
-                  <div className="bg-blue-50 rounded-xl p-3 sm:p-4 border border-blue-200">
+                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <p className="text-sm font-medium text-blue-800 mb-1">Amount Including VAT</p>
@@ -193,7 +196,7 @@ export default function VATCalculator() {
                   </div>
 
                   {/* Amount Excluding VAT */}
-                  <div className="bg-green-50 rounded-xl p-3 sm:p-4 border border-green-200">
+                  <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <p className="text-sm font-medium text-green-800 mb-1">Amount Excluding VAT</p>
@@ -213,7 +216,7 @@ export default function VATCalculator() {
                   </div>
 
                   {/* VAT Amount */}
-                  <div className="bg-purple-50 rounded-xl p-3 sm:p-4 border border-purple-200">
+                  <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <p className="text-sm font-medium text-purple-800 mb-1">VAT Amount (15%)</p>
