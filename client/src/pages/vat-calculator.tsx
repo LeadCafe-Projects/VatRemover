@@ -318,7 +318,7 @@ export default function VATCalculator() {
                     <h3 className="text-lg font-bold text-gray-900">Examples</h3>
                   </div>
                   <p className="text-gray-700 mb-4 text-sm">
-                    Real-world scenarios and practical examples. From small business to retail - see VAT removal in action.
+                    Real-world scenarios and practical examples. From small businesses to retail - see VAT removal in action.
                   </p>
                   <Link href="/examples" onClick={handleTeaserClick}>
                     <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
