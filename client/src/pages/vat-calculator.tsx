@@ -122,14 +122,10 @@ export default function VATCalculator() {
                   style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, sans-serif' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
-              <p className="text-lg text-gray-600 mb-2" 
+              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto" 
                  itemProp="description" 
-                 style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.4' }}>
-                Free online tool to quickly remove 15% VAT from any amount
-              </p>
-              <p className="text-base text-gray-500 mb-6" 
-                 style={{ fontSize: '16px', fontWeight: '400' }}>
-                Professional VAT removal calculator for South African businesses, accountants, and consumers
+                 style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.5' }}>
+                Free tool to remove 15% VAT. A professional calculator for South African businesses, accountants, and consumers.
               </p>
               <ShareButtons variant="compact" className="justify-center" />
             </header>
