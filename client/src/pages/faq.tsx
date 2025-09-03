@@ -14,16 +14,16 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          
-          {/* Left Sidebar Ad */}
-          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
+      <div className="py-4 sm:py-8">
+        {/* Desktop Layout with Sidebars */}
+        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
+          {/* Left Sidebar Ad - Desktop Only */}
+          <div className="w-80 flex-shrink-0">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area - Centered */}
-          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/FAQPage">
+          {/* Main Content Area */}
+          <main className="flex-1 max-w-3xl" role="main" itemScope itemType="https://schema.org/FAQPage">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -544,7 +544,40 @@ export default function FAQ() {
             </article>
 
             {/* Sharing module */}
-            <section className="mt-8 mb-8">
+            <section className="mt-8 mb-4">
+              <ShareButtons className="justify-center" />
+            </section>
+          </main>
+        </div>
+        
+        {/* Mobile Layout - Clean and Compact */}
+        <div className="lg:hidden max-w-3xl mx-auto px-4">
+          <main role="main" itemScope itemType="https://schema.org/FAQPage">
+            {/* Header Section - White Background */}
+            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
+              <header className="text-center">
+                <Link href="/" onClick={handleBackClick}>
+                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Back to Calculator
+                  </Button>
+                </Link>
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <HelpCircle className="w-6 h-6 text-white" />
+                </div>
+                <h1 className="text-2xl font-bold text-gray-900 mb-4">
+                  Frequently Asked Questions
+                </h1>
+                <p className="text-base text-gray-600 mb-2">
+                  Common questions about VAT calculations and South African tax requirements
+                </p>
+                <p className="text-sm text-gray-500">
+                  Comprehensive answers to help you understand 15% VAT removal and compliance
+                </p>
+              </header>
+            </div>
+            {/* Mobile content would be rendered here */}
+            <section className="mt-6 mb-4">
               <ShareButtons className="justify-center" />
             </section>
           </main>

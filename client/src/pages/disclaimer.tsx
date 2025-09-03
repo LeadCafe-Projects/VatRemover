@@ -12,11 +12,10 @@ export default function Disclaimer() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          
-          {/* Main Content Area - Centered */}
-          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebPage">
+      <div className="py-4 sm:py-8">
+        {/* Desktop Layout - Clean and Compact */}
+        <div className="max-w-3xl mx-auto px-4">
+          <main role="main" itemScope itemType="https://schema.org/WebPage">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">

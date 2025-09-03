@@ -108,16 +108,16 @@ export default function Feedback() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="min-h-screen py-4 sm:py-8">
-        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          
-          {/* Left Sidebar Ad */}
-          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
+      <div className="py-4 sm:py-8">
+        {/* Desktop Layout with Sidebars */}
+        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
+          {/* Left Sidebar Ad - Desktop Only */}
+          <div className="w-80 flex-shrink-0">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area - Centered */}
-          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
+          {/* Main Content Area */}
+          <main className="flex-1 max-w-3xl" role="main" itemScope itemType="https://schema.org/ContactPage">
             
             {/* Header Section - White Background like other pages */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
