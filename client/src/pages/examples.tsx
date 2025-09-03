@@ -23,7 +23,7 @@ export default function Examples() {
           </div>
           
           {/* Main Content Area */}
-          <main className="flex-1 max-w-3xl" role="main" itemScope itemType="https://schema.org/Article">
+          <main className="flex-1 max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/Article">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
