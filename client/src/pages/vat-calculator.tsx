@@ -367,7 +367,7 @@ export default function VATCalculator() {
             </section>
 
             {/* Sharing module without redundant heading */}
-            <section className="mb-8">
+            <section className="mb-4">
               <ShareButtons className="justify-center" />
             </section>
             
