@@ -316,7 +316,73 @@ export default function Feedback() {
               </header>
             </div>
             
-            {/* Mobile content would be rendered here */}
+            {/* Feedback Form */}
+            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-4 mb-6">
+              <CardHeader>
+                <CardTitle className="text-lg font-bold text-gray-900">Send Us Your Feedback</CardTitle>
+                <CardDescription>
+                  Help us improve the VAT calculator with your suggestions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <Label htmlFor="nameMobile">Name</Label>
+                    <Input
+                      id="nameMobile"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="emailMobile">Email</Label>
+                    <Input
+                      id="emailMobile"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="categoryMobile">Category</Label>
+                    <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select feedback type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="suggestion">Suggestion</SelectItem>
+                        <SelectItem value="bug">Bug Report</SelectItem>
+                        <SelectItem value="feature">Feature Request</SelectItem>
+                        <SelectItem value="general">General Feedback</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="messageMobile">Message</Label>
+                    <Textarea
+                      id="messageMobile"
+                      value={formData.message}
+                      onChange={(e) => handleInputChange('message', e.target.value)}
+                      placeholder="Share your feedback, suggestions, or report any issues..."
+                      rows={4}
+                      required
+                    />
+                  </div>
+                  
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Feedback"}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+            
             <section className="mt-6 mb-4">
               <ShareButtons className="justify-center" />
             </section>

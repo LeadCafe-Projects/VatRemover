@@ -470,7 +470,88 @@ export default function BusinessGuide() {
                 </p>
               </header>
             </div>
-            {/* Mobile content would be rendered here */}
+            {/* Main Content */}
+            <article className="space-y-4">
+              
+              {/* Business Applications Section */}
+              <section>
+                <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-bold text-orange-900 flex items-center gap-2">
+                      <span className="bg-orange-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                      Invoice Management
+                    </CardTitle>
+                    <CardDescription className="text-orange-800">
+                      Professional invoicing with accurate VAT calculations
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-white rounded-lg p-3 border border-orange-200">
+                        <h4 className="font-semibold text-orange-900 mb-2">Best Practices</h4>
+                        <ul className="text-orange-800 text-sm space-y-1">
+                          <li>Always show VAT-exclusive amounts on invoices</li>
+                          <li>Include VAT amount as separate line item</li>
+                          <li>Use precise calculations for professional credibility</li>
+                          <li>Maintain records for SARS compliance</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+
+              {/* Accounting Integration */}
+              <section>
+                <Card className="border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <span className="bg-gradient-to-br from-green-500 to-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                      Accounting Integration
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
+                        <h4 className="font-semibold text-green-900 mb-2">Workflow Integration</h4>
+                        <ul className="text-green-800 text-sm space-y-1">
+                          <li>Copy results directly to accounting software</li>
+                          <li>Verify VAT calculations for reconciliation</li>
+                          <li>Use for expense reporting and tax preparation</li>
+                          <li>Ensure compliance with South African tax law</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+
+              {/* Tax Compliance */}
+              <section>
+                <Card className="border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <span className="bg-gradient-to-br from-blue-500 to-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+                      Tax Compliance
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
+                        <h4 className="font-semibold text-blue-900 mb-2">SARS Requirements</h4>
+                        <ul className="text-blue-800 text-sm space-y-1">
+                          <li>Accurate VAT calculations are mandatory</li>
+                          <li>15% VAT rate applies to most goods and services</li>
+                          <li>Keep detailed records of all transactions</li>
+                          <li>Use for VAT return preparation</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            </article>
+            
             <section className="mt-6 mb-4">
               <ShareButtons className="justify-center" />
             </section>

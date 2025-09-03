@@ -576,7 +576,100 @@ export default function FAQ() {
                 </p>
               </header>
             </div>
-            {/* Mobile content would be rendered here */}
+            {/* Main Content */}
+            <article className="space-y-4">
+              
+              {/* Basic Questions */}
+              <section>
+                <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-bold text-blue-900 flex items-center gap-2">
+                      <span className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                      Basic Questions
+                    </CardTitle>
+                    <CardDescription className="text-blue-800">
+                      Common questions about VAT calculations
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-white rounded-lg p-3 border border-blue-200">
+                        <h4 className="font-semibold text-blue-900 mb-2">What is the current VAT rate in South Africa?</h4>
+                        <p className="text-blue-800 text-sm">
+                          The current VAT rate in South Africa is 15%, which has been in effect since April 1, 2018.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-white rounded-lg p-3 border border-blue-200">
+                        <h4 className="font-semibold text-blue-900 mb-2">How do I calculate VAT-exclusive amounts?</h4>
+                        <p className="text-blue-800 text-sm">
+                          To remove VAT from an inclusive amount, divide by 1.15. For example: R1,150 ÷ 1.15 = R1,000 (exclusive) + R150 (VAT).
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+
+              {/* Technical Questions */}
+              <section>
+                <Card className="border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <span className="bg-gradient-to-br from-green-500 to-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                      Technical Questions
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
+                        <h4 className="font-semibold text-green-900 mb-2">Is this calculator accurate for business use?</h4>
+                        <p className="text-green-800 text-sm">
+                          Yes, our calculator uses the official SARS VAT rate and precise mathematical formulas suitable for professional business applications.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
+                        <h4 className="font-semibold text-green-900 mb-2">Can I use this for tax returns?</h4>
+                        <p className="text-green-800 text-sm">
+                          While our calculator is accurate, always consult with a qualified accountant or tax professional for official tax return preparation.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+
+              {/* Usage Questions */}
+              <section>
+                <Card className="border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <span className="bg-gradient-to-br from-purple-500 to-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+                      Usage Questions
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
+                        <h4 className="font-semibold text-purple-900 mb-2">Is this tool free to use?</h4>
+                        <p className="text-purple-800 text-sm">
+                          Yes, our VAT calculator is completely free for personal and business use with no limitations or registration required.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
+                        <h4 className="font-semibold text-purple-900 mb-2">Do you store my calculations?</h4>
+                        <p className="text-purple-800 text-sm">
+                          No, all calculations are performed locally in your browser. We do not store or track any of your financial data.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </section>
+            </article>
+            
             <section className="mt-6 mb-4">
               <ShareButtons className="justify-center" />
             </section>
