@@ -105,7 +105,7 @@ export default function VATCalculator() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="min-h-screen py-4 sm:py-8">
+      <div className="min-h-screen py-2 sm:py-4">
         <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
           
           {/* Left Sidebar Ad */}
