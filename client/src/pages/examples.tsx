@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowLeft, Calculator, ShoppingCart, Building, Car, Home, TrendingUp, PieChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
