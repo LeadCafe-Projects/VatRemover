@@ -367,17 +367,17 @@ export default function VATCalculator() {
             </section>
 
             {/* Sharing module without redundant heading */}
-            <section className="mb-8">
+            <section className="mb-4">
               <ShareButtons className="justify-center" />
             </section>
             
             {/* Below Content Ad - Mobile */}
-            <div className="lg:hidden mb-6">
+            <div className="lg:hidden mb-4">
               <MobileAd />
             </div>
             
             {/* Below Content Ad - Desktop */}
-            <div className="hidden lg:block mb-8">
+            <div className="hidden lg:block mb-4">
               <BelowContentAd />
             </div>
             
