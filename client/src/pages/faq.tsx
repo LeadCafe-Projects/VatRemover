@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowLeft, HelpCircle, ChevronDown, Calculator, FileText, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
