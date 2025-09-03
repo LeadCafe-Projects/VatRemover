@@ -13,15 +13,14 @@ export default function HowToUse() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Left Sidebar Ad - Absolute Positioned */}
+      <div className="fixed left-4 top-8 w-80 hidden lg:block z-10">
+        <LeftSidebarAd />
+      </div>
+      
       <div className="min-h-screen py-2 sm:py-4">
         <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
-          
-          {/* Left Sidebar Ad */}
-          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
-            <LeftSidebarAd />
-          </div>
-          
           {/* Main Content Area - Centered */}
           <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/HowTo">
             
