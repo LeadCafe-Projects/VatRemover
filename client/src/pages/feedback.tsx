@@ -117,7 +117,7 @@ export default function Feedback() {
           </div>
           
           {/* Main Content Area */}
-          <main className="flex-1 max-w-3xl" role="main" itemScope itemType="https://schema.org/ContactPage">
+          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
             
             {/* Header Section - White Background like other pages */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -286,6 +286,40 @@ export default function Feedback() {
               <ShareButtons variant="full" className="justify-center" />
             </section>
             
+          </main>
+        </div>
+        
+        {/* Mobile Layout - Clean and Compact */}
+        <div className="lg:hidden max-w-4xl mx-auto px-4">
+          <main role="main" itemScope itemType="https://schema.org/ContactPage">
+            {/* Header Section - White Background */}
+            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
+              <header className="text-center">
+                <Link href="/" onClick={handleBackClick}>
+                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Back to Calculator
+                  </Button>
+                </Link>
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <MessageSquare className="w-6 h-6 text-white" />
+                </div>
+                <h1 className="text-2xl font-bold text-gray-900 mb-4" itemProp="name">
+                  Feedback & Contact
+                </h1>
+                <p className="text-base text-gray-600 mb-2" itemProp="description">
+                  Help us improve the VAT calculator
+                </p>
+                <p className="text-sm text-gray-500">
+                  Share your suggestions or report issues with our South African VAT removal tool
+                </p>
+              </header>
+            </div>
+            
+            {/* Mobile content would be rendered here */}
+            <section className="mt-6 mb-4">
+              <ShareButtons className="justify-center" />
+            </section>
           </main>
         </div>
       </div>

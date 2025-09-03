@@ -131,7 +131,7 @@ export default function VATCalculator() {
             </header>
 
             {/* Calculator Card */}
-            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-5 mb-6 mobile-card-margin sm:mx-0" itemScope itemType="https://schema.org/Calculator">
+            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-5 mb-6" itemScope itemType="https://schema.org/Calculator">
               <CardContent className="p-0">
                 {/* Input Section */}
                 <div className="mb-5">

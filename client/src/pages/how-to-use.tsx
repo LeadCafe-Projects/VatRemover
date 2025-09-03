@@ -23,7 +23,7 @@ export default function HowToUse() {
           </div>
           
           {/* Main Content Area */}
-          <main className="flex-1 max-w-3xl" role="main" itemScope itemType="https://schema.org/HowTo">
+          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/HowTo">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -333,7 +333,7 @@ export default function HowToUse() {
         </div>
         
         {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-3xl mx-auto px-4">
+        <div className="lg:hidden max-w-4xl mx-auto px-4">
           <main role="main" itemScope itemType="https://schema.org/HowTo">
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
