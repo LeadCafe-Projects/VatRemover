@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowLeft, Building, FileText, Calculator, TrendingUp, Shield, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
@@ -14,16 +14,16 @@ export default function BusinessGuide() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="py-4 sm:py-8">
-        {/* Desktop Layout with Sidebars */}
-        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
-          {/* Left Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area */}
-          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/Guide">
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/Guide">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -438,121 +438,7 @@ export default function BusinessGuide() {
             </article>
 
             {/* Sharing module */}
-            <section className="mt-8 mb-4">
-              <ShareButtons className="justify-center" />
-            </section>
-          </main>
-        </div>
-        
-        {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-4xl mx-auto px-4">
-          <main role="main" itemScope itemType="https://schema.org/Guide">
-            {/* Header Section - White Background */}
-            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
-              <header className="text-center">
-                <Link href="/" onClick={handleBackClick}>
-                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
-                  </Button>
-                </Link>
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Building className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4" itemProp="name">
-                  Business VAT Management Guide
-                </h1>
-                <p className="text-base text-gray-600 mb-2" itemProp="description">
-                  Professional strategies for VAT compliance, invoicing, and financial management
-                </p>
-                <p className="text-sm text-gray-500">
-                  Comprehensive guide for South African businesses managing 15% VAT requirements
-                </p>
-              </header>
-            </div>
-            {/* Main Content */}
-            <article className="space-y-4">
-              
-              {/* Business Applications Section */}
-              <section>
-                <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-orange-900 flex items-center gap-2">
-                      <span className="bg-orange-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                      Invoice Management
-                    </CardTitle>
-                    <CardDescription className="text-orange-800">
-                      Professional invoicing with accurate VAT calculations
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-white rounded-lg p-3 border border-orange-200">
-                        <h4 className="font-semibold text-orange-900 mb-2">Best Practices</h4>
-                        <ul className="text-orange-800 text-sm space-y-1">
-                          <li>Always show VAT-exclusive amounts on invoices</li>
-                          <li>Include VAT amount as separate line item</li>
-                          <li>Use precise calculations for professional credibility</li>
-                          <li>Maintain records for SARS compliance</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Accounting Integration */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-green-500 to-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
-                      Accounting Integration
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                        <h4 className="font-semibold text-green-900 mb-2">Workflow Integration</h4>
-                        <ul className="text-green-800 text-sm space-y-1">
-                          <li>Copy results directly to accounting software</li>
-                          <li>Verify VAT calculations for reconciliation</li>
-                          <li>Use for expense reporting and tax preparation</li>
-                          <li>Ensure compliance with South African tax law</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Tax Compliance */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-blue-500 to-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
-                      Tax Compliance
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                        <h4 className="font-semibold text-blue-900 mb-2">SARS Requirements</h4>
-                        <ul className="text-blue-800 text-sm space-y-1">
-                          <li>Accurate VAT calculations are mandatory</li>
-                          <li>15% VAT rate applies to most goods and services</li>
-                          <li>Keep detailed records of all transactions</li>
-                          <li>Use for VAT return preparation</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-            </article>
-            
-            <section className="mt-6 mb-4">
+            <section className="mt-8 mb-8">
               <ShareButtons className="justify-center" />
             </section>
           </main>

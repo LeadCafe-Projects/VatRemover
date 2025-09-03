@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowLeft, HelpCircle, ChevronDown, Calculator, FileText, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
@@ -14,16 +14,16 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="py-4 sm:py-8">
-        {/* Desktop Layout with Sidebars */}
-        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
-          {/* Left Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area */}
-          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/FAQPage">
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/FAQPage">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -544,133 +544,7 @@ export default function FAQ() {
             </article>
 
             {/* Sharing module */}
-            <section className="mt-8 mb-4">
-              <ShareButtons className="justify-center" />
-            </section>
-          </main>
-        </div>
-        
-        {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-4xl mx-auto px-4">
-          <main role="main" itemScope itemType="https://schema.org/FAQPage">
-            {/* Header Section - White Background */}
-            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
-              <header className="text-center">
-                <Link href="/" onClick={handleBackClick}>
-                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
-                  </Button>
-                </Link>
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <HelpCircle className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">
-                  Frequently Asked Questions
-                </h1>
-                <p className="text-base text-gray-600 mb-2">
-                  Common questions about VAT calculations and South African tax requirements
-                </p>
-                <p className="text-sm text-gray-500">
-                  Comprehensive answers to help you understand 15% VAT removal and compliance
-                </p>
-              </header>
-            </div>
-            {/* Main Content */}
-            <article className="space-y-4">
-              
-              {/* Basic Questions */}
-              <section>
-                <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-blue-900 flex items-center gap-2">
-                      <span className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                      Basic Questions
-                    </CardTitle>
-                    <CardDescription className="text-blue-800">
-                      Common questions about VAT calculations
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-white rounded-lg p-3 border border-blue-200">
-                        <h4 className="font-semibold text-blue-900 mb-2">What is the current VAT rate in South Africa?</h4>
-                        <p className="text-blue-800 text-sm">
-                          The current VAT rate in South Africa is 15%, which has been in effect since April 1, 2018.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-white rounded-lg p-3 border border-blue-200">
-                        <h4 className="font-semibold text-blue-900 mb-2">How do I calculate VAT-exclusive amounts?</h4>
-                        <p className="text-blue-800 text-sm">
-                          To remove VAT from an inclusive amount, divide by 1.15. For example: R1,150 ÷ 1.15 = R1,000 (exclusive) + R150 (VAT).
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Technical Questions */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-green-500 to-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
-                      Technical Questions
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                        <h4 className="font-semibold text-green-900 mb-2">Is this calculator accurate for business use?</h4>
-                        <p className="text-green-800 text-sm">
-                          Yes, our calculator uses the official SARS VAT rate and precise mathematical formulas suitable for professional business applications.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                        <h4 className="font-semibold text-green-900 mb-2">Can I use this for tax returns?</h4>
-                        <p className="text-green-800 text-sm">
-                          While our calculator is accurate, always consult with a qualified accountant or tax professional for official tax return preparation.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Usage Questions */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-purple-500 to-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
-                      Usage Questions
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                        <h4 className="font-semibold text-purple-900 mb-2">Is this tool free to use?</h4>
-                        <p className="text-purple-800 text-sm">
-                          Yes, our VAT calculator is completely free for personal and business use with no limitations or registration required.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                        <h4 className="font-semibold text-purple-900 mb-2">Do you store my calculations?</h4>
-                        <p className="text-purple-800 text-sm">
-                          No, all calculations are performed locally in your browser. We do not store or track any of your financial data.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-            </article>
-            
-            <section className="mt-6 mb-4">
+            <section className="mt-8 mb-8">
               <ShareButtons className="justify-center" />
             </section>
           </main>

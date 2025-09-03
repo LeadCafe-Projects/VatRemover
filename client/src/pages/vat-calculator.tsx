@@ -105,16 +105,16 @@ export default function VATCalculator() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="py-4 sm:py-8">
-        {/* Desktop Layout with Sidebars */}
-        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
-          {/* Left Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area */}
-          <main className="flex-1 max-w-3xl" role="main" itemScope itemType="https://schema.org/WebApplication">
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/WebApplication">
             {/* Optimized Header Section */}
             <header className="text-center mb-8">
               <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 
@@ -122,16 +122,20 @@ export default function VATCalculator() {
                   style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, sans-serif' }}>
                 South African VAT Calculator - Remove 15% VAT Instantly
               </h1>
-              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto" 
+              <p className="text-lg text-gray-600 mb-2" 
                  itemProp="description" 
-                 style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.5' }}>
-                Free tool to remove 15% VAT. A professional calculator for South African businesses, accountants, and consumers.
+                 style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.4' }}>
+                Free online tool to quickly remove 15% VAT from any amount
+              </p>
+              <p className="text-base text-gray-500 mb-6" 
+                 style={{ fontSize: '16px', fontWeight: '400' }}>
+                Professional VAT removal calculator for South African businesses, accountants, and consumers
               </p>
               <ShareButtons variant="compact" className="justify-center" />
             </header>
 
             {/* Calculator Card */}
-            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-5 mb-6" itemScope itemType="https://schema.org/Calculator">
+            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-5 mb-6 mobile-card-margin sm:mx-0" itemScope itemType="https://schema.org/Calculator">
               <CardContent className="p-0">
                 {/* Input Section */}
                 <div className="mb-5">
@@ -367,151 +371,20 @@ export default function VATCalculator() {
             </section>
 
             {/* Sharing module without redundant heading */}
-            <section className="mb-4">
+            <section className="mb-8">
               <ShareButtons className="justify-center" />
             </section>
             
             {/* Below Content Ad - Mobile */}
-            <div className="lg:hidden mb-4">
+            <div className="lg:hidden mb-6">
               <MobileAd />
             </div>
             
             {/* Below Content Ad - Desktop */}
-            <div className="hidden lg:block mb-4">
+            <div className="hidden lg:block mb-8">
               <BelowContentAd />
             </div>
             
-          </main>
-          
-          {/* Right Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
-            <RightSidebarAd />
-          </div>
-        </div>
-        
-        {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-3xl mx-auto px-4">
-          <main role="main" itemScope itemType="https://schema.org/WebApplication">
-            {/* Optimized Header Section */}
-            <header className="text-center mb-8">
-              <h1 className="text-gray-900 mb-4 max-w-2xl mx-auto" 
-                  itemProp="name" 
-                  style={{ fontWeight: '600', fontSize: '30px', lineHeight: '1.2', fontFamily: 'Inter, sans-serif' }}>
-                South African VAT Calculator - Remove 15% VAT Instantly
-              </h1>
-              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto" 
-                 itemProp="description" 
-                 style={{ fontSize: '18px', fontWeight: '400', lineHeight: '1.5' }}>
-                Free tool to remove 15% VAT. A professional calculator for South African businesses, accountants, and consumers.
-              </p>
-              <ShareButtons variant="compact" className="justify-center" />
-            </header>
-
-            {/* Calculator Card */}
-            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-5 mb-6" itemScope itemType="https://schema.org/Calculator">
-              <CardContent className="p-0">
-                {/* Input Section */}
-                <div className="mb-5">
-                  <Label htmlFor="vatInclusiveAmountMobile" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2" style={{ fontSize: '15px', fontWeight: '500' }}>
-                    <Calculator className="w-4 h-4 text-blue-600" />
-                    Amount Including VAT (ZAR)
-                  </Label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium" style={{ fontSize: '16px' }}>
-                      R
-                    </span>
-                    <Input
-                      id="vatInclusiveAmountMobile"
-                      type="text"
-                      placeholder="0.00"
-                      value={amount}
-                      onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9,\.]/g, '');
-                        setAmount(value);
-                      }}
-                      className="w-full pl-8 pr-4 py-3 text-base border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
-                      style={{ fontSize: '16px', fontWeight: '400' }}
-                    />
-                  </div>
-                </div>
-
-                {/* Results Section */}
-                {calculations.inclusiveAmount > 0 && (
-                  <div className="grid gap-4">
-                    {/* Inclusive Amount */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <Label className="text-blue-700 font-medium text-sm">Amount Including VAT</Label>
-                          <p className="text-2xl font-bold text-blue-800">R {calculations.inclusiveAmount.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => copyToClipboard(calculations.inclusiveAmount.toFixed(2), "Amount Including VAT")}
-                          className="text-blue-700 border-blue-300 hover:bg-blue-100"
-                        >
-                          {copySuccess ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Exclusive Amount */}
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <Label className="text-green-700 font-medium text-sm">Amount Excluding VAT</Label>
-                          <p className="text-2xl font-bold text-green-800">R {calculations.exclusiveAmount.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => copyToClipboard(calculations.exclusiveAmount.toFixed(2), "Amount Excluding VAT")}
-                          className="text-green-700 border-green-300 hover:bg-green-100"
-                        >
-                          {copySuccess ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* VAT Amount */}
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <Label className="text-amber-700 font-medium text-sm">VAT Amount (15%)</Label>
-                          <p className="text-2xl font-bold text-amber-800">R {calculations.vatAmount.toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => copyToClipboard(calculations.vatAmount.toFixed(2), "VAT Amount")}
-                          className="text-amber-700 border-amber-300 hover:bg-amber-100"
-                        >
-                          {copySuccess ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Reset Button */}
-                    <Button
-                      variant="outline"
-                      onClick={resetCalculator}
-                      className="w-full mt-2 text-gray-600 border-gray-300 hover:bg-gray-50"
-                    >
-                      <RefreshCw className="w-4 h-4 mr-2" />
-                      Reset Calculator
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* Mobile Ad */}
-            <div className="mb-6">
-              <MobileAd />
-            </div>
-            
-            {/* Mobile content sections would go here */}
           </main>
         </div>
       </div>

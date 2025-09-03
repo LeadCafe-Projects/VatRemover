@@ -14,16 +14,16 @@ export default function HowToUse() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="py-4 sm:py-8">
-        {/* Desktop Layout with Sidebars */}
-        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
-          {/* Left Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area */}
-          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/HowTo">
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/HowTo">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -326,122 +326,7 @@ export default function HowToUse() {
             </article>
 
             {/* Sharing module */}
-            <section className="mt-8 mb-4">
-              <ShareButtons className="justify-center" />
-            </section>
-          </main>
-        </div>
-        
-        {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-4xl mx-auto px-4">
-          <main role="main" itemScope itemType="https://schema.org/HowTo">
-            {/* Header Section - White Background */}
-            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
-              <header className="text-center">
-                <Link href="/" onClick={handleBackClick}>
-                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
-                  </Button>
-                </Link>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Calculator className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4" itemProp="name">
-                  How to Use the VAT Calculator
-                </h1>
-                <p className="text-base text-gray-600 mb-2" itemProp="description">
-                  Master VAT removal calculations with our step-by-step guide
-                </p>
-                <p className="text-sm text-gray-500">
-                  Complete tutorial for removing 15% South African VAT from any amount
-                </p>
-              </header>
-            </div>
-            {/* Main Content */}
-            <article className="space-y-4" itemProp="instructions" itemScope itemType="https://schema.org/HowToDirection">
-              
-              {/* Quick Start Section */}
-              <section>
-                <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-blue-900 flex items-center gap-2">
-                      <span className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                      Quick Start Guide
-                    </CardTitle>
-                    <CardDescription className="text-blue-800">
-                      Get started with VAT calculations in under 30 seconds
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-white rounded-lg p-3 border border-blue-200">
-                        <h4 className="font-semibold text-blue-900 mb-2">Step 1: Enter Your Amount</h4>
-                        <p className="text-blue-800 text-sm mb-2">
-                          Type the VAT-inclusive amount in the input field. For example, if you have R1,150.00 including VAT, just type "1150".
-                        </p>
-                        <ul className="text-blue-700 text-sm space-y-1">
-                          <li>Enter numbers only (decimals are allowed)</li>
-                          <li>Do not include the "R" currency symbol</li>
-                          <li>Use decimal point (.) for cents, not comma</li>
-                          <li>Examples: 1150, 1150.00, 299.99</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Results Section */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-green-500 to-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
-                      Understanding Your Results
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                        <h4 className="font-semibold text-green-900 mb-1">💰 Amount Excluding VAT (Green)</h4>
-                        <p className="text-green-800 text-sm">
-                          This is the net price before VAT was added - the base cost of the item or service.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                        <h4 className="font-semibold text-purple-900 mb-1">📈 VAT Amount (Purple)</h4>
-                        <p className="text-purple-800 text-sm">
-                          This shows exactly how much VAT (15%) was included in the total price.
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Copy Feature */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-purple-500 to-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
-                      Copy Results
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <p className="text-gray-700">
-                        Each result box has a copy button. Click it to copy the exact amount to your clipboard for use in invoices, spreadsheets, or other applications.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-            </article>
-            
-            <section className="mt-6 mb-4">
+            <section className="mt-8 mb-8">
               <ShareButtons className="justify-center" />
             </section>
           </main>

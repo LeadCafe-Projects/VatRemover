@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { ArrowLeft, Calculator, ShoppingCart, Building, Car, Home, TrendingUp, PieChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
@@ -14,16 +14,16 @@ export default function Examples() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="py-4 sm:py-8">
-        {/* Desktop Layout with Sidebars */}
-        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
-          {/* Left Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area */}
-          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/Article">
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/Article">
             
             {/* Header Section - White Background */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -436,121 +436,7 @@ export default function Examples() {
             </article>
 
             {/* Sharing module */}
-            <section className="mt-8 mb-4">
-              <ShareButtons className="justify-center" />
-            </section>
-          </main>
-        </div>
-        
-        {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-4xl mx-auto px-4">
-          <main role="main" itemScope itemType="https://schema.org/Article">
-            {/* Header Section - White Background */}
-            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
-              <header className="text-center">
-                <Link href="/" onClick={handleBackClick}>
-                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
-                  </Button>
-                </Link>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Calculator className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4" itemProp="headline">
-                  Real-Life VAT Calculation Examples
-                </h1>
-                <p className="text-base text-gray-600 mb-2" itemProp="description">
-                  Practical scenarios showing VAT removal in action across different industries
-                </p>
-                <p className="text-sm text-gray-500">
-                  Learn from real-world examples of 15% South African VAT calculations
-                </p>
-              </header>
-            </div>
-            {/* Main Content */}
-            <article className="space-y-4">
-              
-              {/* Practical Examples Section */}
-              <section>
-                <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-green-900 flex items-center gap-2">
-                      <span className="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                      Business Invoice Example
-                    </CardTitle>
-                    <CardDescription className="text-green-800">
-                      Professional invoicing with VAT breakdown
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-white rounded-lg p-3 border border-green-200">
-                        <h4 className="font-semibold text-green-900 mb-2">Scenario: R2,300 Service Invoice</h4>
-                        <div className="text-green-800 text-sm space-y-1">
-                          <p><strong>Input:</strong> R2,300.00 (VAT inclusive)</p>
-                          <p><strong>Amount Excluding VAT:</strong> R2,000.00</p>
-                          <p><strong>VAT Amount:</strong> R300.00</p>
-                          <p><strong>Use Case:</strong> Professional services billing</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Retail Example */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-blue-500 to-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
-                      Retail Purchase Example
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                        <h4 className="font-semibold text-blue-900 mb-2">Scenario: R574.99 Electronics Purchase</h4>
-                        <div className="text-blue-800 text-sm space-y-1">
-                          <p><strong>Input:</strong> R574.99 (VAT inclusive)</p>
-                          <p><strong>Amount Excluding VAT:</strong> R499.99</p>
-                          <p><strong>VAT Amount:</strong> R75.00</p>
-                          <p><strong>Use Case:</strong> Consumer verification</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-
-              {/* Large Purchase Example */}
-              <section>
-                <Card className="border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <span className="bg-gradient-to-br from-purple-500 to-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
-                      Large Purchase Example
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                        <h4 className="font-semibold text-purple-900 mb-2">Scenario: R23,000 Equipment Purchase</h4>
-                        <div className="text-purple-800 text-sm space-y-1">
-                          <p><strong>Input:</strong> R23,000.00 (VAT inclusive)</p>
-                          <p><strong>Amount Excluding VAT:</strong> R20,000.00</p>
-                          <p><strong>VAT Amount:</strong> R3,000.00</p>
-                          <p><strong>Use Case:</strong> Business equipment accounting</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-            </article>
-            
-            <section className="mt-6 mb-4">
+            <section className="mt-8 mb-8">
               <ShareButtons className="justify-center" />
             </section>
           </main>

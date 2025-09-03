@@ -108,16 +108,16 @@ export default function Feedback() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="py-4 sm:py-8">
-        {/* Desktop Layout with Sidebars */}
-        <div className="hidden lg:flex max-w-7xl mx-auto px-4 gap-8">
-          {/* Left Sidebar Ad - Desktop Only */}
-          <div className="w-80 flex-shrink-0">
+      <div className="min-h-screen py-4 sm:py-8">
+        <div className="max-w-4xl mx-auto mobile-padding sm:px-4" style={{ boxSizing: 'border-box' }}>
+          
+          {/* Left Sidebar Ad */}
+          <div className="w-80 flex-shrink-0 hidden lg:block mr-8">
             <LeftSidebarAd />
           </div>
           
-          {/* Main Content Area */}
-          <main className="flex-1 max-w-4xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
+          {/* Main Content Area - Centered */}
+          <main className="max-w-3xl mx-auto" role="main" itemScope itemType="https://schema.org/ContactPage">
             
             {/* Header Section - White Background like other pages */}
             <div className="bg-white rounded-2xl p-6 mb-8 border border-gray-200 shadow-lg">
@@ -286,106 +286,6 @@ export default function Feedback() {
               <ShareButtons variant="full" className="justify-center" />
             </section>
             
-          </main>
-        </div>
-        
-        {/* Mobile Layout - Clean and Compact */}
-        <div className="lg:hidden max-w-4xl mx-auto px-4">
-          <main role="main" itemScope itemType="https://schema.org/ContactPage">
-            {/* Header Section - White Background */}
-            <div className="bg-white rounded-2xl p-4 mb-6 border border-gray-200 shadow-lg">
-              <header className="text-center">
-                <Link href="/" onClick={handleBackClick}>
-                  <Button variant="ghost" className="mb-4 text-gray-700 hover:bg-gray-100 border border-gray-300">
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Back to Calculator
-                  </Button>
-                </Link>
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <MessageSquare className="w-6 h-6 text-white" />
-                </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4" itemProp="name">
-                  Feedback & Contact
-                </h1>
-                <p className="text-base text-gray-600 mb-2" itemProp="description">
-                  Help us improve the VAT calculator
-                </p>
-                <p className="text-sm text-gray-500">
-                  Share your suggestions or report issues with our South African VAT removal tool
-                </p>
-              </header>
-            </div>
-            
-            {/* Feedback Form */}
-            <Card className="bg-white rounded-lg shadow-md border border-gray-200 p-4 mb-6">
-              <CardHeader>
-                <CardTitle className="text-lg font-bold text-gray-900">Send Us Your Feedback</CardTitle>
-                <CardDescription>
-                  Help us improve the VAT calculator with your suggestions
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Label htmlFor="nameMobile">Name</Label>
-                    <Input
-                      id="nameMobile"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="emailMobile">Email</Label>
-                    <Input
-                      id="emailMobile"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="categoryMobile">Category</Label>
-                    <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select feedback type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="suggestion">Suggestion</SelectItem>
-                        <SelectItem value="bug">Bug Report</SelectItem>
-                        <SelectItem value="feature">Feature Request</SelectItem>
-                        <SelectItem value="general">General Feedback</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="messageMobile">Message</Label>
-                    <Textarea
-                      id="messageMobile"
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Share your feedback, suggestions, or report any issues..."
-                      rows={4}
-                      required
-                    />
-                  </div>
-                  
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Feedback"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-            
-            <section className="mt-6 mb-4">
-              <ShareButtons className="justify-center" />
-            </section>
           </main>
         </div>
       </div>
